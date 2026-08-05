@@ -1,0 +1,99 @@
+============================================================
+CENTRALITY ANALYSIS REPORT
+============================================================
+
+TOP DEGREE CENTRALITY
+----------------------------------------
+  Keyword  Degree Centrality
+admission           0.713568
+     year           0.582915
+    mujhe           0.527638
+     hota           0.517588
+    bihar           0.512563
+placement           0.497487
+     exam           0.477387
+      get           0.462312
+   hostel           0.462312
+     good           0.447236
+  chahiye           0.447236
+      fee           0.442211
+      cse           0.442211
+     best           0.437186
+      rha           0.422111
+     rank           0.417085
+   jayega           0.417085
+     time           0.417085
+     cusb           0.386935
+     mark           0.386935
+
+TOP BETWEENNESS CENTRALITY
+----------------------------------------
+Keyword  Betweenness Centrality
+   show                0.020235
+  bihar                0.020098
+   time                0.017942
+   exam                0.016603
+   year                0.015143
+  बिहार                0.014657
+ hostel                0.014528
+chahiye                0.012591
+   hota                0.010816
+   best                0.010712
+    top                0.010709
+  maine                0.010688
+   baat                0.010638
+  mujhe                0.010544
+    रहा                0.010305
+  batao                0.010099
+  delhi                0.009580
+    rha                0.009221
+  state                0.009162
+    tak                0.008912
+
+TOP CLOSENESS CENTRALITY
+----------------------------------------
+  Keyword  Closeness Centrality
+admission              0.765385
+     year              0.698246
+    mujhe              0.670034
+    bihar              0.670034
+     hota              0.667785
+placement              0.654605
+     exam              0.654605
+   hostel              0.648208
+      get              0.641935
+      cse              0.635783
+  chahiye              0.635783
+     good              0.633758
+      fee              0.633758
+     best              0.631746
+     time              0.631746
+      rha              0.627760
+     rank              0.623824
+   jayega              0.621875
+     mark              0.612308
+   better              0.610429
+
+TOP EIGENVECTOR CENTRALITY
+----------------------------------------
+  Keyword  Eigenvector Centrality
+admission                0.412105
+      get                0.381299
+ category                0.238780
+      cse                0.223152
+     rank                0.176730
+     good                0.167763
+      obc                0.163897
+   hostel                0.145032
+     mark                0.140695
+     year                0.138941
+placement                0.130993
+      fee                0.129970
+     exam                0.129387
+  general                0.124522
+   jayega                0.116978
+     hota                0.116292
+      got                0.115517
+    mujhe                0.114934
+   branch                0.110921
+     cusb                0.110527

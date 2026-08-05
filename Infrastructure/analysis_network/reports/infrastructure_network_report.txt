@@ -1,0 +1,54 @@
+============================================================
+KEYWORD NETWORK REPORT
+============================================================
+
+Total Nodes : 46691
+Total Edges : 263183
+
+TOP KEYWORDS
+----------------------------------------
+  Keyword  Degree
+    india    1976
+     year    1583
+placement    1559
+   hostel    1551
+admission    1498
+     good    1412
+      get    1410
+   indian    1356
+      cse    1297
+   people    1206
+     time    1115
+     best    1106
+     hota    1087
+    nepal    1064
+      fee    1056
+   branch    1021
+    mujhe    1014
+  country    1000
+     know     963
+   nepali     936
+
+TOP CONNECTIONS
+----------------------------------------
+   Source    Target  Weight
+    voice   raising     782
+     love     nepal     506
+     year     first     214
+      lot      love     190
+  brother    sister     187
+      get admission     185
+   hostel      girl     178
+   hostel       fee     175
+  justice  prakriti     173
+    state      home     169
+      cse       get     167
+admission    direct     158
+  justice    nepali     157
+ computer   science     155
+     good placement     147
+   hostel      room     145
+      cse    branch     137
+      cse      core     137
+   coming      soon     136
+  science      data     135

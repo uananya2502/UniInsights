@@ -1,0 +1,54 @@
+============================================================
+KEYWORD NETWORK REPORT
+============================================================
+
+Total Nodes : 24884
+Total Edges : 94325
+
+TOP KEYWORDS
+----------------------------------------
+  Keyword  Degree
+admission     819
+     year     582
+    bihar     580
+placement     568
+     hota     521
+     good     514
+     exam     506
+     rank     506
+      get     501
+     best     488
+      cse     469
+      fee     445
+   hostel     418
+      में     415
+    mujhe     408
+  ranking     397
+      rha     396
+   better     391
+     time     391
+     mark     376
+
+TOP CONNECTIONS
+----------------------------------------
+    Source    Target  Weight
+   science political      98
+ admission       get      94
+      news     pinch      89
+      exam  entrance      81
+       obc       ncl      77
+  category   general      75
+      fill      form      73
+  category       obc      71
+preference      list      68
+  computer   science      55
+      west    bengal      54
+   science      life      50
+     merit      list      49
+       hey  whatsapp      48
+   average   package      46
+ admission   process      45
+      send       hey      44
+    hostel      mess      44
+       fee    hostel      44
+      abhi       tak      44

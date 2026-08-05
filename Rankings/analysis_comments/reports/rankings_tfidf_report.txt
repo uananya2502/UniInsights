@@ -1,0 +1,233 @@
+============================================================
+TF-IDF KEYWORD ANALYSIS REPORT
+============================================================
+
+OVERALL TOP KEYWORDS
+------------------------------
+    Keyword  TFIDF Score
+  admission     0.015815
+       good     0.014068
+       best     0.013741
+        cse     0.010593
+  placement     0.010499
+      bihar     0.009901
+       rank     0.009751
+       year     0.009696
+        get     0.009341
+        fee     0.008598
+       hota     0.008586
+       exam     0.008494
+     hostel     0.007798
+   category     0.007642
+    ranking     0.007502
+     jayega     0.007151
+     better     0.007069
+       mark     0.006663
+        rha     0.006494
+      mujhe     0.006253
+    science     0.006147
+       tell     0.006060
+        top     0.005982
+      apply     0.005836
+      kitna     0.005717
+    chahiye     0.005682
+     branch     0.005561
+     chance     0.005514
+        got     0.005434
+       list     0.005170
+        obc     0.005132
+information     0.005025
+     cutoff     0.004974
+       help     0.004957
+      kaisa     0.004863
+        clg     0.004849
+       time     0.004841
+       know     0.004800
+        llb     0.004672
+      class     0.004627
+       form     0.004614
+       want     0.004600
+      india     0.004542
+        gya     0.004508
+       cusb     0.004359
+      great     0.004322
+     milega     0.004282
+      delhi     0.004204
+       seat     0.004195
+       nice     0.004124
+
+POSITIVE TOP KEYWORDS
+------------------------------
+    Keyword  TFIDF Score
+       best     0.037711
+       good     0.035069
+     better     0.018621
+        top     0.015886
+  admission     0.015869
+     chance     0.014503
+       help     0.013314
+       tell     0.012622
+      great     0.012278
+       nice     0.012044
+        cse     0.011786
+      noted     0.011764
+  placement     0.011589
+       want     0.011301
+        get     0.011182
+information     0.009978
+     number     0.009297
+       join     0.009282
+       rank     0.008968
+       year     0.008916
+       exam     0.008536
+    ranking     0.007972
+      bihar     0.007932
+     hostel     0.007471
+      proud     0.007317
+    science     0.007137
+        fee     0.007027
+       list     0.006951
+      mujhe     0.006792
+   category     0.006784
+       love     0.006676
+       mark     0.006580
+       know     0.006515
+       sure     0.006444
+     branch     0.006431
+       hota     0.006259
+        got     0.006189
+      dream     0.006108
+      india     0.006072
+       free     0.005974
+ technology     0.005853
+       work     0.005775
+       time     0.005678
+      apply     0.005633
+      class     0.005620
+     jayega     0.005586
+      worth     0.005392
+    chahiye     0.005301
+        job     0.005248
+       safe     0.005000
+
+NEGATIVE TOP KEYWORDS
+------------------------------
+   Keyword  TFIDF Score
+       cut     0.024612
+   problem     0.021823
+       bad     0.015793
+     bekar     0.015396
+      year     0.014655
+ placement     0.014318
+       ban     0.014238
+ admission     0.013746
+      good     0.013186
+   ranking     0.012891
+       fee     0.012633
+    hostel     0.012188
+       rha     0.011092
+     bihar     0.011058
+       get     0.010810
+     worst     0.010562
+      mess     0.010135
+      rank     0.009712
+     kitna     0.009499
+     doubt     0.009056
+      hota     0.009013
+      exam     0.008957
+     wrong     0.008922
+      mark     0.008641
+      scam     0.008518
+      fake     0.008233
+    jayega     0.008145
+   ghatiya     0.008073
+     sorry     0.007999
+   ragging     0.007639
+     india     0.007497
+     mujhe     0.007437
+       low     0.007434
+     state     0.007357
+     apply     0.007306
+      drop     0.007301
+       log     0.007301
+      time     0.007048
+      idea     0.007016
+     waste     0.006979
+      know     0.006830
+       gya     0.006811
+    kerala     0.006435
+government     0.006255
+  confused     0.006245
+       cse     0.006127
+     paisa     0.005880
+       kia     0.005832
+       got     0.005825
+      sure     0.005818
+
+NEUTRAL TOP KEYWORDS
+------------------------------
+     Keyword  TFIDF Score
+   admission     0.015808
+         cse     0.010532
+       bihar     0.010244
+        rank     0.010096
+        hota     0.009773
+        year     0.009676
+   placement     0.009451
+         fee     0.009166
+        exam     0.008348
+    category     0.008330
+         get     0.008048
+      jayega     0.007678
+      hostel     0.007433
+         rha     0.006516
+        mark     0.006481
+       kitna     0.006347
+     ranking     0.006196
+       kaisa     0.006167
+       apply     0.005794
+       mujhe     0.005781
+     chahiye     0.005745
+     science     0.005734
+         obc     0.005615
+      cutoff     0.005302
+      milega     0.005178
+         got     0.005113
+         llb     0.005044
+         gya     0.004978
+      branch     0.004941
+         clg     0.004899
+          नह     0.004896
+registration     0.004662
+          रह     0.004632
+        form     0.004598
+        cusb     0.004469
+       patna     0.004466
+        seat     0.004451
+ agriculture     0.004352
+       sakta     0.004312
+        list     0.004262
+    jadavpur     0.004184
+       delhi     0.004127
+         rhe     0.004064
+       score     0.003959
+       class     0.003943
+     english     0.003942
+         log     0.003894
+        time     0.003878
+       sakte     0.003802
+        abhi     0.003742
+
+UNIVERSITY SUMMARY
+------------------------------
+                             University Top Keyword  TFIDF Score
+                       Patna University       bihar       0.0335
+      Central University of South Bihar        cusb       0.0291
+                       Delhi University        best       0.0315
+                    Jadavpur University    jadavpur       0.0558
+SRM Institute of Science and Technology       noted       0.0811
+                University of Hyderabad     ranking       0.0488
+              Jiwaji University Gwalior       apply       0.0357
+               Banaras Hindu University        best       0.1019
+                  BML Munjal University   placement       0.0291
+                      Sikkim University      sikkim       0.0714

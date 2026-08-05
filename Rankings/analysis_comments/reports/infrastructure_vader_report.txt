@@ -1,0 +1,10 @@
+VADER SENTIMENT REPORT
+========================================
+
+Total Comments : 97068
+
+Sentiment Distribution
+----------------------
+Neutral: 54903 (56.56%)
+Positive: 31854 (32.82%)
+Negative: 10311 (10.62%)

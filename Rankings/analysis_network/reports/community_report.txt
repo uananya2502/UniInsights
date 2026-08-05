@@ -1,0 +1,45 @@
+============================================================
+COMMUNITY DETECTION REPORT
+============================================================
+
+Total Communities : 8
+
+COMMUNITY SUMMARY
+----------------------------------------
+ Community  Keywords
+         1        64
+         2        52
+         3        36
+         4        29
+         5         8
+         6         5
+         7         3
+         8         3
+
+TOP KEYWORDS IN EACH COMMUNITY
+----------------------------------------
+
+Community 1
+aapko, aata, aisa, aise, apna, apne, baad, baar, baat, baki, bana, bar, bare, bata, batao, bihar, bjp, bta, desh, dono
+
+Community 2
+admission, available, best, better, bit, branch, central, clg, collage, cse, delhi, ece, etc, fee, get, good, government, govt, hostel, india
+
+Community 3
+abhi, agr, apply, chahiye, class, come, counselling, date, day, dena, english, entrance, exam, fill, form, free, gat, give, help, hota
+
+Community 4
+addmission, agriculture, bed, category, certificate, chance, cusb, cut, cutoff, din, first, general, got, hons, jayega, kitna, kitne, lakh, llb, mark
+
+Community 5
+नहीं, बिहार, में, रहा, लिए, सरकार, हैं, है।
+
+Community 6
+check, contact, detail, number, website
+
+Community 7
+life, science, technology
+
+Community 8
+bad, choose, karne
+

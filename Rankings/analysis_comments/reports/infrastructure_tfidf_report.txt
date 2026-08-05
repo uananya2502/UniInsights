@@ -1,0 +1,233 @@
+============================================================
+TF-IDF KEYWORD ANALYSIS REPORT
+============================================================
+
+OVERALL TOP KEYWORDS
+------------------------------
+  Keyword  TFIDF Score
+     good     0.013720
+      cse     0.013179
+admission     0.012776
+     year     0.012542
+   hostel     0.012536
+    india     0.012229
+placement     0.012149
+      get     0.010512
+    nepal     0.010415
+     best     0.010411
+   branch     0.009051
+      fee     0.008888
+   indian     0.008506
+     nice     0.007884
+     love     0.007561
+     rank     0.007516
+      got     0.006662
+    mujhe     0.006278
+   better     0.006240
+     tell     0.006234
+   bhopal     0.006205
+    delhi     0.006186
+   nepali     0.006174
+    voice     0.006167
+     hota     0.006157
+  justice     0.005906
+     soon     0.005880
+   people     0.005764
+    kaisa     0.005532
+      ece     0.005493
+  brother     0.005372
+     want     0.005364
+      rha     0.005305
+     girl     0.005257
+     know     0.005075
+    dream     0.005048
+   bombay     0.004957
+  chahiye     0.004903
+  country     0.004902
+    shame     0.004871
+      bjp     0.004859
+     time     0.004796
+  raising     0.004625
+   coming     0.004534
+     room     0.004475
+   jaipur     0.004472
+    great     0.004400
+     join     0.004366
+     exam     0.004337
+ category     0.004160
+
+POSITIVE TOP KEYWORDS
+------------------------------
+      Keyword  TFIDF Score
+         good     0.031201
+         best     0.025880
+         nice     0.020195
+         love     0.019239
+        nepal     0.017979
+       better     0.015016
+      justice     0.013422
+          cse     0.013404
+        voice     0.013352
+    placement     0.013100
+          get     0.012837
+        dream     0.012290
+        india     0.011592
+         tell     0.011417
+         want     0.011009
+      raising     0.010933
+        great     0.010823
+    admission     0.010725
+         year     0.010720
+       hostel     0.010039
+         join     0.009841
+      support     0.009732
+raising voice     0.009658
+         help     0.009330
+       nepali     0.008759
+       indian     0.008465
+       branch     0.008452
+      brother     0.008346
+          lot     0.007746
+   love nepal     0.007369
+       people     0.007325
+         sure     0.007217
+          fee     0.006903
+          got     0.006895
+         know     0.006892
+       chance     0.006641
+      respect     0.006635
+        worth     0.006634
+          top     0.006554
+         rank     0.006258
+         true     0.006162
+       bhopal     0.006090
+    beautiful     0.006002
+         girl     0.005964
+          ece     0.005914
+        mujhe     0.005775
+         time     0.005639
+         give     0.005615
+         free     0.005506
+         hope     0.005436
+
+NEGATIVE TOP KEYWORDS
+------------------------------
+   Keyword  TFIDF Score
+     shame     0.030338
+     india     0.028933
+    indian     0.021740
+      mess     0.019569
+     sorry     0.017543
+   country     0.016077
+    people     0.015122
+    hostel     0.014330
+       bad     0.013257
+   problem     0.012917
+ placement     0.012515
+      good     0.012125
+     nepal     0.012098
+      year     0.011789
+     worst     0.011684
+    nepali     0.011633
+       get     0.011034
+       bjp     0.010724
+       fee     0.010420
+ admission     0.009983
+    odisha     0.009737
+       sad     0.008931
+       ban     0.008500
+   ashamed     0.008477
+     doubt     0.008409
+      time     0.008030
+      girl     0.007900
+     bekar     0.007887
+       cut     0.007886
+     block     0.007871
+      know     0.007606
+  shameful     0.007590
+      hate     0.007459
+government     0.007226
+      case     0.007219
+       day     0.007019
+      hota     0.006873
+      drop     0.006565
+       cse     0.006562
+     think     0.006509
+     thing     0.006496
+      want     0.006241
+     state     0.006221
+      fake     0.006144
+  nepalese     0.006052
+     wrong     0.006027
+    action     0.005950
+      hard     0.005941
+       rha     0.005918
+  incident     0.005895
+
+NEUTRAL TOP KEYWORDS
+------------------------------
+   Keyword  TFIDF Score
+ admission     0.014327
+       cse     0.014117
+    hostel     0.013362
+      year     0.013287
+ placement     0.011164
+    branch     0.010134
+       fee     0.009583
+      rank     0.008761
+      soon     0.008651
+       get     0.008639
+     delhi     0.007845
+     india     0.007739
+     kaisa     0.007556
+      hota     0.006835
+    bhopal     0.006672
+     mujhe     0.006658
+       got     0.006441
+    bombay     0.006418
+    coming     0.006265
+       rha     0.006226
+       ece     0.005694
+   chahiye     0.005583
+    jaipur     0.005481
+      room     0.004928
+     patna     0.004906
+    indian     0.004751
+  category     0.004737
+     nepal     0.004571
+percentile     0.004499
+    jayega     0.004441
+     class     0.004407
+     kitna     0.004398
+       bjp     0.004364
+      girl     0.004124
+    kanpur     0.004112
+      abhi     0.004031
+    trichy     0.004003
+      lakh     0.003967
+      exam     0.003902
+  thankyou     0.003865
+      mark     0.003833
+ allahabad     0.003804
+technology     0.003747
+    milega     0.003712
+   science     0.003651
+       log     0.003553
+      time     0.003510
+    madras     0.003480
+     first     0.003458
+   brother     0.003353
+
+UNIVERSITY SUMMARY
+------------------------------
+                    University Top Keyword  TFIDF Score
+               KIIT University       nepal       0.0388
+                    IIT Bombay      bombay       0.0402
+                    IIT Madras      madras       0.0333
+          Galgotias University   admission       0.0415
+Lovely Professional University   admission       0.0285
+                    NIT Trichy        soon       0.0451
+                  NIT Warangal        mess       0.0336
+              Delhi University       aiims       0.0241
+                   BITS Pilani         bit       0.0440
+                   NIT Silchar     silchar       0.0466

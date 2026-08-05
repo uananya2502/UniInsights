@@ -1,0 +1,15 @@
+HYBRID SENTIMENT ANALYSIS REPORT
+==================================================
+
+Total Comments : 28058
+Comments with Profanity : 0
+
+Sentiment Distribution
+----------------------
+Neutral: 17240 (61.44%)
+Positive: 8469 (30.18%)
+Negative: 2349 (8.37%)
+
+Average VADER Compound : 0.093
+Average Hybrid Compound : 0.111
+Average Hinglish Score : 0.108

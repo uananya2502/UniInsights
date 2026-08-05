@@ -1,0 +1,99 @@
+============================================================
+CENTRALITY ANALYSIS REPORT
+============================================================
+
+TOP DEGREE CENTRALITY
+----------------------------------------
+  Keyword  Degree Centrality
+     year           0.849246
+   hostel           0.834171
+    india           0.829146
+     time           0.809045
+     good           0.793970
+admission           0.778894
+placement           0.778894
+      get           0.768844
+      cse           0.743719
+     best           0.728643
+   indian           0.713568
+     know           0.688442
+     want           0.683417
+      fee           0.683417
+   branch           0.683417
+     hota           0.683417
+    study           0.663317
+    first           0.653266
+   people           0.648241
+   better           0.633166
+
+TOP BETWEENNESS CENTRALITY
+----------------------------------------
+    Keyword  Betweenness Centrality
+        new                0.008715
+       case                0.008199
+ management                0.007946
+       hota                0.007874
+        job                0.007457
+     medium                0.007371
+      first                0.007060
+       full                0.007002
+       show                0.006635
+   question                0.006408
+    private                0.006322
+information                0.006234
+      going                0.006131
+       baad                0.006114
+   research                0.006113
+     change                0.006042
+     jayega                0.005990
+      sakte                0.005989
+       free                0.005921
+       hoti                0.005875
+
+TOP CLOSENESS CENTRALITY
+----------------------------------------
+  Keyword  Closeness Centrality
+     year              0.868996
+   hostel              0.857759
+    india              0.854077
+     time              0.839662
+     good              0.829167
+admission              0.818930
+placement              0.818930
+      get              0.812245
+      cse              0.796000
+     best              0.786561
+   indian              0.777344
+     know              0.762452
+     want              0.759542
+      fee              0.759542
+   branch              0.759542
+     hota              0.759542
+    study              0.748120
+    first              0.742537
+   people              0.739777
+   better              0.731618
+
+TOP EIGENVECTOR CENTRALITY
+----------------------------------------
+  Keyword  Eigenvector Centrality
+      get                0.310308
+      cse                0.290529
+    nepal                0.287531
+     love                0.267394
+     year                0.201820
+admission                0.198506
+   hostel                0.193286
+     good                0.186997
+placement                0.178261
+   branch                0.166061
+    india                0.161064
+     rank                0.137660
+   nepali                0.137067
+      got                0.134208
+      fee                0.133282
+      ece                0.128550
+  justice                0.126119
+   indian                0.121492
+     girl                0.118229
+     want                0.113517

@@ -1,0 +1,8 @@
+COMMENT EDA REPORT
+========================================
+
+Rows : 28058
+Columns : 33
+Universities : 51
+Videos : 683
+Comments : 28058

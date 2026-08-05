@@ -1,0 +1,10 @@
+Metric,Value
+Average Length Before,67.55
+URLs Removed,660
+Emails Removed,7692
+Empty Comments Removed After Cleaning,534
+Average Length After,65.71
+Comments Before Cleaning,97602
+Comments After Cleaning,97068
+Comments Cleaned,97068
+Dataset Status,PASS

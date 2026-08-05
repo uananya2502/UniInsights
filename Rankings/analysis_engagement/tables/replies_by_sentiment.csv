@@ -1,0 +1,4 @@
+sentiment,Average_Replies,Median_Replies,Maximum_Replies,Total_Comments
+Negative,3.42,2.0,55,365
+Neutral,2.46,1.0,97,2664
+Positive,2.58,1.0,66,1676

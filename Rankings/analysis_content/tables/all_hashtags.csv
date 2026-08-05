@@ -1,0 +1,141 @@
+hashtag,sentiment,university_name,published_at,likes,reply_count
+#ujjwal,Negative,Delhi University,2026-07-04 09:29:00+00:00,1,3
+#hatebeingabengali,Negative,Jadavpur University,2023-09-28 22:01:29+00:00,0,0
+#boycottju,Negative,Jadavpur University,2023-08-19 05:36:36+00:00,2,1
+#jadavpur,Neutral,Jadavpur University,2023-07-31 04:10:48+00:00,1,0
+#kolkata,Neutral,Jadavpur University,2023-07-31 04:10:48+00:00,1,0
+#chandigarhuniversity,Positive,University of Allahabad,2023-06-06 06:58:10+00:00,0,0
+#chandigarhuniversity,Positive,University of Allahabad,2023-06-06 06:53:21+00:00,0,0
+#nirf2023,Positive,University of Allahabad,2023-06-06 06:53:21+00:00,0,0
+#nirf2023,Positive,University of Allahabad,2023-06-06 06:48:34+00:00,0,0
+#chandigarhuniversity,Positive,University of Allahabad,2023-06-06 06:48:34+00:00,0,0
+#chandigarhuniversity,Positive,University of Allahabad,2023-06-06 06:32:05+00:00,0,0
+#nirf2023,Positive,University of Allahabad,2023-06-06 06:32:05+00:00,0,0
+#country,Positive,VIT Vellore,2023-08-17 11:39:15+00:00,1,1
+#aspirants,Positive,VIT Vellore,2023-08-17 11:39:15+00:00,1,1
+#abroad,Positive,VIT Vellore,2023-08-17 11:39:15+00:00,1,1
+#nirf,Negative,VIT Vellore,2023-08-16 07:20:56+00:00,1,1
+#rankingmanipulation,Negative,VIT Vellore,2023-08-16 07:20:56+00:00,1,1
+#neglectofteachingquality,Negative,VIT Vellore,2023-08-16 07:20:56+00:00,1,1
+#pressureonstudentsparentsinstitutions,Negative,VIT Vellore,2023-08-16 07:20:56+00:00,1,1
+#nirf,Negative,VIT Vellore,2023-08-16 07:12:53+00:00,1,1
+#nirfranking,Positive,VIT Vellore,2023-08-16 07:04:30+00:00,1,1
+#iitmadras,Positive,VIT Vellore,2023-08-16 05:42:21+00:00,1,1
+#nirfranking,Negative,VIT Vellore,2023-08-16 02:11:15+00:00,1,1
+#nirf,Neutral,VIT Vellore,2023-08-15 15:56:11+00:00,2,1
+#nirfranking2023,Positive,VIT Vellore,2023-08-16 04:00:13+00:00,0,0
+#corruption,Neutral,VIT Vellore,2023-08-15 12:47:10+00:00,5,1
+#mba,Positive,Delhi University,2024-09-11 06:11:28+00:00,1,1
+#nirf,Neutral,Delhi University,2024-09-09 17:27:52+00:00,1,1
+#nirf,Positive,Delhi University,2024-09-11 13:59:45+00:00,0,0
+#nirf,Positive,Delhi University,2024-09-04 16:34:36+00:00,0,0
+#nirf,Positive,Delhi University,2024-09-04 14:14:59+00:00,1,1
+#2c3e50,Positive,Shri Shankaracharya Technical Campus Bhilai,2026-04-21 06:54:16+00:00,0,1
+#e74c3c,Positive,Shri Shankaracharya Technical Campus Bhilai,2026-04-21 06:54:16+00:00,0,1
+#jai,Neutral,Patna University,2025-09-28 12:40:53+00:00,0,0
+#prashant,Neutral,Patna University,2025-09-28 12:40:53+00:00,0,0
+#justiceforsonam,Neutral,Patna University,2025-09-28 10:02:52+00:00,0,0
+#newspinch,Neutral,Patna University,2025-09-28 07:11:59+00:00,3,0
+#gyani,Positive,Patna University,2025-09-28 05:14:05+00:00,0,0
+#bihar,Positive,Patna University,2025-09-28 04:50:57+00:00,0,0
+#nitishkumar,Positive,Patna University,2025-09-28 04:50:57+00:00,0,0
+#newspinch,Neutral,Patna University,2025-09-28 04:41:01+00:00,12,0
+#bihar,Positive,Patna University,2025-09-27 20:10:30+00:00,0,0
+#bjp,Positive,Patna University,2025-09-27 20:10:30+00:00,0,0
+#education,Negative,Patna University,2025-09-27 18:21:41+00:00,0,0
+#bihar,Negative,Patna University,2025-09-27 18:21:41+00:00,0,0
+#corruption,Negative,Patna University,2025-09-27 18:21:41+00:00,0,0
+#patna_university,Neutral,Patna University,2025-09-27 17:50:46+00:00,0,0
+#bihargovernor,Neutral,Patna University,2025-09-27 17:19:13+00:00,1,0
+#aarifsir,Neutral,Patna University,2025-09-27 17:19:13+00:00,1,0
+#revenue,Neutral,Patna University,2025-09-27 16:45:49+00:00,0,0
+#newspinch,Neutral,Patna University,2025-09-27 16:22:17+00:00,0,0
+#dallantop,Neutral,Patna University,2025-09-27 15:52:30+00:00,0,0
+#biharadanijaminnews,Neutral,Patna University,2025-09-27 15:43:27+00:00,0,0
+#cm,Neutral,Patna University,2025-09-27 15:39:11+00:00,1,0
+#education,Neutral,Patna University,2025-09-27 15:39:11+00:00,1,0
+#minister,Neutral,Patna University,2025-09-27 15:39:11+00:00,1,0
+#media_entry,Neutral,Patna University,2025-09-27 15:39:11+00:00,1,0
+#cm,Neutral,Patna University,2025-09-27 15:25:57+00:00,0,0
+#professor,Positive,Patna University,2025-09-27 15:22:42+00:00,0,0
+#vc,Positive,Patna University,2025-09-27 15:22:42+00:00,0,0
+#proctor,Positive,Patna University,2025-09-27 15:22:42+00:00,0,0
+#professor,Neutral,Patna University,2025-09-27 15:15:23+00:00,8,0
+#bssc,Neutral,Patna University,2025-09-27 15:15:23+00:00,8,0
+#science_college,Neutral,Patna University,2025-09-27 15:05:21+00:00,2,0
+#thenewspinch,Neutral,Patna University,2025-09-27 14:39:13+00:00,1,0
+#lalit_narayan_mithila_university,Neutral,Patna University,2025-09-27 14:26:06+00:00,0,0
+#modi,Positive,Patna University,2025-09-29 08:25:32+00:00,0,0
+#vc,Neutral,Patna University,2025-09-28 10:38:00+00:00,0,0
+#meradeshmahan,Negative,Patna University,2025-09-29 15:26:27+00:00,0,0
+#acharya,Neutral,Patna University,2025-09-28 17:18:00+00:00,1,0
+#opretion2030,Neutral,Patna University,2025-09-28 17:18:00+00:00,1,0
+#shameshame,Neutral,Patna University,2025-09-28 16:11:07+00:00,0,0
+#boycott_bjp,Neutral,Patna University,2025-09-28 15:43:57+00:00,1,0
+#boycott_,Neutral,Patna University,2025-09-28 15:43:36+00:00,0,0
+#endcorruption,Positive,Patna University,2025-09-30 06:11:26+00:00,26,0
+#support_sonam_wanchook,Neutral,Patna University,2025-10-02 18:11:08+00:00,0,0
+#now,Positive,Patna University,2025-10-02 09:21:43+00:00,0,0
+#bestbtech,Positive,Jadavpur University,2023-11-08 12:18:34+00:00,1,0
+#jadavpuruniversity,Neutral,Jadavpur University,2023-11-06 06:45:12+00:00,1,1
+#jadavpuruniversity,Neutral,Jadavpur University,2023-11-06 10:38:37+00:00,0,0
+#jadavpur,Positive,Jadavpur University,2023-11-06 06:17:54+00:00,1,1
+#jadavpur,Neutral,Jadavpur University,2023-11-06 06:40:49+00:00,0,0
+#sir,Positive,Jadavpur University,2023-11-06 04:48:43+00:00,1,1
+#contents,Positive,Jadavpur University,2023-11-06 04:48:43+00:00,1,1
+#jadavpur,Neutral,Jadavpur University,2023-11-06 06:06:43+00:00,0,0
+#tilkamanjhi,Positive,Patna University,2025-10-01 03:36:27+00:00,0,0
+#abhinavpandey,Positive,Patna University,2025-10-01 03:36:27+00:00,0,0
+#thepinchnews,Positive,Patna University,2025-10-01 03:36:27+00:00,0,0
+#staywithbihar,Neutral,Patna University,2025-09-29 13:59:12+00:00,0,0
+#pk,Neutral,Patna University,2025-10-02 04:59:12+00:00,0,0
+#bihar,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#narendramodi,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#nitishkumar,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#bjp,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#jdu,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#patna,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#patnauniversity,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#india,Neutral,Patna University,2025-09-30 08:38:21+00:00,0,0
+#engineering,Positive,Indian Institute of Management,2024-09-16 13:49:41+00:00,1,1
+#iim,Positive,Indian Institute of Management,2024-09-15 16:36:12+00:00,1,1
+#alig,Positive,Banaras Hindu University,2024-01-18 16:25:08+00:00,5,1
+#iitkharagpur,Positive,Pondicherry University,2023-08-03 12:51:48+00:00,0,0
+#sundarpichai,Positive,Pondicherry University,2023-08-03 12:51:48+00:00,0,0
+#nirfranking2022,Negative,Pondicherry University,2023-08-03 13:04:37+00:00,0,0
+#paidrankings,Negative,Pondicherry University,2023-08-03 13:04:37+00:00,0,0
+#aspiringexcellence,Positive,Pondicherry University,2023-08-03 12:02:12+00:00,1,1
+#topinstitutes,Positive,Pondicherry University,2023-08-03 12:02:12+00:00,1,1
+#nirfrankings,Positive,Pondicherry University,2023-08-03 12:02:12+00:00,1,1
+#nirfranking,Positive,Pondicherry University,2023-08-03 12:01:51+00:00,1,1
+#paidrankings,Positive,Pondicherry University,2023-08-03 12:01:51+00:00,1,1
+#iitkharagpur,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#bestuniversity,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#sundar,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#ceo,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#alphabet,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#google,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#arvindkrishna,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#ibm,Neutral,Pondicherry University,2023-08-03 12:00:12+00:00,2,1
+#educationalgoal,Positive,Pondicherry University,2023-08-03 11:56:36+00:00,1,1
+#nirfranking,Positive,Pondicherry University,2023-08-03 11:56:36+00:00,1,1
+#iit,Positive,Pondicherry University,2023-08-03 11:54:00+00:00,1,1
+#institute,Positive,Pondicherry University,2023-08-03 11:54:00+00:00,1,1
+#iitkharagpur,Positive,Pondicherry University,2023-08-04 15:29:10+00:00,0,0
+#iit,Neutral,Pondicherry University,2023-08-03 11:52:56+00:00,0,0
+#iitjee,Neutral,Pondicherry University,2023-08-03 11:52:56+00:00,0,0
+#jeeadvanced,Neutral,Pondicherry University,2023-08-03 11:52:56+00:00,0,0
+#rank,Positive,Pondicherry University,2023-08-03 11:56:47+00:00,1,0
+#jeeadvancedexams,Positive,Pondicherry University,2023-08-03 11:56:47+00:00,1,0
+#iitkharagpur,Neutral,Pondicherry University,2023-08-03 11:47:13+00:00,1,1
+#india,Neutral,Pondicherry University,2023-08-03 11:57:19+00:00,0,0
+#iitkharagpur,Neutral,Pondicherry University,2023-08-03 11:57:19+00:00,0,0
+#educationalleaders,Positive,Pondicherry University,2023-08-03 11:46:48+00:00,1,1
+#learninginspiration,Positive,Pondicherry University,2023-08-03 11:46:48+00:00,1,1
+#nirfrankings,Positive,Pondicherry University,2023-08-03 11:46:48+00:00,1,1
+#jnu,Negative,Pondicherry University,2023-08-03 11:50:48+00:00,0,0
+#students,Positive,Pondicherry University,2023-08-03 11:45:12+00:00,1,1
+#parents,Positive,Pondicherry University,2023-08-03 11:45:12+00:00,1,1
+#boardstudents,Positive,Pondicherry University,2023-08-03 11:45:12+00:00,1,1
+#fakerankings,Neutral,Jawaharlal Nehru University,2023-06-06 06:05:22+00:00,0,0
+#suleman,Positive,Jawaharlal Nehru University,2023-06-06 05:52:26+00:00,12,0

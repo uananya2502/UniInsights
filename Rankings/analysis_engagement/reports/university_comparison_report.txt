@@ -1,0 +1,22 @@
+============================================================
+UNIVERSITY COMPARISON REPORT
+============================================================
+
+Universities Compared : 15
+
+                        university_name  Total_Comments  Average_Likes  Average_Replies  Negative_Percentage  Neutral_Percentage  Positive_Percentage
+                  BML Munjal University            1040           0.79             0.42                 7.88               50.58                41.54
+               Banaras Hindu University            1071           4.17             0.43                 6.35               63.59                30.07
+      Central University of South Bihar            3002           0.46             0.63                 9.26               65.99                24.75
+            College of Engineering Pune             832           3.85             0.28                 7.33               56.97                35.70
+                       Delhi University            1736           2.55             0.44                 6.45               56.51                37.04
+                    Jadavpur University            1316           7.26             0.44                11.78               57.98                30.24
+                   Jamia Millia Islamia             825           0.87             0.53                 9.58               60.61                29.82
+              Jiwaji University Gwalior            1082           0.40             0.53                 9.33               67.65                23.01
+                      Kerala University             963           4.34             0.50                 9.45               64.07                26.48
+                       Patna University            4510           4.73             0.11                 8.56               68.49                22.95
+                 Pondicherry University             682           1.29             0.52                 9.53               53.08                37.39
+SRM Institute of Science and Technology            1189           1.06             0.35                 4.21               65.85                29.94
+       Savitribai Phule Pune University             555           0.60             0.47                 9.19               56.22                34.59
+                      Sikkim University            1016           0.52             0.54                 9.65               56.79                33.56
+                University of Hyderabad            1155           4.40             0.40                 9.78               61.13                29.09

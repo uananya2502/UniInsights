@@ -1,0 +1,61 @@
+============================================================
+HASHTAG ANALYSIS REPORT
+============================================================
+
+TOP HASHTAGS
+----------------------------------------
+                 Hashtag  Frequency
+              #motionite         54
+           #boycottindia         15
+         #boycottindians         14
+                    #iit          9
+                    #jee          7
+                  #shame          6
+   #justice_for_prakriti          6
+           #thedeshbhakt          5
+      #justiceforprakiti          5
+              #deshbhakt          5
+     #justiceforprakirti          4
+     #justiceforprakriti          4
+#justicefornepalistudent          3
+   #justicefornepaligirl          3
+  #shameonkiituniversity          3
+           #shameonindia          3
+               #prakriti          3
+#justiceforprakitilamsal          3
+             #justicefor          3
+                    #nit          3
+    #yestomoraleducation          3
+                   #kiit          3
+                  #akash          3
+    #justiceforprakritii          2
+            #boycottkiit          2
+            #indiachhoro          2
+         #prakritilamsal          2
+                    #jai          2
+                 #editor          2
+                    #dtu          2
+
+HASHTAG ENGAGEMENT
+----------------------------------------
+              hashtag  Frequency  Avg_Likes  Avg_Replies  Popularity_Score
+           #motionite         54  25.574074     0.222222            1381.0
+#thankyoubharatpeople          1 230.000000     6.000000             230.0
+           #shimonsir          1 124.000000     0.000000             124.0
+                 #iit          9  13.000000     0.222222             117.0
+          #saleemians          1  97.000000     2.000000              97.0
+ #justiceforprakritii          2  41.500000     0.000000              83.0
+                 #jee          7  10.857143     0.285714              76.0
+     #justiceforarthi          1  63.000000    11.000000              63.0
+              #motion          2  29.500000     0.000000              59.0
+#sushant_singh_rajput          1  56.000000     0.000000              56.0
+                 #jnu          1  43.000000     1.000000              43.0
+                 #jnv          1  43.000000     1.000000              43.0
+        #boringfamily          1  30.000000     5.000000              30.0
+   #justiceforprakiti          5   4.000000     0.000000              20.0
+            #jeemains          1  14.000000     0.000000              14.0
+         #vedantumath          1  14.000000     0.000000              14.0
+          #joiaaiaxom          1  12.000000     5.000000              12.0
+   #thankyoufromnepal          1   7.000000     0.000000               7.0
+            #honestly          1   6.000000     1.000000               6.0
+          #placements          1   6.000000     1.000000               6.0

@@ -1,0 +1,22 @@
+============================================================
+WORD CLOUD ANALYSIS REPORT
+============================================================
+
+Total Comments : 28058
+Positive : 8469
+Neutral : 17240
+Negative : 2349
+
+Top Universities
+-------------------------
+university_name
+Patna University                           4510
+Central University of South Bihar          3002
+Delhi University                           1736
+Jadavpur University                        1316
+SRM Institute of Science and Technology    1189
+University of Hyderabad                    1155
+Jiwaji University Gwalior                  1082
+Banaras Hindu University                   1071
+BML Munjal University                      1040
+Sikkim University                          1016

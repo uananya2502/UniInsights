@@ -1,0 +1,102 @@
+============================================================
+LIKES ANALYSIS REPORT
+============================================================
+
+TOP LIKED COMMENTS
+                                                                                                                                                                                                                      combined_comment  likes             university_name sentiment
+                                                                                                                                                                        Looks like teacher is very optimistic and positive in life. ❤❤   1989            Patna University  Positive
+                                                                                                                                                      Ma'am is one of the best professor of political science dept in patna University   1539            Patna University  Positive
+                                                                                         Don't go to Jadavpur University if want to save you life , this collage is also highest is ragging, recently a MSc. student  kill by senior 😢   1164         Jadavpur University  Negative
+                                                                                                                   Top 5 over ranked colleges- 1. VIT Vellore (12) 2. SRM (24) 3. Amity (25) 4. Chandigarh University (45) 5. LPU (51)   1060     University of Hyderabad  Positive
+                                                                                                                                                                                                                      Oxford ka menu 😂   1052            Patna University   Neutral
+                                                                                                                                                                                          Return on investment-🗿 Return of student - 💀    978         Jadavpur University   Neutral
+                                                                                                                                                                                              And people of WB who know the reality. 🌚    804         Jadavpur University   Neutral
+                                                                                                                                                                                             Finally bhaiya remembered his yt password    792 College of Engineering Pune   Neutral
+                                                                                                                                                               पत्रकार महोदय, आपकी मेहनत चेहरे से और ईमानदारी कार्य से पता चल रही है 👍    784            Patna University   Neutral
+                                                                                                                                                                                                     Original Bihar dikha rahe ho😢😢😢😢😢    726            Patna University  Positive
+                                                                                                                                                   She is very diplomatic.everyone knows the quality of education in patna University.    641            Patna University   Neutral
+ഇന്ന് വരെ ഒരു പരീക്ഷ പോലും സമയത് നടത്താൻ കഴിയാത്ത കാലിക്കറ്റ് യൂണിവേഴ്സിറ്റി 100ഇൽ പെട്ടു എങ്കിൽ .ഇന്ത്യയിലെ മറ്റു യൂണിവേഴ്സിറ്റിയുടെ ഒരു അവസ്ഥ .😂 WhatsApp Facebook നോക്കി സമയം കളയുന്ന കുറേ ഉദ്യോഗസ്ഥർ ഉണ്ട്‌ calicut university യിൽ    612           Kerala University   Neutral
+                                                                                                                                                                                                               My dream university BHU    610            Delhi University  Positive
+                                                                                                                                    Shefali mam se mai political science padhi hu patna womens college Mai.96-98 batch.Great teacher 🙏    595            Patna University   Neutral
+                                                                                                                                                                                                             पत्रकारिता हो तो इस तरह ❤    575            Patna University   Neutral
+                                                                                                                                             Aman bhaiya chalu aadmi hain Pehle hi inko poore india ki didi declare kar diya tha 💀💀💀🗿😂    560         Jadavpur University   Neutral
+                                                                                                                                                                                  Reality is most student don't even know these facts.    544            Patna University   Neutral
+                                                                                                                                                                                                               I am student of AMU❤❤❤❤    516    Banaras Hindu University   Neutral
+                                                                                                                                                                        Kal jadavpur university se ak ladka ragging & murder huya hai.    498         Jadavpur University  Negative
+                                                                                                                                                               Gov teacher complain krte h to ulta unhi ke upar letter issue ho jata h    469            Patna University  Negative
+
+UNIVERSITY ANALYSIS
+                              university_name  Average_Likes  Median_Likes  Maximum_Likes  Total_Comments
+                          Jadavpur University           7.26           0.0           1164            1316
+                             Patna University           4.73           0.0           1989            4510
+                      University of Hyderabad           4.40           0.0           1060            1155
+                            Kerala University           4.34           0.0            612             963
+                     Banaras Hindu University           4.17           0.0            516            1071
+                  College of Engineering Pune           3.85           0.0            792             832
+                  Jawaharlal Nehru University           2.62           0.0            267             545
+                             Delhi University           2.55           0.0            610            1736
+                         University of Madras           2.09           1.0             39             205
+         Harcourt Butler Technical University           1.91           0.0             27              65
+                         University of Mumbai           1.52           0.0             23             126
+                            Andhra University           1.45           1.0             31             266
+                            Ranchi University           1.45           0.0             13              44
+                            Tezpur University           1.35           0.0             29             175
+                        VIT Bhopal University           1.32           0.0             65             334
+                      University of Allahabad           1.30           0.0             29             166
+                       Pondicherry University           1.29           0.0             42             682
+Madan Mohan Malaviya University of Technology           1.25           0.0             32             130
+      Institute of Chemical Technology Mumbai           1.22           1.0              5              58
+                Guru Ghasidas Vishwavidyalaya           1.19           0.0             39             278
+
+SENTIMENT ANALYSIS
+sentiment  Average_Likes  Median_Likes  Maximum_Likes  Total_Comments
+ Negative           3.16           0.0           1164            2349
+  Neutral           2.00           0.0           1052           17240
+ Positive           2.80           0.0           1989            8469
+
+MONTHLY TREND
+published_at  Average_Likes  Total_Likes
+     2023-01       0.636364            7
+     2023-02       8.847650         5459
+     2023-03       2.480519          573
+     2023-04       0.806452          125
+     2023-05       0.974359          304
+     2023-06       2.901715         6259
+     2023-07       0.888583          646
+     2023-08       6.170760         5276
+     2023-09       1.816547          505
+     2023-10       8.871212         2342
+     2023-11       7.584795         1297
+     2023-12       3.005208          577
+     2024-01       2.020305          398
+     2024-02       2.886364          381
+     2024-03       4.996063         1269
+     2024-04       2.293255          782
+     2024-05       1.389873          549
+     2024-06       1.167901          473
+     2024-07       3.344578         1388
+     2024-08       1.063686          785
+     2024-09       1.031915          291
+     2024-10       1.360656          166
+     2024-11       0.682927           56
+     2024-12       1.477273          130
+     2025-01       0.831579          158
+     2025-02       1.617801          309
+     2025-03       1.386167          962
+     2025-04       1.100000          462
+     2025-05       3.787302         3579
+     2025-06       1.253114         2213
+     2025-07       0.691695         1216
+     2025-08       0.498845          216
+     2025-09       5.223303        22011
+     2025-10       0.627244          594
+     2025-11       0.530938          266
+     2025-12       0.786260          206
+     2026-01       0.898219          353
+     2026-02       0.668790          210
+     2026-03       0.725914          437
+     2026-04       0.680261          417
+     2026-05       0.583655          757
+     2026-06       0.317903          570
+     2026-07       0.603953          764
+     2026-08       0.102564            4

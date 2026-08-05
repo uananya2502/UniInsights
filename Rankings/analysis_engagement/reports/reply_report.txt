@@ -1,0 +1,101 @@
+============================================================
+REPLY ANALYSIS REPORT
+============================================================
+
+TOP REPLIED COMMENTS
+                                                                                                                                                                                                                         combined_comment  reply_count                         university_name sentiment
+                                                                                                                                                                                                                  I am student of AMU❤❤❤❤           97                Banaras Hindu University   Neutral
+                                                                                                                                                                      Ba llb ya bba llb kisi me bhi ho skta h kya 170 /500 + ews category           93       Central University of South Bihar   Neutral
+                                                                                                                      Top 5 over ranked colleges- 1. VIT Vellore (12) 2. SRM (24) 3. Amity (25) 4. Chandigarh University (45) 5. LPU (51)           66                 University of Hyderabad  Positive
+                                                                                                                                                                                                                Next shorts kispe banay ?           66                 University of Hyderabad   Neutral
+                                                                                            Don't go to Jadavpur University if want to save you life , this collage is also highest is ragging, recently a MSc. student  kill by senior 😢           55                     Jadavpur University  Negative
+                                                                                                                                                                                     Is this the university where the ragging took place?           52           North Eastern Hill University   Neutral
+                                                                                                                      Didi me odisha se hun cuet pg b.ed me admission lena chahti hun MU me kya b.ed department achha hai please guide me           51                      Manipur University  Positive
+                                                                                                                               Mera 102 physics me hai 121 maths me 94 Chemistry 102 gat or 74 english koi bsc ke btayiye na pls ews sehu           50       Central University of South Bihar  Positive
+                                                                                                                                                                                     JNU is best university for Indian growing students ❤           47             Jawaharlal Nehru University  Positive
+                                                                                         6:25 Ambulance facility haii bhaiya 6:58- traffic nhi rahe toh 10 min traffic rahe toh maximum 30min lgte hain hostel aane me( new girls hostel)           46                      Mizoram University   Neutral
+                                                                                                                                                                                 I am a student of BHU and I believe in BHU at number 1.😊           44                Banaras Hindu University  Positive
+                                                                                                                                                                                                                  My dream university BHU           40                        Delhi University  Positive
+                                                                                                                          This university is very near to my house.  Before the university made , i used to play cricket on that ground 😅           38       Central University of South Bihar  Positive
+                                                                                                                                                                                           കേരളത്തിലെ ഏറ്റവും മികച്ച കോളേജ് അമൽ ജ്യോതി 👍🏻           38                       Kerala University   Neutral
+                                                                                                                                                                                                              Jadavpur , pride of bengal♥           37                     Jadavpur University  Positive
+                                                                                                                                                                                                                           4yr is a waste           33                       Kerala University  Negative
+Hii.i got selected in MA English and in hostel also.bdw can u say how is the boys hostel there.is it two seater or more? .and how much far is the hostels from english department?.please let me know as this will be my first time there           32                       Sikkim University   Neutral
+                                                                                                                       There is no competition with what's app University 😎😎😎 Most of the people are educated from here today in india 😅😅           30             Jawaharlal Nehru University  Negative
+                                                                                                                                                                               I am proud to be a BHU student of the Economics department           30                        Delhi University  Positive
+                                                                                                                                                                                                                Second dropper ja sakta h           30 Dr APJ Abdul Kalam Technical University   Neutral
+
+UNIVERSITY ANALYSIS
+                                    university_name  Average_Replies  Median_Replies  Maximum_Replies  Total_Comments
+                        Jawaharlal Nehru University             4.98             2.0               47              55
+                                 Mizoram University             4.65             2.0               46              34
+                            University of Hyderabad             4.12             2.0               66             113
+                 Devi Ahilya Vishwavidyalaya Indore             4.11             2.0               23              18
+                           Banaras Hindu University             3.83             1.0               97             119
+                                Jadavpur University             3.61             1.0               55             160
+                              VIT Bhopal University             3.57             2.0               20              61
+Oriental Institute of Science and Technology Bhopal             3.33             4.0                5               6
+               Harcourt Butler Technical University             3.33             2.0               15              12
+                             University of Calcutta             3.31             2.0               23              45
+                                  Mysore University             3.19             1.0               24              77
+                     Rajasthan Technical University             3.18             2.0               16              11
+                                 Gujarat University             3.17             1.5               11               6
+                                   Patna University             3.10             1.0               28             157
+                      Barkatullah University Bhopal             3.00             3.0                5               2
+                                  Ranchi University             3.00             1.5               12               8
+                                 Lucknow University             2.92             1.0               21              65
+      Madan Mohan Malaviya University of Technology             2.89             2.0               10              28
+                  Central University of South Bihar             2.89             2.0               93             659
+                                  Kerala University             2.88             1.0               38             167
+
+SENTIMENT ANALYSIS
+sentiment  Average_Replies  Median_Replies  Maximum_Replies  Total_Comments
+ Negative             3.42             2.0               55             365
+  Neutral             2.46             1.0               97            2664
+ Positive             2.58             1.0               66            1676
+
+MONTHLY TREND
+published_at  Average_Replies  Total_Replies
+     2023-01         1.000000              3
+     2023-02         6.529412            444
+     2023-03         2.038462             53
+     2023-04         1.833333             33
+     2023-05         2.409836            147
+     2023-06         3.394659           1144
+     2023-07         1.886700            383
+     2023-08         2.700508            532
+     2023-09         2.029412             69
+     2023-10         7.276596            342
+     2023-11         3.288889            148
+     2023-12         3.540541            131
+     2024-01         4.809524            101
+     2024-02         4.000000             76
+     2024-03         3.918367            192
+     2024-04         2.508197            153
+     2024-05         2.445783            203
+     2024-06         2.684932            196
+     2024-07         3.270270            242
+     2024-08         2.137097            265
+     2024-09         1.770833             85
+     2024-10         2.680000             67
+     2024-11         2.090909             23
+     2024-12         4.666667             56
+     2025-01         2.692308            105
+     2025-02         2.183673            107
+     2025-03         2.511905            422
+     2025-04         2.531915            238
+     2025-05         2.299492            453
+     2025-06         2.631579            850
+     2025-07         1.993590            933
+     2025-08         1.857143            156
+     2025-09         2.560150            681
+     2025-10         1.511628             65
+     2025-11         1.950000            117
+     2025-12         2.086957             96
+     2026-01         2.378049            195
+     2026-02         1.600000             96
+     2026-03         2.191919            217
+     2026-04         2.125926            287
+     2026-05         2.508197            612
+     2026-06         2.773333           1040
+     2026-07         1.862944            367

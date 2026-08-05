@@ -1,0 +1,37 @@
+============================================================
+COMMUNITY DETECTION REPORT
+============================================================
+
+Total Communities : 6
+
+COMMUNITY SUMMARY
+----------------------------------------
+ Community  Keywords
+         1        59
+         2        53
+         3        43
+         4        21
+         5        16
+         6         8
+
+TOP KEYWORDS IN EACH COMMUNITY
+----------------------------------------
+
+Community 1
+action, actually, bad, big, bjp, brother, called, case, come, country, day, feel, free, friend, going, government, govt, hindu, hope, incident
+
+Community 2
+admission, best, better, bhopal, bit, branch, category, chahiye, chance, change, choose, clg, collage, company, cse, ece, future, general, get, getting
+
+Community 3
+abhi, aisa, aise, apne, apply, baad, baat, baki, bare, bata, desh, din, english, exam, form, give, gya, hota, hote, hoti
+
+Community 4
+available, boy, class, coming, cutoff, fee, first, food, girl, hostel, kitna, lakh, mess, money, month, name, new, room, start, time
+
+Community 5
+bombay, btw, delhi, dream, great, guy, information, life, management, nice, place, political, research, science, technology, work
+
+Community 6
+check, detail, etc, full, join, know, sure, want
+

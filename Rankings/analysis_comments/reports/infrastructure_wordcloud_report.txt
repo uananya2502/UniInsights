@@ -1,0 +1,22 @@
+============================================================
+WORD CLOUD ANALYSIS REPORT
+============================================================
+
+Total Comments : 97068
+Positive : 32952
+Neutral : 53633
+Negative : 10483
+
+Top Universities
+-------------------------
+university_name
+KIIT University                   19474
+IIT Bombay                         4395
+IIT Madras                         3397
+Galgotias University               3073
+Lovely Professional University     2915
+NIT Trichy                         2830
+NIT Warangal                       2214
+Delhi University                   2104
+BITS Pilani                        1939
+NIT Silchar                        1738

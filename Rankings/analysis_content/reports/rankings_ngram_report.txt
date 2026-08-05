@@ -1,0 +1,105 @@
+============================================================
+N-GRAM ANALYSIS REPORT
+============================================================
+
+TOP UNIGRAMS
+----------------------------------------
+    NGram  Frequency
+admission       1185
+placement        756
+     good        756
+      cse        719
+     year        713
+      get        700
+    bihar        655
+     best        619
+     rank        617
+     exam        614
+      fee        595
+     hota        548
+   hostel        539
+  science        486
+ category        470
+  ranking        457
+     mark        453
+    mujhe        449
+      rha        443
+   better        426
+   jayega        387
+     list        357
+   branch        356
+     tell        353
+     time        351
+  chahiye        347
+      top        346
+       नह        343
+     help        334
+      obc        331
+
+TOP BIGRAMS
+----------------------------------------
+              NGram  Frequency
+  political science        116
+      get admission        102
+         news pinch         92
+      entrance exam         88
+    preference list         85
+            obc ncl         79
+              पत रक         78
+   general category         74
+       obc category         63
+   computer science         61
+          form fill         60
+        west bengal         54
+    average package         54
+              वव लय         53
+       life science         51
+curricular activity         50
+         merit list         49
+  admission process         48
+        plaksha upr         48
+            upr vdo         48
+       hey whatsapp         48
+           abhi tak         45
+           send hey         44
+        hostel mess         44
+         hostel fee         44
+        package lpa         43
+          bcom hons         43
+         notice try         43
+        come notice         43
+            big fan         42
+
+TOP TRIGRAMS
+----------------------------------------
+                          NGram  Frequency
+                plaksha upr vdo         48
+              send hey whatsapp         44
+                come notice try         43
+                 punjab big fan         36
+           art commerce science         30
+          informed request come         29
+           notice try requested         29
+            request come notice         29
+         commerce science field         28
+            central south bihar         27
+              hey whatsapp free         26
+          bannaooo bannaoo bana         24
+               kbse plaksha upr         24
+             banna kbse plaksha         24
+                  upr vdo banna         24
+         whatsapp free guidance         24
+               upr vdo bannaooo         24
+           vdo bannaooo bannaoo         24
+                 vdo banna kbse         24
+                hostel mess fee         23
+           jamia millia islamia         19
+          fill profile analysis         18
+          profile analysis form         18
+           baare jaankari sakte         17
+            vachidhi stay tuned         17
+                      पटन वव लय         17
+          important point aapko         17
+            mene hindi language         17
+      curricular activity alawa         16
+curricular activity participate         16
