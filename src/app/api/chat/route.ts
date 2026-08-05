@@ -1,39 +1,46 @@
 import { NextResponse } from 'next/server';
 import { getChatResponse } from '@/lib/gemini';
-import { getUniversityByName, getUniversityList } from '@/lib/data-parser';
+import { searchRAG } from '@/lib/rag-store';
+import { searchRawComments } from '@/lib/sqlite-search';
 
 export async function POST(request: Request) {
   try {
-    const { message, universityName } = await request.json();
+    const { message } = await request.json();
 
     if (!message || typeof message !== 'string') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 });
     }
 
-    // Build context from available data
     let context = '';
     
-    if (universityName) {
-      const uniData = getUniversityByName(universityName);
-      if (uniData) {
-        context = `
-Currently viewing: ${uniData.name}
-Overall Score: ${uniData.overallScore}/10
-Category Scores:
-- Academics: ${uniData.categoryScores.academics}/10
-- Placement: ${uniData.categoryScores.placement}/10
-- Infrastructure: ${uniData.categoryScores.infrastructure}/10
-- Student Experience: ${uniData.categoryScores.studentExperience}/10
-- Hostel: ${uniData.categoryScores.hostel}/10
-- Fees: ${uniData.categoryScores.fees}/10
-Total mentions: ${uniData.totalMentions}
-Strengths: ${uniData.strengths.join(', ')}
-Concerns: ${uniData.concerns.join(', ')}
-Best for: ${uniData.bestForTags.join(', ')}`;
+    // 1. Vector Search for University Summaries (API caching used to avoid limits)
+    try {
+      const summaryDocs = await searchRAG(message, 2);
+      if (summaryDocs.length > 0) {
+        context += '--- UNIVERSITY SUMMARIES ---\n';
+        context += summaryDocs.map(doc => doc.content).join('\n\n');
+        context += '\n\n';
       }
+    } catch (err) {
+      console.warn('Vector Search failed:', err);
+    }
+
+    // 2. High-Speed SQLite FTS5 Search for Raw Comments (No API usage)
+    try {
+      const rawComments = await searchRawComments(message, 10);
+      if (rawComments.length > 0) {
+        context += '--- RELEVANT RAW STUDENT COMMENTS ---\n';
+        context += rawComments.map(c => `[${c.university} - ${c.category}] (${c.sentiment}): ${c.text}`).join('\n');
+        context += '\n\n';
+      }
+    } catch (err) {
+      console.warn('SQLite FTS5 Search failed:', err);
+    }
+
+    if (!context) {
+      context = 'No specific database records found. Answer generally based on your knowledge of Indian universities.';
     } else {
-      const list = getUniversityList();
-      context = `The dashboard contains data for ${list.length} Indian universities across categories: Academics, Placement, Infrastructure, Student Experience, Hostel, and Fees. Some top universities in the data include: ${list.slice(0, 15).map(u => u.name).join(', ')}.`;
+      context = 'Here is the most relevant data retrieved from the database to help answer the user:\n\n' + context;
     }
 
     const response = await getChatResponse(message, context);
