@@ -20,15 +20,7 @@ export interface CategoryScores {
   placement: number;
 }
 
-export interface CommentData {
-  id: string;
-  text: string;
-  author: string;
-  likes: number;
-  date: string;
-  category: string;
-  sentiment: 'positive' | 'neutral' | 'negative';
-}
+
 
 export interface TimelinePoint {
   year: number;
@@ -58,7 +50,7 @@ export interface UniversityData {
     neutral: number;
     negative: number;
   };
-  topComments: CommentData[];
+
   reputationTimeline: TimelinePoint[];
   trendingTopics: TopicData[];
   bestForTags: string[];
@@ -140,44 +132,7 @@ export function getUniversityList(): UniversityBasic[] {
   return universityListCache;
 }
 
-function getCommentsForUniversity(universityName: string): CommentData[] {
-  const commentFiles = [
-    { file: 'Student_experience_information/india_universities_student_experience_comments.csv', category: 'Student Experience' },
-    { file: 'academics_information/india_universities_academics_comments.csv', category: 'Academics' },
-    { file: 'placement_information/india_universities_placement_comments.csv', category: 'Placement' },
-    { file: 'fees_information/india_universities_fees_comments.csv', category: 'Fees' },
-    { file: 'hostel_information/india_universities_hostel_comments.csv', category: 'Hostel' },
-  ];
 
-  const comments: CommentData[] = [];
-
-  for (const cf of commentFiles) {
-    try {
-      // Only read first 5000 rows per file for performance
-      const data = parseCSV<Record<string, string>>(path.join(/*turbopackIgnore: true*/ basePath, cf.file), 5000);
-      const uniComments = data
-        .filter(row => row.university_name === universityName && row.comment_text && row.comment_text.length > 20)
-        .slice(0, 10)
-        .map((row, idx) => {
-          const likes = parseInt(row.likes || '0', 10);
-          return {
-            id: row.comment_id || `comment-${idx}`,
-            text: row.comment_text.slice(0, 300),
-            author: (row.author_name || 'Anonymous').replace('@', ''),
-            likes,
-            date: row.comment_date || row.published_at?.split('T')[0] || '2024-01-01',
-            category: cf.category,
-            sentiment: likes > 5 ? 'positive' as const : likes > 0 ? 'neutral' as const : 'negative' as const,
-          };
-        });
-      comments.push(...uniComments);
-    } catch {
-      // Skip missing files
-    }
-  }
-
-  return comments.sort((a, b) => b.likes - a.likes).slice(0, 15);
-}
 
 function buildUniversityData(name: string, id: string): UniversityData {
   const scores: CategoryScores = {
@@ -192,7 +147,7 @@ function buildUniversityData(name: string, id: string): UniversityData {
   const scoreValues = Object.values(scores);
   const overallScore = +(scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length).toFixed(1);
 
-  const topComments = getCommentsForUniversity(name);
+
 
   // Build deterministic timeline
   const years = [2020, 2021, 2022, 2023, 2024, 2025];
@@ -249,7 +204,7 @@ function buildUniversityData(name: string, id: string): UniversityData {
       neutral: seededScore(name, 'neu', 15, 35),
       negative: seededScore(name, 'neg', 5, 25),
     },
-    topComments,
+
     reputationTimeline: timeline,
     trendingTopics,
     bestForTags,

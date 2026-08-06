@@ -6,7 +6,6 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityReportCard } from '@/components/dashboard/UniversityReportCard';
 import { StrengthsConcerns } from '@/components/dashboard/StrengthsConcerns';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
-import { StudentVoice } from '@/components/dashboard/StudentVoice';
 import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import { BestForTags } from '@/components/dashboard/BestForTags';
 import { StatsCards } from '@/components/dashboard/StatsCards';
@@ -81,9 +80,8 @@ function DashboardContent() {
             </div>
           </div>
 
-          {/* Student Voice + Trending */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <StudentVoice comments={data.topComments} />
+          {/* Trending */}
+          <div className="grid grid-cols-1 gap-6">
             <TrendingDiscussions topics={data.trendingTopics} />
           </div>
         </div>

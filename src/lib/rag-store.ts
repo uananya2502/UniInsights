@@ -41,8 +41,6 @@ Scores - Academics: ${uniData.categoryScores.academics}, Placement: ${uniData.ca
 Strengths: ${uniData.strengths.join(', ')}
 Concerns: ${uniData.concerns.join(', ')}
 Best for: ${uniData.bestForTags.join(', ')}
-Top Comments:
-${uniData.topComments.map(c => `- [${c.category} / ${c.sentiment}] ${c.text}`).join('\n')}
   `.trim();
 }
 
