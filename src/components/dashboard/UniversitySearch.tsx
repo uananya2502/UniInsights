@@ -49,11 +49,25 @@ export function UniversitySearch({ onSelect, selected, placeholder, compact }: U
   const filtered = (cleanQuery === '' || isDefaultSelectedQuery)
     ? universities.slice(0, 8)
     : universities
-        .filter(u => {
-          const name = u.name.toLowerCase();
-          return name.includes(cleanQuery) || name.split(' ').some(w => w.startsWith(cleanQuery));
+        .map(u => {
+          const nameLower = u.name.toLowerCase();
+          let rank = 999;
+          if (nameLower === cleanQuery) {
+            rank = 1;
+          } else if (nameLower.startsWith(cleanQuery)) {
+            rank = 2;
+          } else if (nameLower.split(/[\s,()-]+/).some(w => w.startsWith(cleanQuery))) {
+            rank = 3;
+          } else if (nameLower.includes(cleanQuery)) {
+            rank = 4;
+          }
+          return { u, rank };
         })
+        .filter(item => item.rank < 999)
+        .sort((a, b) => a.rank - b.rank || a.u.name.localeCompare(b.u.name))
+        .map(item => item.u)
         .slice(0, 8);
+
 
   return (
     <div ref={wrapperRef} className={`relative ${compact ? 'w-full' : 'w-full max-w-md'}`}>

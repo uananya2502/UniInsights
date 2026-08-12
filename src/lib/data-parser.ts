@@ -99,6 +99,24 @@ function seededScore(name: string, category: string, min: number, max: number): 
 
 /* ─── Data Access Functions ─── */
 
+function normalizeUniversityName(rawName: string): string {
+  const trimmed = rawName.trim();
+  const lower = trimmed.toLowerCase();
+
+  if (lower.includes('indian institute of technology delhi') || lower === 'iit-delhi') return 'IIT Delhi';
+  if (lower.includes('indian institute of technology bombay') || lower === 'iit-bombay') return 'IIT Bombay';
+  if (lower.includes('indian institute of technology madras') || lower === 'iit-madras') return 'IIT Madras';
+  if (lower.includes('indian institute of technology kharagpur') || lower === 'iit-kharagpur') return 'IIT Kharagpur';
+  if (lower.includes('indian institute of technology roorkee') || lower === 'iit-roorkee') return 'IIT Roorkee';
+  if (lower.includes('indian institute of technology guwahati') || lower === 'iit-guwahati') return 'IIT Guwahati';
+  if (lower.includes('indraprastha institute of information technology delhi') || lower === 'iiit-delhi') return 'IIIT Delhi';
+  if (lower.includes('birla institute of technology') && lower.includes('pilani')) return 'BITS Pilani';
+  if (lower.includes('vellore institute of technology')) return 'VIT Vellore';
+  if (lower.includes('bml munjal')) return 'BML Munjal University';
+
+  return trimmed;
+}
+
 export function getUniversityList(): UniversityBasic[] {
   if (universityListCache) return universityListCache;
 
@@ -142,14 +160,14 @@ export function getUniversityList(): UniversityBasic[] {
     'Jawaharlal Nehru University',
     'Banaras Hindu University',
   ];
-  defaultUniversities.forEach(name => uniqueNames.add(name));
+  defaultUniversities.forEach(name => uniqueNames.add(normalizeUniversityName(name)));
 
   for (const cat of categories) {
     try {
       const data = parseCSV<Record<string, string>>(path.join(/*turbopackIgnore: true*/ basePath, cat.file));
       data.forEach(row => {
         const name = row[cat.col];
-        if (name && name.trim()) uniqueNames.add(name.trim());
+        if (name && name.trim()) uniqueNames.add(normalizeUniversityName(name));
       });
     } catch {
       // Skip missing files
@@ -162,6 +180,7 @@ export function getUniversityList(): UniversityBasic[] {
 
   return universityListCache;
 }
+
 
 
 
