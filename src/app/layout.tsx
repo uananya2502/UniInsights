@@ -55,34 +55,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {/* Sidebar */}
             <aside className={`
               fixed md:sticky md:top-0 h-screen z-50
-              w-[250px] bg-slate-900 text-white flex flex-col border-r border-slate-800
+              w-[240px] bg-white text-slate-900 flex flex-col border-r border-slate-200/80
               transform transition-transform duration-200 ease-in-out flex-shrink-0
               ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
             `}>
               {/* Logo */}
-              <div className="h-16 flex items-center px-5 border-b border-slate-800">
-                <Link href="/" className="flex items-center gap-2.5">
-                  <div className="w-9 h-9 bg-white rounded-md flex items-center justify-center p-0.5 shadow-xs flex-shrink-0">
-                    <Image src="/logo.png" alt="UniInsights Logo" width={32} height={32} className="object-contain" />
-                  </div>
+              <div className="h-20 flex items-center px-5 border-b border-slate-100">
+                <Link href="/" className="flex items-center gap-3">
+                  <Image src="/logo.png" alt="UniInsight Logo" width={38} height={38} className="object-contain flex-shrink-0" />
                   <div>
-                    <span className="font-bold text-base tracking-tight text-white block">UniInsights</span>
-                    <span className="text-[10px] text-slate-400 block -mt-1 truncate max-w-[150px]">Know Your Campus</span>
+                    <span className="font-extrabold text-lg tracking-tight text-slate-900 block leading-snug">UniInsight</span>
+                    <span className="text-[11px] text-slate-500 block font-medium">Know Your Campus</span>
                   </div>
                 </Link>
                 <button
-                  className="ml-auto md:hidden text-slate-400 hover:text-white"
+                  className="ml-auto md:hidden text-slate-400 hover:text-slate-700"
                   onClick={() => setSidebarOpen(false)}
                 >
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-
               {/* Navigation */}
-              <nav className="flex-1 py-4 px-3 space-y-1 overflow-y-auto">
-                <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                  Navigation
+              <nav className="flex-1 py-5 px-3 space-y-1 overflow-y-auto">
+                <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                  NAVIGATION
                 </p>
                 {navItems.map((item) => {
                   const isActive = pathname === item.href || 
@@ -94,37 +91,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                       className={`sidebar-link ${isActive ? 'active' : ''}`}
                       onClick={() => setSidebarOpen(false)}
                     >
-                      <item.icon className="w-4 h-4 mr-2.5 flex-shrink-0" />
+                      <item.icon className="w-4 h-4 mr-3 flex-shrink-0" />
                       {item.label}
                     </Link>
                   );
                 })}
 
-                <div className="pt-4">
-                  <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                    Analytics Views
+                <div className="pt-5">
+                  <p className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">
+                    ANALYTICS VIEWS
                   </p>
                   <Link
                     href="/dashboard"
                     className={`sidebar-link ${pathname === '/dashboard' ? 'active' : ''}`}
                     onClick={() => setSidebarOpen(false)}
                   >
-                    <TrendingUp className="w-4 h-4 mr-2.5 flex-shrink-0" />
+                    <TrendingUp className="w-4 h-4 mr-3 flex-shrink-0" />
                     Reputation Timeline
                   </Link>
                 </div>
               </nav>
-
-              {/* Footer */}
-              <div className="p-4 border-t border-slate-800/80 bg-slate-950/40">
-                <p className="text-[11px] text-slate-400 leading-snug font-medium">
-                  UniInsights Education Portal
-                </p>
-                <p className="text-[10px] text-slate-500 mt-0.5">
-                  Know Your Campus. Choose with Confidence.
-                </p>
-              </div>
             </aside>
+
 
             {/* Main Content Area */}
             <main className="flex-1 flex flex-col min-w-0 min-h-screen">

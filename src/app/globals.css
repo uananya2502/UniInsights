@@ -114,23 +114,24 @@
   .sidebar-link {
     display: flex;
     align-items: center;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.375rem;
+    padding: 0.625rem 0.875rem;
+    border-radius: 0.5rem;
     font-size: 0.8125rem;
     font-weight: 500;
-    color: #94a3b8;
+    color: #475569;
     transition: all 0.15s ease;
   }
   .sidebar-link:hover {
-    background-color: rgba(255, 255, 255, 0.07);
-    color: #f8fafc;
+    background-color: #f1f5f9;
+    color: #0f172a;
   }
   .sidebar-link.active {
-    background-color: #1e293b;
+    background-color: #0b1527;
     color: #ffffff;
-    border-left: 3px solid #2563eb;
     font-weight: 600;
+    box-shadow: 0 1px 3px 0 rgba(11, 21, 39, 0.15);
   }
+
 
   .badge {
     display: inline-flex;
