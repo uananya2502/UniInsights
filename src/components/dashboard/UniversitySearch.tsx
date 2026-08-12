@@ -96,7 +96,8 @@ export function UniversitySearch({ onSelect, selected, placeholder, compact }: U
       </div>
 
       {isOpen && !loading && (
-        <div className="absolute z-50 mt-1 w-full bg-white shadow-lg rounded-md border border-slate-200 max-h-64 overflow-y-auto animate-slide-up">
+        <div className="absolute z-[100] mt-1.5 w-full bg-white shadow-2xl rounded-lg border border-slate-200/90 max-h-72 overflow-y-auto animate-slide-up">
+
           {filtered.length > 0 ? (
             <ul className="py-1 divide-y divide-slate-100">
               {filtered.map(uni => (

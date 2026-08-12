@@ -41,8 +41,9 @@ function DashboardContent() {
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-[1400px] mx-auto overflow-y-auto">
       {/* Splash Hero Banner */}
-      <div className="relative overflow-hidden rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in">
+      <div className="relative rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+
           <div className="space-y-1">
             <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
               UniInsights
