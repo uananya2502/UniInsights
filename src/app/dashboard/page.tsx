@@ -2,6 +2,7 @@
 
 import { Suspense, useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Image from 'next/image';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityReportCard } from '@/components/dashboard/UniversityReportCard';
 import { StrengthsConcerns } from '@/components/dashboard/StrengthsConcerns';
@@ -10,14 +11,16 @@ import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions'
 import { BestForTags } from '@/components/dashboard/BestForTags';
 import { StatsCards } from '@/components/dashboard/StatsCards';
 import { UniversityData } from '@/lib/data-parser';
-import { Building2 } from 'lucide-react';
+import { Building2, ShieldCheck, Search } from 'lucide-react';
+
 
 function DashboardContent() {
   const searchParams = useSearchParams();
   const initialUni = searchParams.get('university') || '';
-  const [selectedUni, setSelectedUni] = useState<string>(initialUni);
+  const [selectedUni, setSelectedUni] = useState<string>(initialUni || 'IIT Delhi');
   const [data, setData] = useState<UniversityData | null>(null);
   const [loading, setLoading] = useState(false);
+
 
   useEffect(() => {
     if (!selectedUni) return;
@@ -33,22 +36,35 @@ function DashboardContent() {
   }, [selectedUni]);
 
   return (
-    <div className="p-4 md:p-6 space-y-6 max-w-[1400px] mx-auto">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-xl font-bold text-slate-900">Dashboard</h1>
-          <p className="text-sm text-slate-500 mt-0.5">Select a university to explore detailed analytics</p>
+    <div className="p-4 md:p-6 space-y-6 max-w-[1400px] mx-auto overflow-y-auto">
+      {/* Splash Hero Banner */}
+      <div className="relative overflow-hidden rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in">
+        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="space-y-2">
+            <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-white/10 border border-white/20 text-blue-300 text-xs font-semibold">
+              <Image src="/logo.png" alt="UniInsights Logo" width={18} height={18} className="object-contain" />
+              <span>Official Higher Education Analytics Portal</span>
+            </div>
+
+            <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
+              UniInsights
+            </h1>
+            <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl">
+              Know Your Campus. Choose with Confidence.
+            </p>
+          </div>
+          <div className="w-full md:w-auto">
+            <UniversitySearch onSelect={setSelectedUni} selected={selectedUni} />
+          </div>
         </div>
-        <UniversitySearch onSelect={setSelectedUni} selected={selectedUni} />
       </div>
 
       {/* Loading State */}
       {loading && (
         <div className="flex items-center justify-center py-20">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
-            <p className="text-sm text-slate-500">Loading university data...</p>
+            <div className="w-9 h-9 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
+            <p className="text-xs font-semibold text-slate-500">Retrieving university intelligence metrics...</p>
           </div>
         </div>
       )}
@@ -80,22 +96,29 @@ function DashboardContent() {
             </div>
           </div>
 
+<<<<<<< HEAD
           {/* Trending */}
           <div className="grid grid-cols-1 gap-6">
+=======
+          {/* Student Voice + Trending */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <StudentVoice data={data} />
+>>>>>>> 6e204a5 (Enhance UniInsights UI/UX, add brand logo, live news feed, and instant advisory Q&A)
             <TrendingDiscussions topics={data.trendingTopics} />
           </div>
+
         </div>
       )}
 
       {/* Empty State */}
       {!loading && !data && (
-        <div className="flex flex-col items-center justify-center py-24 text-center">
-          <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mb-4">
-            <Building2 className="w-7 h-7 text-blue-500" />
+        <div className="flex flex-col items-center justify-center py-16 text-center card bg-white">
+          <div className="w-14 h-14 bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center mb-3">
+            <Building2 className="w-6 h-6 text-slate-600" />
           </div>
-          <h3 className="text-lg font-semibold text-slate-800 mb-1">No University Selected</h3>
-          <p className="text-sm text-slate-500 max-w-sm">
-            Use the search bar above to select a university and explore its comprehensive data analytics.
+          <h3 className="text-base font-bold text-slate-900 mb-1">Select a Campus to View Report Card</h3>
+          <p className="text-xs text-slate-500 max-w-sm">
+            Search above for any Indian university e.g., IIT Delhi, BITS Pilani, or Amity University to inspect performance metrics.
           </p>
         </div>
       )}
@@ -107,10 +130,11 @@ export default function DashboardPage() {
   return (
     <Suspense fallback={
       <div className="flex items-center justify-center py-20">
-        <div className="w-10 h-10 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
+        <div className="w-9 h-9 border-3 border-blue-600 border-t-transparent rounded-full animate-spin" />
       </div>
     }>
       <DashboardContent />
     </Suspense>
   );
 }
+

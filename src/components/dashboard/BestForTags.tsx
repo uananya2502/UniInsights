@@ -1,33 +1,28 @@
-import { Award } from 'lucide-react';
+import { Award, CheckCircle2 } from 'lucide-react';
 
 interface BestForTagsProps {
   tags: string[];
   universityName: string;
 }
 
-export function BestForTags({ tags, universityName }: BestForTagsProps) {
-  const tagColors = [
-    'bg-blue-50 text-blue-700 border-blue-200',
-    'bg-emerald-50 text-emerald-700 border-emerald-200',
-    'bg-purple-50 text-purple-700 border-purple-200',
-    'bg-amber-50 text-amber-700 border-amber-200',
-    'bg-teal-50 text-teal-700 border-teal-200',
-    'bg-indigo-50 text-indigo-700 border-indigo-200',
-  ];
-
+export function BestForTags({ tags }: BestForTagsProps) {
   return (
     <div className="card animate-slide-up">
-      <div className="card-header flex items-center gap-2">
-        <Award className="w-4 h-4 text-amber-500" />
-        <h3 className="card-title">Best For</h3>
+      <div className="card-header flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <Award className="w-4 h-4 text-blue-600" />
+          <h3 className="card-title">Key Highlights & Strengths</h3>
+        </div>
+        <span className="text-[11px] font-semibold text-slate-500">{tags.length} Accredited Highlights</span>
       </div>
       <div className="card-content">
         <div className="flex flex-wrap gap-2">
-          {tags.map((tag, i) => (
+          {tags.map((tag) => (
             <span
               key={tag}
-              className={`inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium border transition-transform hover:scale-105 cursor-default ${tagColors[i % tagColors.length]}`}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold bg-slate-50 text-slate-800 border border-slate-200 hover:border-blue-300 hover:bg-blue-50/50 hover:text-blue-700 transition-colors cursor-default"
             >
+              <CheckCircle2 className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
               Best for {tag}
             </span>
           ))}
@@ -36,3 +31,4 @@ export function BestForTags({ tags, universityName }: BestForTagsProps) {
     </div>
   );
 }
+

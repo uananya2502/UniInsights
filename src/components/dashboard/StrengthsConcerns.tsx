@@ -13,8 +13,8 @@ export function StrengthsConcerns({ data }: StrengthsConcernsProps) {
     { label: 'Infrastructure', score: data.categoryScores.infrastructure },
     { label: 'Placement', score: data.categoryScores.placement },
     { label: 'Student Experience', score: data.categoryScores.studentExperience },
-    { label: 'Hostel', score: data.categoryScores.hostel },
-    { label: 'Fees Structure', score: data.categoryScores.fees },
+    { label: 'Hostel Quality', score: data.categoryScores.hostel },
+    { label: 'Fee Value', score: data.categoryScores.fees },
   ];
 
   const sorted = [...metrics].sort((a, b) => b.score - a.score);
@@ -26,18 +26,21 @@ export function StrengthsConcerns({ data }: StrengthsConcernsProps) {
       <div className="card-header">
         <h3 className="card-title">Strengths vs Concerns</h3>
       </div>
-      <div className="card-content space-y-6">
+      <div className="card-content space-y-5">
         {/* Strengths */}
         <div>
-          <h4 className="text-xs font-semibold text-emerald-600 uppercase tracking-wider mb-3">Notable Strengths</h4>
-          <div className="space-y-2.5">
+          <h4 className="text-xs font-bold text-emerald-800 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-600" />
+            Top Institutional Strengths
+          </h4>
+          <div className="space-y-2">
             {strengths.map(s => (
-              <div key={s.label} className="flex items-center gap-3 p-2.5 rounded-lg bg-emerald-50/50 border border-emerald-100">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <span className="text-sm font-medium text-slate-800">{s.label}</span>
+              <div key={s.label} className="flex items-center justify-between p-2.5 rounded bg-emerald-50/60 border border-emerald-100/80 text-xs">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+                  <span className="font-semibold text-slate-800">{s.label}</span>
                 </div>
-                <span className="text-sm font-bold text-emerald-600">{s.score.toFixed(1)}</span>
+                <span className="font-bold text-emerald-700 bg-white px-2 py-0.5 rounded border border-emerald-200">{s.score.toFixed(1)} / 10</span>
               </div>
             ))}
           </div>
@@ -45,18 +48,21 @@ export function StrengthsConcerns({ data }: StrengthsConcernsProps) {
 
         {/* Concerns */}
         <div>
-          <h4 className="text-xs font-semibold text-amber-600 uppercase tracking-wider mb-3">Areas of Concern</h4>
-          <div className="space-y-2.5">
+          <h4 className="text-xs font-bold text-amber-800 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
+            Improvement Areas
+          </h4>
+          <div className="space-y-2">
             {concerns.length > 0 ? concerns.map(c => (
-              <div key={c.label} className="flex items-center gap-3 p-2.5 rounded-lg bg-amber-50/50 border border-amber-100">
-                <AlertTriangle className="w-4 h-4 text-amber-500 flex-shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <span className="text-sm font-medium text-slate-800">{c.label}</span>
+              <div key={c.label} className="flex items-center justify-between p-2.5 rounded bg-amber-50/60 border border-amber-100/80 text-xs">
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                  <span className="font-semibold text-slate-800">{c.label}</span>
                 </div>
-                <span className="text-sm font-bold text-amber-600">{c.score.toFixed(1)}</span>
+                <span className="font-bold text-amber-700 bg-white px-2 py-0.5 rounded border border-amber-200">{c.score.toFixed(1)} / 10</span>
               </div>
             )) : (
-              <p className="text-sm text-slate-400 italic p-2.5">No significant concerns identified.</p>
+              <p className="text-xs text-slate-500 italic p-2 rounded bg-slate-50 border border-slate-200">No major operational concerns identified.</p>
             )}
           </div>
         </div>
@@ -64,3 +70,4 @@ export function StrengthsConcerns({ data }: StrengthsConcernsProps) {
     </div>
   );
 }
+

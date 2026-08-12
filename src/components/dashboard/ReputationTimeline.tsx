@@ -1,6 +1,6 @@
 'use client';
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 import { TimelinePoint } from '@/lib/data-parser';
 
 interface ReputationTimelineProps {
@@ -8,60 +8,64 @@ interface ReputationTimelineProps {
   universityName: string;
 }
 
-export function ReputationTimeline({ data, universityName }: ReputationTimelineProps) {
+export function ReputationTimeline({ data }: ReputationTimelineProps) {
   return (
     <div className="card h-full animate-slide-up">
       <div className="card-header flex items-center justify-between">
         <div>
-          <h3 className="card-title">Reputation Timeline</h3>
-          <p className="text-xs text-slate-400 mt-1">Engagement and sentiment trends over time</p>
+          <h3 className="card-title">Reputation & Engagement Timeline</h3>
+          <p className="text-xs text-slate-500 mt-0.5">Historical trend of student discussions and sentiment trajectory</p>
         </div>
-        <div className="flex items-center gap-4 text-xs">
-          <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+        <div className="flex items-center gap-3 text-xs font-semibold">
+          <span className="flex items-center gap-1.5 text-slate-700">
+            <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
             Mentions
           </span>
-          <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-teal-500" />
-            Sentiment
+          <span className="flex items-center gap-1.5 text-slate-700">
+            <span className="w-2.5 h-2.5 rounded-full bg-teal-600" />
+            Sentiment Score
           </span>
         </div>
       </div>
       <div className="card-content">
         <div className="h-[280px]">
           <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={data} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
+            <AreaChart data={data} margin={{ top: 10, right: 10, left: -15, bottom: 0 }}>
               <defs>
                 <linearGradient id="blueGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#2563eb" stopOpacity={0.15} />
+                  <stop offset="5%" stopColor="#2563eb" stopOpacity={0.12} />
                   <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="tealGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#14b8a6" stopOpacity={0.15} />
-                  <stop offset="95%" stopColor="#14b8a6" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#0d9488" stopOpacity={0.12} />
+                  <stop offset="95%" stopColor="#0d9488" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis
                 dataKey="month"
-                tick={{ fontSize: 11, fill: '#94a3b8' }}
+                tick={{ fontSize: 11, fill: '#64748b', fontWeight: 500 }}
                 tickLine={false}
                 axisLine={{ stroke: '#e2e8f0' }}
                 interval={3}
               />
               <YAxis
-                tick={{ fontSize: 11, fill: '#94a3b8' }}
+                tick={{ fontSize: 11, fill: '#64748b', fontWeight: 500 }}
                 tickLine={false}
                 axisLine={false}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: 'white',
-                  border: '1px solid #e2e8f0',
-                  borderRadius: '8px',
-                  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+                  backgroundColor: '#0f172a',
+                  color: 'white',
+                  border: '1px solid #1e293b',
+                  borderRadius: '6px',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
                   fontSize: '12px',
+                  fontWeight: 500
                 }}
+                itemStyle={{ color: '#f8fafc' }}
+                labelStyle={{ color: '#94a3b8', fontWeight: 600, marginBottom: '4px' }}
               />
               <Area
                 type="monotone"
@@ -70,16 +74,16 @@ export function ReputationTimeline({ data, universityName }: ReputationTimelineP
                 strokeWidth={2}
                 fill="url(#blueGrad)"
                 dot={false}
-                activeDot={{ r: 4, strokeWidth: 2 }}
+                activeDot={{ r: 4, strokeWidth: 2, fill: '#ffffff' }}
               />
               <Area
                 type="monotone"
                 dataKey="sentiment"
-                stroke="#14b8a6"
+                stroke="#0d9488"
                 strokeWidth={2}
                 fill="url(#tealGrad)"
                 dot={false}
-                activeDot={{ r: 4, strokeWidth: 2 }}
+                activeDot={{ r: 4, strokeWidth: 2, fill: '#ffffff' }}
               />
             </AreaChart>
           </ResponsiveContainer>
@@ -88,3 +92,4 @@ export function ReputationTimeline({ data, universityName }: ReputationTimelineP
     </div>
   );
 }
+
