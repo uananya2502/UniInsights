@@ -137,12 +137,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   >
                     <Menu className="w-5 h-5" />
                   </button>
-                  <div className="hidden sm:flex items-center gap-2 text-xs text-slate-500 font-medium">
-                    <Image src="/logo.png" alt="UniInsights Logo" width={22} height={22} className="object-contain" />
-                    <span>Indian Education Analytics Platform</span>
-                  </div>
-
                 </div>
+
 
                 <div className="flex items-center gap-2.5">
                   <span className="text-xs font-semibold text-slate-600 hidden sm:inline">Registered Researcher</span>
