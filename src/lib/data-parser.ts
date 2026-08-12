@@ -185,15 +185,85 @@ export function getUniversityList(): UniversityBasic[] {
 
 
 
+const institutionalOverrides: Record<string, Partial<CategoryScores>> = {
+  'BML Munjal University': {
+    placement: 7.5,
+    academics: 7.8,
+    infrastructure: 8.2,
+    studentExperience: 7.6,
+    hostel: 7.8,
+    fees: 7.0,
+  },
+  'IIT Delhi': {
+    placement: 9.6,
+    academics: 9.8,
+    infrastructure: 9.2,
+    studentExperience: 8.8,
+    hostel: 8.5,
+    fees: 8.2,
+  },
+  'IIT Bombay': {
+    placement: 9.7,
+    academics: 9.8,
+    infrastructure: 9.5,
+    studentExperience: 9.0,
+    hostel: 8.8,
+    fees: 8.0,
+  },
+  'IIT Madras': {
+    placement: 9.6,
+    academics: 9.9,
+    infrastructure: 9.4,
+    studentExperience: 8.9,
+    hostel: 8.6,
+    fees: 8.2,
+  },
+  'BITS Pilani': {
+    placement: 9.4,
+    academics: 9.5,
+    infrastructure: 9.2,
+    studentExperience: 9.0,
+    hostel: 8.8,
+    fees: 7.2,
+  },
+  'VIT Vellore': {
+    placement: 8.2,
+    academics: 8.4,
+    infrastructure: 8.8,
+    studentExperience: 8.0,
+    hostel: 8.2,
+    fees: 7.4,
+  },
+  'SRM Institute of Science and Technology': {
+    placement: 8.0,
+    academics: 8.2,
+    infrastructure: 8.6,
+    studentExperience: 8.1,
+    hostel: 8.0,
+    fees: 7.2,
+  },
+  'Jadavpur University': {
+    placement: 9.5,
+    academics: 9.2,
+    infrastructure: 7.8,
+    studentExperience: 8.2,
+    hostel: 7.5,
+    fees: 9.9,
+  },
+};
+
 function buildUniversityData(name: string, id: string): UniversityData {
+  const override = institutionalOverrides[name] || {};
+
   const scores: CategoryScores = {
-    studentExperience: seededScore(name, 'student', 5.0, 9.8),
-    infrastructure: seededScore(name, 'infra', 4.5, 9.5),
-    academics: seededScore(name, 'acad', 5.5, 9.9),
-    fees: seededScore(name, 'fees', 4.0, 9.0),
-    hostel: seededScore(name, 'hostel', 4.0, 9.2),
-    placement: seededScore(name, 'place', 4.5, 9.7),
+    studentExperience: override.studentExperience ?? seededScore(name, 'student', 6.0, 9.5),
+    infrastructure: override.infrastructure ?? seededScore(name, 'infra', 6.0, 9.5),
+    academics: override.academics ?? seededScore(name, 'acad', 6.0, 9.5),
+    fees: override.fees ?? seededScore(name, 'fees', 6.0, 9.0),
+    hostel: override.hostel ?? seededScore(name, 'hostel', 6.0, 9.0),
+    placement: override.placement ?? seededScore(name, 'place', 6.0, 9.5),
   };
+
 
   const scoreValues = Object.values(scores);
   const overallScore = +(scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length).toFixed(1);
