@@ -7,11 +7,13 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityReportCard } from '@/components/dashboard/UniversityReportCard';
 import { StrengthsConcerns } from '@/components/dashboard/StrengthsConcerns';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
+import { StudentVoice } from '@/components/dashboard/StudentVoice';
 import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import { BestForTags } from '@/components/dashboard/BestForTags';
 import { StatsCards } from '@/components/dashboard/StatsCards';
 import { UniversityData } from '@/lib/data-parser';
 import { Building2, ShieldCheck, Search } from 'lucide-react';
+
 
 
 function DashboardContent() {
@@ -96,16 +98,12 @@ function DashboardContent() {
             </div>
           </div>
 
-<<<<<<< HEAD
-          {/* Trending */}
-          <div className="grid grid-cols-1 gap-6">
-=======
-          {/* Student Voice + Trending */}
+          {/* Institutional Profile + Trending */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <StudentVoice data={data} />
->>>>>>> 6e204a5 (Enhance UniInsights UI/UX, add brand logo, live news feed, and instant advisory Q&A)
             <TrendingDiscussions topics={data.trendingTopics} />
           </div>
+
 
         </div>
       )}

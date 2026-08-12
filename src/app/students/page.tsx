@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
+import { StudentVoice } from '@/components/dashboard/StudentVoice';
 import { UniversityData } from '@/lib/data-parser';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
 import { MessageSquare, Users } from 'lucide-react';
+
 
 export default function StudentsPage() {
   const [selectedUni, setSelectedUni] = useState('IIT Delhi');
@@ -105,12 +107,9 @@ export default function StudentsPage() {
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-=======
-
           {/* Institutional Data Highlights */}
           <StudentVoice data={data} />
->>>>>>> 6e204a5 (Enhance UniInsights UI/UX, add brand logo, live news feed, and instant advisory Q&A)
+
         </div>
 
       )}
