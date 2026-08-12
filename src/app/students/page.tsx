@@ -9,7 +9,8 @@ import { MessageSquare, Users } from 'lucide-react';
 
 
 export default function StudentsPage() {
-  const [selectedUni, setSelectedUni] = useState('IIT Delhi');
+  const [selectedUni, setSelectedUni] = useState('BML Munjal University');
+
   const [data, setData] = useState<UniversityData | null>(null);
   const [loading, setLoading] = useState(false);
 

@@ -7,8 +7,9 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { ArrowLeftRight, BarChart3, Scale } from 'lucide-react';
 
 export default function ComparePage() {
-  const [uniA, setUniA] = useState<string>('IIT Delhi');
-  const [uniB, setUniB] = useState<string>('IIT Bombay');
+  const [uniA, setUniA] = useState<string>('BML Munjal University');
+  const [uniB, setUniB] = useState<string>('IIT Delhi');
+
   const [dataA, setDataA] = useState<UniversityData | null>(null);
   const [dataB, setDataB] = useState<UniversityData | null>(null);
   const [loading, setLoading] = useState(false);
@@ -163,7 +164,7 @@ export default function ComparePage() {
                           <td className={`text-center py-3 px-4 font-bold ${winner === 'B' ? 'text-emerald-700 bg-emerald-50/40' : 'text-slate-600'}`}>{scoreB.toFixed(1)} / 10</td>
                           <td className="text-center py-3 px-4">
                             <span className={`badge text-[10px] ${winner === 'A' ? 'badge-blue' : winner === 'B' ? 'badge-emerald' : 'bg-slate-100 text-slate-600 border-slate-200'}`}>
-                              {winner === 'A' ? dataA.name.split(' ')[0] : winner === 'B' ? dataB.name.split(' ')[0] : 'Tie'}
+                              {winner === 'A' ? dataA.name : winner === 'B' ? dataB.name : 'Tie'}
                             </span>
                           </td>
                         </tr>
@@ -175,10 +176,11 @@ export default function ComparePage() {
                       <td className="text-center py-3 px-4 text-emerald-400 text-sm font-extrabold">{dataB.overallScore.toFixed(1)}</td>
                       <td className="text-center py-3 px-4">
                         <span className={`badge text-[10px] ${dataA.overallScore > dataB.overallScore ? 'badge-blue' : 'badge-emerald'}`}>
-                          {dataA.overallScore > dataB.overallScore ? dataA.name.split(' ')[0] : dataB.name.split(' ')[0]} Overall
+                          {dataA.overallScore > dataB.overallScore ? dataA.name : dataB.name}
                         </span>
                       </td>
                     </tr>
+
                   </tbody>
                 </table>
               </div>

@@ -43,9 +43,17 @@ export function UniversitySearch({ onSelect, selected, placeholder, compact }: U
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const filtered = query === ''
+  const cleanQuery = query.trim().toLowerCase();
+  const isDefaultSelectedQuery = Boolean(selected && query === selected);
+
+  const filtered = (cleanQuery === '' || isDefaultSelectedQuery)
     ? universities.slice(0, 8)
-    : universities.filter(u => u.name.toLowerCase().includes(query.toLowerCase())).slice(0, 8);
+    : universities
+        .filter(u => {
+          const name = u.name.toLowerCase();
+          return name.includes(cleanQuery) || name.split(' ').some(w => w.startsWith(cleanQuery));
+        })
+        .slice(0, 8);
 
   return (
     <div ref={wrapperRef} className={`relative ${compact ? 'w-full' : 'w-full max-w-md'}`}>
@@ -54,11 +62,15 @@ export function UniversitySearch({ onSelect, selected, placeholder, compact }: U
         <input
           type="text"
           className={`w-full pl-9 pr-8 border border-slate-200 rounded-md bg-white placeholder-slate-400 text-slate-900 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition-all text-sm font-medium ${compact ? 'py-1.5' : 'py-2'}`}
-          placeholder={placeholder || 'Search universities e.g. IIT Delhi, BITS...'}
+          placeholder={placeholder || 'Search universities e.g. BML Munjal, IIT Delhi...'}
           value={query}
           onChange={(e) => { setQuery(e.target.value); setIsOpen(true); }}
-          onFocus={() => setIsOpen(true)}
+          onFocus={(e) => {
+            setIsOpen(true);
+            e.target.select();
+          }}
         />
+
         {query && (
           <button
             className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-0.5"

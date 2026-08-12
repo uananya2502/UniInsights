@@ -113,6 +113,37 @@ export function getUniversityList(): UniversityBasic[] {
 
   const uniqueNames = new Set<string>();
 
+  const defaultUniversities = [
+    'BML Munjal University',
+    'IIT Delhi',
+    'IIT Bombay',
+    'IIT Madras',
+    'IIT Kharagpur',
+    'IIT Roorkee',
+    'IIT Guwahati',
+    'IIIT Delhi',
+    'BITS Pilani',
+    'VIT Vellore',
+    'SRM Institute of Science and Technology',
+    'Amity University',
+    'Anna University',
+    'Aligarh Muslim University',
+    'Ashoka University',
+    'Ahmedabad University',
+    'Alliance University',
+    'Annamalai University',
+    'Amrita Vishwa Vidyapeetham',
+    'Manipal Academy of Higher Education',
+    'Thapar Institute of Engineering and Technology',
+    'Jadavpur University',
+    'Chandigarh University',
+    'Lovely Professional University',
+    'University of Delhi',
+    'Jawaharlal Nehru University',
+    'Banaras Hindu University',
+  ];
+  defaultUniversities.forEach(name => uniqueNames.add(name));
+
   for (const cat of categories) {
     try {
       const data = parseCSV<Record<string, string>>(path.join(/*turbopackIgnore: true*/ basePath, cat.file));
@@ -131,6 +162,7 @@ export function getUniversityList(): UniversityBasic[] {
 
   return universityListCache;
 }
+
 
 
 

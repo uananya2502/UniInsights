@@ -19,7 +19,8 @@ import { Building2, ShieldCheck, Search } from 'lucide-react';
 function DashboardContent() {
   const searchParams = useSearchParams();
   const initialUni = searchParams.get('university') || '';
-  const [selectedUni, setSelectedUni] = useState<string>(initialUni || 'IIT Delhi');
+  const [selectedUni, setSelectedUni] = useState<string>(initialUni || 'BML Munjal University');
+
   const [data, setData] = useState<UniversityData | null>(null);
   const [loading, setLoading] = useState(false);
 

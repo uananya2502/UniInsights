@@ -10,7 +10,86 @@ interface Message {
   timestamp: Date;
 }
 
+function FormattedMessage({ content, isUser }: { content: string; isUser: boolean }) {
+  if (isUser) {
+    return <div className="whitespace-pre-wrap font-sans">{content}</div>;
+  }
+
+  const lines = content.split('\n');
+
+  const formatBold = (text: string) => {
+    const parts = text.split(/(\*\*.*?\*\*)/g);
+    return parts.map((part, i) => {
+      if (part.startsWith('**') && part.endsWith('**')) {
+        return (
+          <strong key={i} className="font-bold text-slate-900">
+            {part.slice(2, -2)}
+          </strong>
+        );
+      }
+      return part;
+    });
+  };
+
+  return (
+    <div className="space-y-1.5 font-sans leading-relaxed text-xs">
+      {lines.map((line, idx) => {
+        const trimmed = line.trim();
+        if (!trimmed) return <div key={idx} className="h-0.5" />;
+
+        if (trimmed.startsWith('### ')) {
+          return (
+            <h4 key={idx} className="text-xs font-extrabold text-slate-900 mt-2 mb-1 border-b border-slate-100 pb-1">
+              {formatBold(trimmed.replace(/^###\s+/, ''))}
+            </h4>
+          );
+        }
+        if (trimmed.startsWith('## ')) {
+          return (
+            <h3 key={idx} className="text-sm font-extrabold text-slate-900 mt-2 mb-1">
+              {formatBold(trimmed.replace(/^##\s+/, ''))}
+            </h3>
+          );
+        }
+        if (trimmed.startsWith('# ')) {
+          return (
+            <h2 key={idx} className="text-sm font-black text-slate-900 mt-2 mb-1">
+              {formatBold(trimmed.replace(/^#\s+/, ''))}
+            </h2>
+          );
+        }
+        if (/^\d+\.\s+/.test(trimmed)) {
+          const match = trimmed.match(/^(\d+\.\s+)(.*)/);
+          const num = match ? match[1] : '';
+          const rest = match ? match[2] : trimmed;
+          return (
+            <div key={idx} className="flex items-start gap-1.5 pl-1 my-0.5">
+              <span className="font-bold text-blue-600 flex-shrink-0">{num}</span>
+              <span>{formatBold(rest)}</span>
+            </div>
+          );
+        }
+        if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+          return (
+            <div key={idx} className="flex items-start gap-2 pl-2 my-0.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
+              <span>{formatBold(trimmed.replace(/^[-*]\s+/, ''))}</span>
+            </div>
+          );
+        }
+
+        return (
+          <p key={idx} className="text-slate-800">
+            {formatBold(line)}
+          </p>
+        );
+      })}
+    </div>
+  );
+}
+
 export default function ChatPage() {
+
   const [messages, setMessages] = useState<Message[]>([
     {
       id: 'welcome',
@@ -112,13 +191,14 @@ export default function ChatPage() {
                 ? 'bg-slate-900 text-white font-medium'
                 : 'bg-white border border-slate-200 text-slate-800 shadow-2xs'
             }`}>
-              <div className="whitespace-pre-wrap font-sans space-y-1">{msg.content}</div>
+              <FormattedMessage content={msg.content} isUser={msg.role === 'user'} />
               <p className={`text-[10px] font-medium mt-2 ${msg.role === 'user' ? 'text-slate-400' : 'text-slate-400'}`}>
                 {msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </p>
             </div>
           </div>
         ))}
+
 
         {isLoading && (
           <div className="flex items-start gap-3 animate-slide-up">
