@@ -89,8 +89,9 @@ function ReputationTimelineContent() {
               </h1>
             </div>
             <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl leading-relaxed">
-              Multi-year trajectory analysis (2020 – 2025) of student sentiment, discussion volume, and institutional milestone events.
+              Discover how student perceptions, placement spikes, and campus reputation evolved over time (2020–2025).
             </p>
+
           </div>
 
           <div className="w-full md:w-80 flex-shrink-0">
