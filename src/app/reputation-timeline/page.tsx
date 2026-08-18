@@ -75,28 +75,30 @@ function ReputationTimelineContent() {
       {/* Hero Header Banner */}
       <div className="relative rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in overflow-visible">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30">
-              <TrendingUp className="w-3.5 h-3.5" />
-              Longitudinal Analytics Module
+          <div className="space-y-2">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-1">
+                <TrendingUp className="w-3.5 h-3.5 text-blue-400" />
+                Longitudinal Analytics Module
+              </span>
             </div>
-            <div className="relative inline-block">
+            <div className="relative">
               <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
                 Reputation Timeline Analytics
                 <DoodleSparkle className="w-4 h-4 text-blue-400 opacity-90 inline-block" />
               </h1>
-              <DoodleUnderline className="absolute -bottom-1 left-0 w-full h-2 text-blue-400/30 pointer-events-none" />
             </div>
-            <p className="text-slate-300 text-sm md:text-base font-medium max-w-2xl">
+            <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl leading-relaxed">
               Multi-year trajectory analysis (2020 – 2025) of student sentiment, discussion volume, and institutional milestone events.
             </p>
           </div>
 
-          <div className="w-full md:w-auto">
+          <div className="w-full md:w-80 flex-shrink-0">
             <UniversitySearch onSelect={setSelectedUni} selected={selectedUni} />
           </div>
         </div>
       </div>
+
 
       {/* Loading Spinner */}
       {loading && (
