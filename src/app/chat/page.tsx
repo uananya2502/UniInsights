@@ -95,7 +95,7 @@ export default function ChatPage() {
     {
       id: 'welcome',
       role: 'assistant',
-      content: 'Hey there! I am your UniInsights Senior AI Advisor 🎓. I analyze 50+ Indian university datasets, NIRF rankings, placement records, and verified senior reviews to give you transparent, honest answers.\n\nWhat campus or degree questions can I help you clear up today?',
+      content: 'Welcome to the UniInsights Senior AI Advisor. I analyze 100+ Indian university datasets, NIRF rankings, placement records, and verified senior reviews to give you transparent, honest answers.\n\nWhat campus or degree questions can I help you clear up today?',
       timestamp: new Date(),
     },
   ]);
@@ -153,32 +153,26 @@ export default function ChatPage() {
 
   const quickPrompts = [
     {
-      icon: '🎯',
       badge: 'Placement ROI',
       text: 'Which engineering colleges offer the highest ROI in India?',
     },
     {
-      icon: '⚔️',
       badge: 'Campus Showdown',
       text: 'Compare IIT Delhi and IIT Bombay computer science placement data.',
     },
     {
-      icon: '🏆',
       badge: 'NIRF 2025 Leaderboard',
       text: 'What are the top management institutes according to NIRF 2025?',
     },
     {
-      icon: '🏠',
       badge: 'Hostel Reality',
       text: 'How do students rate BITS Pilani campus infrastructure and hostels?',
     },
     {
-      icon: '💡',
       badge: 'BML Munjal Insights',
       text: 'What is the real median salary and placement rate for BML Munjal CS?',
     },
     {
-      icon: '📚',
       badge: 'Cutoff Trends',
       text: 'What JEE Advanced rank is typically needed for top IIT computer science?',
     },
@@ -209,11 +203,12 @@ export default function ChatPage() {
             <Zap className="w-4 h-4 text-amber-400 animate-pulse" />
             <div className="text-[11px]">
               <p className="font-extrabold text-white">RAG Search Active</p>
-              <p className="text-slate-400">50+ Campus Datasets Ingested</p>
+              <p className="text-slate-400">100+ Campus Datasets Ingested</p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* Messages Feed */}
       <div className="flex-1 overflow-y-auto space-y-4 pr-1">
@@ -300,7 +295,7 @@ export default function ChatPage() {
                 >
                   <div className="flex items-center justify-between gap-1 mb-2">
                     <span className="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200/80 group-hover:bg-blue-100 group-hover:text-blue-800 group-hover:border-blue-200 transition-colors">
-                      {item.icon} {item.badge}
+                      {item.badge}
                     </span>
                     <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-blue-600 group-hover:translate-x-0.5 transition-all" />
                   </div>
@@ -320,10 +315,10 @@ export default function ChatPage() {
         <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none text-[11px] font-bold text-slate-600">
           <span className="text-slate-400 font-extrabold flex-shrink-0 text-[10px] uppercase tracking-wider">Quick Topics:</span>
           {[
-            { label: '🏆 NIRF Rankings', query: 'List top 10 engineering colleges in NIRF 2025 with placement stats' },
-            { label: '💼 Placements', query: 'Compare BML Munjal and VIT placement packages' },
-            { label: '💰 Fees & ROI', query: 'Which colleges offer lowest fees with high placement ROI?' },
-            { label: '🏠 Hostels', query: 'How are hostels and mess food at BITS Pilani and IIT Delhi?' },
+            { label: 'NIRF Rankings', query: 'List top 10 engineering colleges in NIRF 2025 with placement stats' },
+            { label: 'Placements', query: 'Compare BML Munjal and VIT placement packages' },
+            { label: 'Fees & ROI', query: 'Which colleges offer lowest fees with high placement ROI?' },
+            { label: 'Hostels', query: 'How are hostels and mess food at BITS Pilani and IIT Delhi?' },
           ].map((pill, i) => (
             <button
               key={i}
@@ -334,6 +329,7 @@ export default function ChatPage() {
             </button>
           ))}
         </div>
+
 
         <div className="flex items-center gap-2 bg-white p-1.5 border border-slate-200 rounded-xl shadow-2xs focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 transition-all">
           <input
