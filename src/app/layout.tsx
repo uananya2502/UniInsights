@@ -102,14 +102,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     ANALYTICS VIEWS
                   </p>
                   <Link
-                    href="/dashboard"
-                    className={`sidebar-link ${pathname === '/dashboard' ? 'active' : ''}`}
+                    href="/reputation-timeline"
+                    className={`sidebar-link ${pathname === '/reputation-timeline' ? 'active' : ''}`}
                     onClick={() => setSidebarOpen(false)}
                   >
                     <TrendingUp className="w-4 h-4 mr-3 flex-shrink-0" />
                     Reputation Timeline
                   </Link>
                 </div>
+
               </nav>
             </aside>
 
