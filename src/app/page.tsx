@@ -31,7 +31,7 @@ export default function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-500/30 selection:text-slate-900 font-sans">
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-slate-900/10 selection:text-slate-900 font-sans">
       {/* Top Navbar */}
       <nav className="border-b border-slate-200 bg-white sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -41,13 +41,13 @@ export default function LandingPage() {
             </div>
             <div>
               <span className="font-bold text-lg tracking-tight block text-slate-900">UniInsight</span>
-              <span className="text-[10px] text-slate-500 block -mt-1 font-medium group-hover:text-blue-600 transition-colors">Know Your Campus</span>
+              <span className="text-[10px] text-slate-500 block -mt-1 font-medium group-hover:text-slate-900 transition-colors">Know Your Campus</span>
             </div>
           </Link>
           <div className="flex items-center gap-4">
             <Link href="/dashboard" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">Dashboard</Link>
             <Link href="/compare" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">Compare</Link>
-            <Link href="/dashboard" className="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm">
+            <Link href="/dashboard" className="bg-[#0B1527] hover:bg-[#162238] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm">
               Explore
             </Link>
           </div>
@@ -62,14 +62,14 @@ export default function LandingPage() {
               
               {/* Left Column: Text */}
               <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 mb-6 bg-blue-50 border border-blue-100 px-3 py-1.5 rounded-full text-xs font-semibold text-blue-700">
-                  <ShieldCheck className="w-3.5 h-3.5 text-blue-600" />
+                <div className="inline-flex items-center gap-2 mb-6 bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-800">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#0B1527]" />
                   <span>UniInsights • University Intelligence Platform</span>
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 text-slate-900">
                   Know Your Campus.<br />
-                  <span className="text-blue-600">Choose with Confidence.</span>
+                  <span className="text-[#0B1527]">Choose with Confidence.</span>
                 </h1>
 
                 <p className="text-base md:text-lg text-slate-600 leading-relaxed mb-8 font-normal max-w-xl">
@@ -79,7 +79,7 @@ export default function LandingPage() {
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
                     href="/dashboard"
-                    className="bg-blue-600 hover:bg-blue-500 text-white py-3.5 px-6 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
+                    className="bg-[#0B1527] hover:bg-[#162238] text-white py-3.5 px-6 rounded-xl font-semibold text-sm flex items-center gap-2 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                   >
                     Explore Analytics <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
@@ -101,11 +101,11 @@ export default function LandingPage() {
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                       BML Munjal University
-                      <span className="text-[10px] font-bold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full uppercase tracking-wider">Verified</span>
+                      <span className="text-[10px] font-bold bg-slate-100 text-slate-800 px-2 py-0.5 rounded-full uppercase tracking-wider border border-slate-200">Verified</span>
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">Comprehensive Performance Metrics Breakdown</p>
                   </div>
-                  <div className="flex flex-col items-center justify-center w-14 h-14 rounded-full border-4 border-blue-600 text-center">
+                  <div className="flex flex-col items-center justify-center w-14 h-14 rounded-full border-4 border-[#0B1527] text-center">
                     <span className="text-lg font-black text-slate-900 leading-none">7.6</span>
                   </div>
                 </div>
@@ -129,7 +129,7 @@ export default function LandingPage() {
                 {/* Mock Category Grid */}
                 <div className="grid grid-cols-2 gap-3">
                   {[
-                    { label: 'Academics', score: 7.8, color: 'bg-blue-600' },
+                    { label: 'Academics', score: 7.8, color: 'bg-[#0B1527]' },
                     { label: 'Placement', score: 7.5, color: 'bg-emerald-600' },
                     { label: 'Infrastructure', score: 8.2, color: 'bg-indigo-600' },
                     { label: 'Experience', score: 7.6, color: 'bg-purple-600' },
@@ -172,13 +172,13 @@ export default function LandingPage() {
                 { step: '02', title: 'Analyze', icon: BrainCircuit, desc: 'Clean, organize and analyze large amounts of unstructured university data.' },
                 { step: '03', title: 'Understand', icon: Lightbulb, desc: 'Identify sentiment, engagement, reputation and important university trends.' },
                 { step: '04', title: 'Decide', icon: CheckCircle2, desc: 'Turn the analysis into clear scores, comparisons and useful insights.' }
-              ].map((item, idx) => (
+              ].map((item) => (
                 <div key={item.step} className="bg-slate-50 border border-slate-200 p-6 rounded-2xl relative group hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 group-hover:border-blue-300 transition-colors">
-                      <item.icon className="w-6 h-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center border border-slate-200 group-hover:border-slate-400 transition-colors">
+                      <item.icon className="w-6 h-6 text-[#0B1527]" />
                     </div>
-                    <span className="text-5xl font-black text-slate-200 group-hover:text-blue-100 transition-colors select-none">{item.step}</span>
+                    <span className="text-5xl font-black text-slate-200 group-hover:text-slate-300 transition-colors select-none">{item.step}</span>
                   </div>
                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
                   <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
@@ -200,7 +200,7 @@ export default function LandingPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { title: 'Academics', icon: BookOpen, score: '7.8', desc: 'Understand academic quality and learning experiences.', color: 'text-blue-600', bg: 'bg-blue-50 border border-blue-100' },
+                { title: 'Academics', icon: BookOpen, score: '7.8', desc: 'Understand academic quality and learning experiences.', color: 'text-[#0B1527]', bg: 'bg-slate-100 border border-slate-200' },
                 { title: 'Placement', icon: Briefcase, score: '7.5', desc: 'Explore placement discussions and student experiences.', color: 'text-emerald-600', bg: 'bg-emerald-50 border border-emerald-100' },
                 { title: 'Infrastructure', icon: Building2, score: '8.2', desc: 'Understand campus facilities and infrastructure.', color: 'text-indigo-600', bg: 'bg-indigo-50 border border-indigo-100' },
                 { title: 'Student Experience', icon: UserCheck, score: '7.6', desc: 'Explore what students are saying about campus life.', color: 'text-purple-600', bg: 'bg-purple-50 border border-purple-100' },
@@ -254,7 +254,7 @@ export default function LandingPage() {
 
               <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 shadow-md">
                 <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                  <Users className="w-5 h-5 text-blue-600" />
+                  <Users className="w-5 h-5 text-[#0B1527]" />
                   Aggregate Sentiment Analysis
                 </h3>
                 
@@ -334,7 +334,7 @@ export default function LandingPage() {
                 </p>
                 <Link
                   href="/compare"
-                  className="bg-slate-900 hover:bg-slate-800 text-white py-3 px-6 rounded-xl font-bold text-sm inline-flex items-center gap-2 transition-all shadow-sm"
+                  className="bg-[#0B1527] hover:bg-[#162238] text-white py-3 px-6 rounded-xl font-bold text-sm inline-flex items-center gap-2 transition-all shadow-sm"
                 >
                   Compare Universities <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
@@ -350,7 +350,7 @@ export default function LandingPage() {
                     <thead className="bg-slate-50">
                       <tr>
                         <th className="px-6 py-3 font-semibold text-slate-600 uppercase text-xs">Category</th>
-                        <th className="px-6 py-3 font-bold text-blue-600">BMU</th>
+                        <th className="px-6 py-3 font-bold text-[#0B1527]">BMU</th>
                         <th className="px-6 py-3 font-bold text-emerald-600">VIT</th>
                         <th className="px-6 py-3 font-bold text-indigo-600">Manipal</th>
                       </tr>
@@ -388,7 +388,7 @@ export default function LandingPage() {
             </p>
             <Link
               href="/dashboard"
-              className="bg-blue-600 hover:bg-blue-500 text-white py-4 px-8 rounded-xl font-bold text-base inline-flex items-center gap-2 transition-all shadow-md shadow-blue-500/20 hover:-translate-y-1"
+              className="bg-[#0B1527] hover:bg-[#162238] text-white py-4 px-8 rounded-xl font-bold text-base inline-flex items-center gap-2 transition-all shadow-md shadow-slate-900/20 hover:-translate-y-1"
             >
               Explore UniInsights <ArrowRight className="w-5 h-5 ml-1" />
             </Link>
@@ -413,3 +413,4 @@ export default function LandingPage() {
     </div>
   );
 }
+

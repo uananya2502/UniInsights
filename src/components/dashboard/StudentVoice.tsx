@@ -2,6 +2,7 @@
 
 import { Award, Briefcase, Building, GraduationCap, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { UniversityData } from '@/lib/data-parser';
+import { DoodleSparkle } from '@/components/ui/Doodles';
 
 interface StudentVoiceProps {
   data?: UniversityData | null;
@@ -59,7 +60,7 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     {
       title: 'Placements & Packages',
       icon: Briefcase,
-      color: 'bg-emerald-50 text-emerald-700 border-emerald-100',
+      color: 'bg-emerald-50 text-emerald-700 border-emerald-200/80',
       stats: avgPackage,
       detail: placementDetail,
       tags: topRecruiters,
@@ -67,7 +68,7 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     {
       title: 'NAAC Accreditation & NIRF Benchmark',
       icon: Award,
-      color: 'bg-blue-50 text-blue-700 border-blue-100',
+      color: 'bg-blue-50 text-blue-700 border-blue-200/80',
       stats: naacGrade,
       detail: `${nirfTier} - Evaluated across Teaching, Research Output, and Student Outcomes.`,
       tags: [nirfTier, 'NBA Accredited', 'UGC Recognized'],
@@ -75,7 +76,7 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     {
       title: 'Campus Facilities & Infrastructure',
       icon: Building,
-      color: 'bg-indigo-50 text-indigo-700 border-indigo-100',
+      color: 'bg-indigo-50 text-indigo-700 border-indigo-200/80',
       stats: campusAcres,
       detail: `Infrastructure Score: ${infraScore.toFixed(1)}/10. Equipped with 24/7 central library, research hubs, and hostel facilities.`,
       tags: bestForTags.length > 0 ? bestForTags.slice(0, 3) : ['Hi-Tech Labs', 'Hostel Facilities', 'Sports Complex'],
@@ -83,7 +84,7 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     {
       title: 'Faculty & Academic Quality',
       icon: GraduationCap,
-      color: 'bg-purple-50 text-purple-700 border-purple-100',
+      color: 'bg-purple-50 text-purple-700 border-purple-200/80',
       stats: facultyRatio,
       detail: `Academic Score: ${academicsScore.toFixed(1)}/10. Key strengths include ${strengths.slice(0, 2).join(' & ')}.`,
       tags: ['PhD Faculty', 'Research Grants', 'Industry Collaborations'],
@@ -94,10 +95,13 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     <div className="card animate-slide-up">
       <div className="card-header flex items-center justify-between">
         <div>
-          <h3 className="card-title">Institutional Data Profile: {name}</h3>
-          <p className="text-xs text-slate-500 mt-0.5">Verified accreditation, placement benchmarks & campus highlights</p>
+          <div className="flex items-center gap-1.5">
+            <h3 className="card-title text-slate-900">Institutional Data Profile: {name}</h3>
+            <DoodleSparkle className="w-3.5 h-3.5 text-blue-500/70" />
+          </div>
+          <p className="text-xs text-slate-500 mt-0.5 font-medium">Verified accreditation, placement benchmarks & campus highlights</p>
         </div>
-        <span className="badge badge-blue flex items-center gap-1">
+        <span className="badge badge-blue flex items-center gap-1 font-bold">
           <ShieldCheck className="w-3.5 h-3.5" />
           {name} Data
         </span>
@@ -109,11 +113,11 @@ export function StudentVoice({ data }: StudentVoiceProps) {
             return (
               <div
                 key={item.title}
-                className="p-3.5 rounded-md border border-slate-200/80 bg-white hover:border-slate-300 transition-colors"
+                className="p-3.5 rounded-lg border border-slate-200/80 bg-white hover:border-slate-300 hover:shadow-2xs transition-all"
               >
                 <div className="flex items-center justify-between mb-1.5">
                   <div className="flex items-center gap-2">
-                    <div className={`w-7 h-7 rounded border ${item.color} flex items-center justify-center`}>
+                    <div className={`w-7 h-7 rounded-md border ${item.color} flex items-center justify-center shadow-2xs`}>
                       <Icon className="w-3.5 h-3.5" />
                     </div>
                     <span className="text-xs font-bold text-slate-900">{item.title}</span>
@@ -127,7 +131,7 @@ export function StudentVoice({ data }: StudentVoiceProps) {
                 </p>
                 <div className="flex flex-wrap gap-1.5 pt-1.5 border-t border-slate-100">
                   {item.tags.map((tag) => (
-                    <span key={tag} className="inline-flex items-center gap-1 text-[10px] font-semibold text-slate-700 bg-slate-50 px-2 py-0.5 rounded border border-slate-200">
+                    <span key={tag} className="inline-flex items-center gap-1 text-[10px] font-bold text-slate-700 bg-slate-50 px-2 py-0.5 rounded border border-slate-200">
                       <CheckCircle2 className="w-3 h-3 text-blue-600" />
                       {tag}
                     </span>
@@ -141,6 +145,7 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     </div>
   );
 }
+
 
 
 

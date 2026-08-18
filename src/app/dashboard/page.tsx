@@ -11,7 +11,9 @@ import { StudentVoice } from '@/components/dashboard/StudentVoice';
 import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import { BestForTags } from '@/components/dashboard/BestForTags';
 import { StatsCards } from '@/components/dashboard/StatsCards';
+import { DoodleSparkle } from '@/components/ui/Doodles';
 import { UniversityData } from '@/lib/data-parser';
+
 import { Building2, ShieldCheck, Search } from 'lucide-react';
 
 
@@ -41,13 +43,15 @@ function DashboardContent() {
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-[1400px] mx-auto overflow-y-auto">
       {/* Splash Hero Banner */}
-      <div className="relative rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in">
+      <div className="relative rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in overflow-visible">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-
           <div className="space-y-1">
-            <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white">
-              UniInsights
-            </h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
+                UniInsights
+                <DoodleSparkle className="w-4 h-4 text-blue-400 opacity-90 inline-block" />
+              </h1>
+            </div>
             <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl">
               Know Your Campus. Choose with Confidence.
             </p>
@@ -58,6 +62,7 @@ function DashboardContent() {
           </div>
         </div>
       </div>
+
 
       {/* Loading State */}
       {loading && (

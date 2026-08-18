@@ -2,6 +2,7 @@
 
 import { TrendingUp, TrendingDown, Minus } from 'lucide-react';
 import { TopicData } from '@/lib/data-parser';
+import { DoodleSparkle } from '@/components/ui/Doodles';
 
 interface TrendingDiscussionsProps {
   topics: TopicData[];
@@ -23,9 +24,14 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
 
   return (
     <div className="card animate-slide-up h-full">
-      <div className="card-header">
-        <h3 className="card-title">Trending Discussion Keywords</h3>
-        <p className="text-xs text-slate-500 mt-0.5">Most discussed topics across student forums & reviews</p>
+      <div className="card-header flex items-center justify-between">
+        <div>
+          <div className="flex items-center gap-1.5">
+            <h3 className="card-title text-slate-900">Trending Discussion Keywords</h3>
+            <DoodleSparkle className="w-3.5 h-3.5 text-blue-500/70" />
+          </div>
+          <p className="text-xs text-slate-500 mt-0.5 font-medium">Most discussed topics across student forums & reviews</p>
+        </div>
       </div>
       <div className="card-content">
         <div className="space-y-3.5">
@@ -36,10 +42,10 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
               </span>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-semibold text-slate-800">{topic.keyword}</span>
+                  <span className="text-xs font-bold text-slate-800">{topic.keyword}</span>
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-medium text-slate-500">{topic.count} Mentions</span>
-                    <span className={`badge ${trendLabel[topic.trend]} text-[10px] capitalize flex items-center gap-1`}>
+                    <span className="text-[11px] font-semibold text-slate-500">{topic.count} Mentions</span>
+                    <span className={`badge ${trendLabel[topic.trend]} text-[10px] font-bold capitalize flex items-center gap-1`}>
                       {trendIcon[topic.trend]}
                       {topic.trend}
                     </span>
@@ -59,4 +65,5 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
     </div>
   );
 }
+
 
