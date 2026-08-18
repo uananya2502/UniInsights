@@ -179,57 +179,63 @@ export function NewsFeed() {
         </div>
       ) : (
         <div className="space-y-4">
-          {/* Featured Breaking News Hero Card */}
+          {/* Featured Breaking News Hero Card (Minimal Accent) */}
           {featuredArticle && activeCategory === 'All News' && searchQuery === '' && (
             <a
               href={featuredArticle.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block group card p-5 md:p-6 border-l-4 border-l-blue-600 hover:border-blue-500 hover:shadow-md transition-all cursor-pointer relative overflow-hidden bg-slate-900 text-white"
+              className="block group card p-4 md:p-5 border border-blue-200/90 border-l-4 border-l-blue-600 bg-blue-50/30 hover:bg-white hover:border-blue-400 hover:shadow-xs transition-all cursor-pointer relative rounded-lg"
             >
-              <div className="flex items-center justify-between gap-2 mb-3">
-                <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1 bg-blue-500/20 text-blue-300 border border-blue-400/30 text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded-full tracking-wider">
-                    <Sparkles className="w-3 h-3 text-blue-400" />
-                    Featured Spotlight
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="inline-flex items-center gap-1 bg-blue-100/80 text-blue-800 border border-blue-200 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">
+                    <Sparkles className="w-3 h-3 text-blue-600" />
+                    Top Story
                   </span>
-                  <span className="text-[11px] font-semibold text-slate-300 flex items-center gap-1">
+                  <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded border ${getPublisherBadge(featuredArticle.source)}`}>
+                    {featuredArticle.source}
+                  </span>
+                  <span className="text-[11px] font-semibold text-slate-500 flex items-center gap-1">
                     <Clock className="w-3 h-3 text-slate-400" />
                     {getRelativeDate(featuredArticle.date)}
                   </span>
                 </div>
+
                 <button
                   onClick={(e) => toggleBookmark(featuredArticle.id, e)}
-                  className="p-1.5 rounded-md bg-white/10 hover:bg-white/20 text-white transition-colors"
+                  className="p-1 rounded text-slate-400 hover:text-amber-500 transition-colors flex-shrink-0"
                   title="Bookmark story"
                 >
                   {savedIds.includes(featuredArticle.id) ? (
-                    <BookmarkCheck className="w-4 h-4 text-amber-400 fill-amber-400" />
+                    <BookmarkCheck className="w-4 h-4 text-amber-500 fill-amber-500" />
                   ) : (
-                    <Bookmark className="w-4 h-4 text-slate-300" />
+                    <Bookmark className="w-4 h-4" />
                   )}
                 </button>
               </div>
 
-              <h3 className="text-base md:text-lg font-extrabold text-white group-hover:text-blue-300 transition-colors mb-2 leading-snug">
+              <h3 className="text-sm md:text-base font-extrabold text-slate-900 group-hover:text-blue-600 transition-colors mb-1.5 leading-snug">
                 {featuredArticle.title}
               </h3>
 
-              <p className="text-xs md:text-sm text-slate-300 leading-relaxed mb-4 line-clamp-2">
+              <p className="text-xs text-slate-600 leading-relaxed mb-3 line-clamp-2">
                 {featuredArticle.excerpt}
               </p>
 
-              <div className="flex items-center justify-between pt-3 border-t border-slate-800">
-                <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded border ${getPublisherBadge(featuredArticle.source)}`}>
-                  {featuredArticle.source}
+              <div className="flex items-center justify-between pt-2 border-t border-blue-100/60">
+                <span className="text-[10px] font-bold text-slate-500 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                  Primary National Coverage
                 </span>
-                <span className="inline-flex items-center gap-1 text-xs font-bold text-blue-400 group-hover:underline">
-                  Read Full Coverage
+                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 group-hover:underline">
+                  Read Full Story
                   <ExternalLink className="w-3.5 h-3.5" />
                 </span>
               </div>
             </a>
           )}
+
 
           {/* Interactive Articles Grid / List */}
           <div className="space-y-3">
