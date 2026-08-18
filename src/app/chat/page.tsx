@@ -189,9 +189,8 @@ export default function ChatPage() {
               Senior Council AI • Active 24/7
             </div>
             <div className="relative">
-              <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white flex items-center gap-2">
+              <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
                 Ask Seniors & AI Campus Advisor
-                <DoodleSparkle className="w-4 h-4 text-amber-400 opacity-90 inline-block" />
               </h1>
             </div>
             <p className="text-slate-300 text-xs md:text-sm font-medium max-w-xl leading-relaxed">
@@ -274,17 +273,17 @@ export default function ChatPage() {
 
         <div ref={messagesEndRef} />
 
-        {/* Creative Doodly Recommended Queries */}
+        {/* Recommended Queries */}
         {messages.length <= 1 && (
           <div className="pt-4 space-y-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-1.5">
                 <HelpCircle className="w-4 h-4 text-blue-600" />
                 <span className="text-xs font-extrabold text-slate-900">Recommended Student Queries</span>
-                <DoodleSparkle className="w-3.5 h-3.5 text-amber-500" />
               </div>
               <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Click to Ask</span>
             </div>
+
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
               {quickPrompts.map((item, idx) => (
