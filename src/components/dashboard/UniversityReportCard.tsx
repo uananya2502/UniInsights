@@ -54,7 +54,7 @@ const categoryConfig = [
   { key: 'fees', label: 'Fees', icon: DollarSign, bg: 'bg-teal-50/80 border-teal-200/80', iconColor: 'text-teal-700', barColor: 'bg-teal-600' },
 ];
 
-import { getCampusImageUrl } from '@/lib/campus-images';
+import { getCampusImageUrl, DEFAULT_CAMPUS_IMAGE } from '@/lib/campus-images';
 
 export function UniversityReportCard({ data }: ReportCardProps) {
   const campusImg = getCampusImageUrl(data.name);
@@ -66,11 +66,17 @@ export function UniversityReportCard({ data }: ReportCardProps) {
         <div className="flex items-center gap-4">
           {/* Dedicated Campus Photo Thumbnail Card */}
           <div className="w-28 h-20 sm:w-32 sm:h-20 md:w-36 md:h-22 rounded-xl border border-slate-200/90 overflow-hidden flex-shrink-0 shadow-2xs relative bg-slate-100 group">
-            <div 
-              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-              style={{ backgroundImage: `url(${campusImg})` }}
+            <img 
+              src={campusImg}
+              alt={`${data.name} Campus`}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = DEFAULT_CAMPUS_IMAGE;
+              }}
             />
           </div>
+
+
 
           <div>
             <div className="flex items-center gap-2 flex-wrap">
