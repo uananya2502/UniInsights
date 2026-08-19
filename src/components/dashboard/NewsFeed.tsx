@@ -14,6 +14,8 @@ export function NewsFeed() {
   const [activeCategory, setActiveCategory] = useState('All News');
   const [searchQuery, setSearchQuery] = useState('');
   const [savedIds, setSavedIds] = useState<string[]>([]);
+  const [lastRefreshedAt, setLastRefreshedAt] = useState<string>('Just now');
+  const [showToast, setShowToast] = useState(false);
 
   const loadNews = async (isManual = false) => {
     if (isManual) setRefreshing(true);
@@ -30,6 +32,11 @@ export function NewsFeed() {
       if (Array.isArray(data)) {
         setArticles(data);
       }
+      setLastRefreshedAt(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' }));
+      if (isManual) {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3500);
+      }
     } catch {
       // Keep existing articles if fetch fails
     } finally {
@@ -38,10 +45,10 @@ export function NewsFeed() {
     }
   };
 
-
   useEffect(() => {
     loadNews();
   }, []);
+
 
   const toggleBookmark = (id: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -152,18 +159,33 @@ export function NewsFeed() {
         </div>
       </div>
 
+      {/* Refresh Toast Banner */}
+      {showToast && (
+        <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-2.5 rounded-xl text-xs font-bold flex items-center justify-between shadow-sm animate-fade-in">
+          <div className="flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+            <span>Live RSS feed synced directly from Indian Express, HT, The Hindu, TOI & NDTV!</span>
+          </div>
+          <span className="text-[10px] font-extrabold bg-emerald-200/60 px-2 py-0.5 rounded-full">Refreshed {lastRefreshedAt}</span>
+        </div>
+      )}
+
+
       {/* Live Status Banner */}
-      <div className="flex items-center justify-between px-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between px-1 gap-1 text-slate-500">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="text-xs font-bold text-slate-700">
             {filteredArticles.length} Live Stories Found
           </span>
+          <span className="text-slate-300">•</span>
+          <span className="text-[11px] font-semibold text-slate-500">Last Synced: {lastRefreshedAt}</span>
         </div>
         <span className="text-[11px] font-semibold text-slate-500">
           Source: Google News RSS (Indian Express, HT, TOI, The Hindu, NDTV)
         </span>
       </div>
+
 
       {/* Loading Skeleton */}
       {loading ? (

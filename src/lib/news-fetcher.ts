@@ -66,8 +66,9 @@ export async function fetchLiveNews(): Promise<NewsArticle[]> {
     const query = 'site:indianexpress.com OR site:hindustantimes.com OR site:thehindu.com OR site:timesofindia.indiatimes.com OR site:ndtv.com OR site:deccanherald.com OR site:financialexpress.com IIT university admissions education';
     const rssUrl = `https://news.google.com/rss/search?q=${encodeURIComponent(query)}&hl=en-IN&gl=IN&ceid=IN:en`;
     
-    // Revalidate every 60 seconds so news stays updated live with time
-    const res = await fetch(rssUrl, { next: { revalidate: 60 } });
+    // Fetch directly from Google News RSS without server caching
+    const res = await fetch(rssUrl, { cache: 'no-store' });
+
     if (!res.ok) return fallbackArticles;
     
     const xml = await res.text();
