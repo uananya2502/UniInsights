@@ -106,7 +106,7 @@ export default function LandingPage() {
                 <div className="flex justify-between items-start mb-6">
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                      BML Munjal University
+                      College Report Card
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">Comprehensive Performance Metrics Breakdown</p>
                   </div>
