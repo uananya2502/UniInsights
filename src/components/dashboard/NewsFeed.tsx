@@ -20,9 +20,16 @@ export function NewsFeed() {
     else setLoading(true);
 
     try {
-      const res = await fetch('/api/news');
+      const res = await fetch(`/api/news?t=${Date.now()}`, {
+        cache: 'no-store',
+        headers: {
+          'Cache-Control': 'no-cache',
+        },
+      });
       const data = await res.json();
-      if (Array.isArray(data)) setArticles(data);
+      if (Array.isArray(data)) {
+        setArticles(data);
+      }
     } catch {
       // Keep existing articles if fetch fails
     } finally {
@@ -30,6 +37,7 @@ export function NewsFeed() {
       setRefreshing(false);
     }
   };
+
 
   useEffect(() => {
     loadNews();
