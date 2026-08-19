@@ -26,9 +26,8 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
     <div className="card animate-slide-up h-full">
       <div className="card-header flex items-center justify-between">
         <div>
-          <div className="flex items-center gap-1.5">
-            <h3 className="card-title text-slate-900">Trending Discussion Keywords</h3>
-            <DoodleSparkle className="w-3.5 h-3.5 text-blue-500/70" />
+          <div className="flex items-center gap-2">
+            <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Trending Discussion Keywords</h3>
           </div>
           <p className="text-xs text-slate-500 mt-0.5 font-medium">Most discussed topics across student forums & reviews</p>
         </div>

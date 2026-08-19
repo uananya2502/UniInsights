@@ -14,9 +14,8 @@ export function ReputationTimeline({ data }: ReputationTimelineProps) {
     <div className="card h-full animate-slide-up">
       <div className="card-header flex items-center justify-between">
         <div>
-          <div className="flex items-center gap-1.5">
-            <h3 className="card-title text-slate-900">Reputation & Engagement Timeline</h3>
-            <DoodleSparkle className="w-3.5 h-3.5 text-blue-500/70" />
+          <div className="flex items-center gap-2">
+            <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Reputation & Engagement Timeline</h3>
           </div>
           <p className="text-xs text-slate-500 mt-0.5 font-medium">Historical trend of student discussions and sentiment trajectory</p>
         </div>

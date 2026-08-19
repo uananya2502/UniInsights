@@ -25,7 +25,6 @@ export function BestForTags({ tags }: BestForTagsProps) {
               key={tag}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-bold bg-slate-50/80 text-slate-800 border border-slate-200/90 hover:border-blue-400 hover:bg-blue-50/60 hover:text-blue-800 hover:shadow-2xs transition-all cursor-default"
             >
-              <DoodleSparkle className="w-3.5 h-3.5 text-blue-600 flex-shrink-0" />
               Best for {tag}
             </span>
           ))}

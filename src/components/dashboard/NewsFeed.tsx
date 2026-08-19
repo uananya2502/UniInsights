@@ -229,7 +229,6 @@ export function NewsFeed() {
               <div className="flex items-center justify-between gap-2 mb-2">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className="inline-flex items-center gap-1 bg-blue-100/80 text-blue-800 border border-blue-200 text-[10px] font-extrabold uppercase px-2 py-0.5 rounded tracking-wider">
-                    <Sparkles className="w-3 h-3 text-blue-600" />
                     Top Story
                   </span>
                   <span className={`text-[10px] font-extrabold uppercase px-2.5 py-0.5 rounded border ${getPublisherBadge(featuredArticle.source)}`}>

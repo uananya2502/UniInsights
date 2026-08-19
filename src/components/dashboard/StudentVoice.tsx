@@ -95,9 +95,8 @@ export function StudentVoice({ data }: StudentVoiceProps) {
     <div className="card animate-slide-up">
       <div className="card-header flex items-center justify-between">
         <div>
-          <div className="flex items-center gap-1.5">
-            <h3 className="card-title text-slate-900">Institutional Data Profile: {name}</h3>
-            <DoodleSparkle className="w-3.5 h-3.5 text-blue-500/70" />
+          <div className="flex items-center gap-2">
+            <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Institutional Data Profile: {name}</h3>
           </div>
           <p className="text-xs text-slate-500 mt-0.5 font-medium">Verified accreditation, placement benchmarks & campus highlights</p>
         </div>
