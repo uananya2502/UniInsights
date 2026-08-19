@@ -52,14 +52,14 @@ export default function LandingPage() {
 
       <main>
         {/* 1. HERO SECTION */}
-        <section className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 bg-slate-50">
+        <section className="relative w-full pt-16 pb-24 lg:pt-24 lg:pb-32 bg-slate-50 border-b border-slate-200">
           {/* University Scrapbook Collage Background (~45% Visual Intensity) */}
           <div 
-            className="absolute inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat opacity-[0.45] transition-opacity"
-            style={{ backgroundImage: `url('/university-collage-bg.jpg')` }}
+            className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 bg-cover bg-center bg-fixed bg-no-repeat opacity-[0.45] transition-opacity"
+            style={{ backgroundImage: `url('/university-collage-bg.jpg')`, width: '100%' }}
           />
           {/* Soft Slate Gradient Overlay for Crisp Text Contrast */}
-          <div className="absolute inset-0 pointer-events-none z-0 bg-gradient-to-r from-slate-50/75 via-slate-50/35 to-slate-50/10" />
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 bg-gradient-to-r from-slate-50/90 via-slate-50/50 to-slate-50/20" />
 
 
           <div className="relative z-10 max-w-7xl mx-auto px-6">

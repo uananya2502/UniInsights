@@ -185,25 +185,16 @@ export default function ChatPage() {
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30">
-              <GraduationCap className="w-3.5 h-3.5 text-blue-400" />
-              Senior Council AI • Active 24/7
+              Senior Guidance • Available 24/7
             </div>
             <div className="relative">
               <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
-                Ask Seniors & AI Campus Advisor
+                Ask Seniors
               </h1>
             </div>
             <p className="text-slate-300 text-xs md:text-sm font-medium max-w-xl leading-relaxed">
-              Get honest, data-backed insights on placements, NIRF cutoffs, fee ROI, and campus culture — answered live by AI & verified senior datasets.
+              Get honest, data-backed insights on placements, NIRF cutoffs, fee ROI, and campus culture directly from verified senior datasets.
             </p>
-          </div>
-
-          <div className="flex items-center gap-2 bg-slate-800/80 px-3.5 py-2 rounded-lg border border-slate-700/80 flex-shrink-0 self-start sm:self-auto">
-            <Zap className="w-4 h-4 text-amber-400 animate-pulse" />
-            <div className="text-[11px]">
-              <p className="font-extrabold text-white">RAG Search Active</p>
-              <p className="text-slate-400">100+ Campus Datasets Ingested</p>
-            </div>
           </div>
         </div>
       </div>
@@ -216,18 +207,12 @@ export default function ChatPage() {
             key={msg.id}
             className={`flex items-start gap-3 animate-slide-up ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}
           >
-            {/* Avatar */}
-            <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold text-xs shadow-2xs border ${
-              msg.role === 'user'
-                ? 'bg-[#0B1527] border-slate-700'
-                : 'bg-blue-600 border-blue-500'
-            }`}>
-              {msg.role === 'user' ? (
+            {/* Avatar - Only for user */}
+            {msg.role === 'user' && (
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-white font-bold text-xs shadow-2xs border bg-[#0B1527] border-slate-700">
                 <User className="w-4 h-4 text-white" />
-              ) : (
-                <GraduationCap className="w-4 h-4 text-amber-300" />
-              )}
-            </div>
+              </div>
+            )}
 
             {/* Bubble */}
             <div className={`max-w-[88%] rounded-xl px-4 py-3.5 text-xs leading-relaxed ${
@@ -238,7 +223,6 @@ export default function ChatPage() {
               {msg.role === 'assistant' && (
                 <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-100 text-[10px] text-slate-500 font-bold">
                   <span className="flex items-center gap-1 text-blue-600">
-                    <Sparkles className="w-3 h-3 text-blue-500" />
                     Verified Senior Advisor
                   </span>
                   <span>{msg.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
@@ -345,8 +329,7 @@ export default function ChatPage() {
             disabled={isLoading || !input.trim()}
             className="px-4 py-2 bg-[#0B1527] hover:bg-slate-800 text-white rounded-lg text-xs font-bold flex items-center gap-1.5 disabled:opacity-40 disabled:cursor-not-allowed transition-all cursor-pointer shadow-2xs"
           >
-            <span>Ask AI</span>
-            <Send className="w-3.5 h-3.5" />
+            <span>Ask Seniors</span>
           </button>
         </div>
       </div>
