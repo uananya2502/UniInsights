@@ -5,6 +5,7 @@ export interface NewsArticle {
   title: string;
   source: string;
   date: string;
+  timestamp: number;
   category: string;
   url: string;
   excerpt: string;
@@ -15,7 +16,8 @@ const fallbackArticles: NewsArticle[] = [
     id: 'live-1',
     title: 'NIRF Rankings 2025: IIT Madras Tops Overall Category; IIT Delhi & IIT Bombay Lead Engineering',
     source: 'The Hindu',
-    date: new Date().toISOString().split('T')[0],
+    date: 'Today',
+    timestamp: Date.now(),
     category: 'Rankings',
     url: 'https://www.thehindu.com/education/',
     excerpt: 'The Ministry of Education released the latest NIRF rankings evaluating universities across teaching, research, and placement outcomes.',
@@ -24,7 +26,8 @@ const fallbackArticles: NewsArticle[] = [
     id: 'live-2',
     title: 'IIT Placement Season 2025: Record Computer Science & AI International Offers',
     source: 'Indian Express',
-    date: new Date().toISOString().split('T')[0],
+    date: 'Today',
+    timestamp: Date.now() - 3600000 * 2,
     category: 'Placements',
     url: 'https://indianexpress.com/section/education/',
     excerpt: 'Premier institutes report strong placement rounds with top global technology firms recruiting for software and R&D roles.',
@@ -33,7 +36,8 @@ const fallbackArticles: NewsArticle[] = [
     id: 'live-3',
     title: 'Hindustan Times Education Report: Top Engineering & Management Institutes ROI Comparison',
     source: 'Hindustan Times',
-    date: new Date().toISOString().split('T')[0],
+    date: 'Today',
+    timestamp: Date.now() - 3600000 * 4,
     category: 'Admissions',
     url: 'https://www.hindustantimes.com/education',
     excerpt: 'Detailed analysis of return on investment, fee structures, and campus recruitment trends across Indian universities.',
@@ -42,7 +46,8 @@ const fallbackArticles: NewsArticle[] = [
     id: 'live-4',
     title: 'UGC & Ministry of Education Guidelines: Multidisciplinary Credit Integration Across Central Universities',
     source: 'NDTV Education',
-    date: new Date().toISOString().split('T')[0],
+    date: 'Yesterday',
+    timestamp: Date.now() - 3600000 * 24,
     category: 'Policy',
     url: 'https://www.ndtv.com/education',
     excerpt: 'Revised guidelines allow students flexible entry and exit points with credit bank integration across higher education institutions.',
@@ -51,7 +56,8 @@ const fallbackArticles: NewsArticle[] = [
     id: 'live-5',
     title: 'Times of India Report: University Research Grants & Patent Output Trends',
     source: 'Times of India',
-    date: new Date().toISOString().split('T')[0],
+    date: 'Yesterday',
+    timestamp: Date.now() - 3600000 * 28,
     category: 'Research',
     url: 'https://timesofindia.indiatimes.com/education',
     excerpt: 'Government allocates expanded research funding to boost patent creation and scientific research across top Indian campuses.',
@@ -77,7 +83,7 @@ export async function fetchLiveNews(): Promise<NewsArticle[]> {
     
     let match;
     let count = 0;
-    while ((match = itemRegex.exec(xml)) !== null && count < 10) {
+    while ((match = itemRegex.exec(xml)) !== null && count < 15) {
       let rawTitle = match[1].replace(/<!\[CDATA\[(.*?)\]\]>/gi, '$1').trim();
       const rawLink = match[2].trim();
       const rawDateStr = match[3];
@@ -100,15 +106,23 @@ export async function fetchLiveNews(): Promise<NewsArticle[]> {
         continue;
       }
 
-      // Format date nicely (e.g. "2026-08-18" or "Today")
-      let formattedDate = new Date().toISOString().split('T')[0];
+      // Parse timestamp and compute relative human-readable date
+      let parsedTimestamp = Date.now();
+      let formattedDate = 'Today';
       try {
         const parsedDate = new Date(rawDateStr);
         if (!isNaN(parsedDate.getTime())) {
-          formattedDate = parsedDate.toISOString().split('T')[0];
+          parsedTimestamp = parsedDate.getTime();
+          const diffMs = Date.now() - parsedTimestamp;
+          const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
+          
+          if (diffHours < 1) formattedDate = 'Just In';
+          else if (diffHours < 24) formattedDate = 'Today';
+          else if (diffHours < 48) formattedDate = 'Yesterday';
+          else formattedDate = `${Math.floor(diffHours / 24)} days ago`;
         }
       } catch {
-        // Fallback to today's date
+        formattedDate = 'Today';
       }
 
       // Assign realistic categories based on title content
@@ -131,6 +145,7 @@ export async function fetchLiveNews(): Promise<NewsArticle[]> {
         title: rawTitle,
         source: source,
         date: formattedDate,
+        timestamp: parsedTimestamp,
         category: category,
         url: rawLink,
         excerpt: `Reported live by ${source}. Click to read full article coverage on the publisher platform.`,
@@ -138,7 +153,11 @@ export async function fetchLiveNews(): Promise<NewsArticle[]> {
       count++;
     }
 
-    return items.length > 0 ? items : fallbackArticles;
+    // Sort newest articles first so latest news is #1 TOP STORY
+    items.sort((a, b) => b.timestamp - a.timestamp);
+
+    return items.length > 0 ? items.slice(0, 10) : fallbackArticles;
+
   } catch (error) {
     console.warn('Live RSS fetch fallback:', error);
     return fallbackArticles;
