@@ -69,9 +69,17 @@ export function NewsFeed() {
   };
 
   const getRelativeDate = (dateStr: string) => {
+    if (!dateStr) return 'Today';
+    const lower = dateStr.toLowerCase();
+    if (lower.includes('today') || lower.includes('yesterday') || lower.includes('just in') || lower.includes('days ago')) {
+      return dateStr;
+    }
+
     try {
       const today = new Date();
       const articleDate = new Date(dateStr);
+      if (isNaN(articleDate.getTime())) return dateStr;
+
       const diffTime = Math.abs(today.getTime() - articleDate.getTime());
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
       
@@ -82,6 +90,7 @@ export function NewsFeed() {
       return dateStr;
     }
   };
+
 
   const filteredArticles = useMemo(() => {
     return articles.filter(article => {
