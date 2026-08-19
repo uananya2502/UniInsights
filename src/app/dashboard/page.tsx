@@ -47,10 +47,9 @@ function DashboardContent() {
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
+              <h2 className="text-2xl md:text-3xl font-extrabold flex items-center gap-2">
                 UniInsights
-                <DoodleSparkle className="w-4 h-4 text-blue-400 opacity-90 inline-block" />
-              </h1>
+              </h2>
             </div>
             <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl">
               Know Your Campus. Choose with Confidence.

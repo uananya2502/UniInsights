@@ -107,7 +107,6 @@ export default function LandingPage() {
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
                       BML Munjal University
-                      <span className="text-[10px] font-bold bg-slate-100 text-slate-800 px-2 py-0.5 rounded-full uppercase tracking-wider border border-slate-200">Verified</span>
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">Comprehensive Performance Metrics Breakdown</p>
                   </div>

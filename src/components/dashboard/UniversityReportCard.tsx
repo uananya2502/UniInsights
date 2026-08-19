@@ -82,12 +82,7 @@ export function UniversityReportCard({ data }: ReportCardProps) {
             <div className="flex items-center gap-2 flex-wrap">
               <div className="relative inline-block">
                 <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">{data.name}</h2>
-                <DoodleUnderline className="absolute -bottom-1 left-0 w-full h-2 text-blue-500/40 pointer-events-none" />
               </div>
-              <span className="badge badge-blue flex items-center gap-1 font-bold">
-                <DoodleSparkle className="w-3 h-3 text-blue-600" />
-                NIRF Verified
-              </span>
             </div>
             <p className="text-xs text-slate-500 mt-1 font-medium">Comprehensive Performance Metrics Breakdown</p>
           </div>

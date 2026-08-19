@@ -16,11 +16,6 @@ interface StatCardProps {
 function StatCard({ label, value, change, icon: Icon, iconBg, iconColor, showSparkle }: StatCardProps) {
   return (
     <div className="stat-card relative overflow-hidden group hover:border-slate-300 transition-all duration-200">
-      {showSparkle && (
-        <div className="absolute top-2 right-2 opacity-30 group-hover:opacity-80 transition-opacity">
-          <DoodleSparkle className="w-3.5 h-3.5 text-blue-500" />
-        </div>
-      )}
       <div className="flex items-start justify-between">
         <div>
           <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 flex items-center gap-1">
