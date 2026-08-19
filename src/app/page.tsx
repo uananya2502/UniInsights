@@ -45,12 +45,8 @@ export default function LandingPage() {
             </div>
           </Link>
           <div className="flex items-center gap-4">
-            <Link href="/dashboard" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">Dashboard</Link>
-            <Link href="/compare" className="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors hidden sm:block">Compare</Link>
-            <Link href="/dashboard" className="bg-[#0B1527] hover:bg-[#162238] text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm">
-              Explore
-            </Link>
           </div>
+
         </div>
       </nav>
 
