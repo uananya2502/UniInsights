@@ -52,7 +52,7 @@ export default function LandingPage() {
 
       <main>
         {/* 1. HERO SECTION */}
-        <section className="relative w-full pt-16 pb-24 lg:pt-24 lg:pb-32 bg-slate-50 border-b border-slate-200">
+        <section className="relative w-full min-h-[calc(100vh-64px)] flex items-center py-16 lg:py-0 bg-slate-50 border-b border-slate-200">
           {/* University Scrapbook Collage Background (~45% Visual Intensity) */}
           <div 
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 bg-cover bg-center bg-fixed bg-no-repeat opacity-[0.45] transition-opacity"
@@ -62,7 +62,7 @@ export default function LandingPage() {
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 bg-gradient-to-r from-slate-50/90 via-slate-50/50 to-slate-50/20" />
 
 
-          <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
               
