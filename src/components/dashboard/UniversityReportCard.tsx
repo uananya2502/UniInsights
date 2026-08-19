@@ -54,25 +54,43 @@ const categoryConfig = [
   { key: 'fees', label: 'Fees', icon: DollarSign, bg: 'bg-teal-50/80 border-teal-200/80', iconColor: 'text-teal-700', barColor: 'bg-teal-600' },
 ];
 
+import { getCampusImageUrl } from '@/lib/campus-images';
+
 export function UniversityReportCard({ data }: ReportCardProps) {
+  const campusImg = getCampusImageUrl(data.name);
+
   return (
-    <div className="card animate-slide-up">
-      <div className="card-header flex items-center justify-between">
-        <div>
-          <div className="flex items-center gap-2">
-            <div className="relative inline-block">
-              <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">{data.name}</h2>
-              <DoodleUnderline className="absolute -bottom-1 left-0 w-full h-2 text-blue-500/40 pointer-events-none" />
-            </div>
-            <span className="badge badge-blue flex items-center gap-1 font-bold">
-              <DoodleSparkle className="w-3 h-3 text-blue-600" />
-              NIRF Verified
-            </span>
+    <div className="card animate-slide-up overflow-hidden">
+      {/* Header Banner with Dedicated Campus Photo Thumbnail */}
+      <div className="card-header flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 md:p-6 bg-white border-b border-slate-100">
+        <div className="flex items-center gap-4">
+          {/* Dedicated Campus Photo Thumbnail Card */}
+          <div className="w-28 h-20 sm:w-32 sm:h-20 md:w-36 md:h-22 rounded-xl border border-slate-200/90 overflow-hidden flex-shrink-0 shadow-2xs relative bg-slate-100 group">
+            <div 
+              className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+              style={{ backgroundImage: `url(${campusImg})` }}
+            />
           </div>
-          <p className="text-xs text-slate-500 mt-1 font-medium">Comprehensive Performance Metrics Breakdown</p>
+
+          <div>
+            <div className="flex items-center gap-2 flex-wrap">
+              <div className="relative inline-block">
+                <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">{data.name}</h2>
+                <DoodleUnderline className="absolute -bottom-1 left-0 w-full h-2 text-blue-500/40 pointer-events-none" />
+              </div>
+              <span className="badge badge-blue flex items-center gap-1 font-bold">
+                <DoodleSparkle className="w-3 h-3 text-blue-600" />
+                NIRF Verified
+              </span>
+            </div>
+            <p className="text-xs text-slate-500 mt-1 font-medium">Comprehensive Performance Metrics Breakdown</p>
+          </div>
         </div>
+
         <ScoreRing score={data.overallScore} />
       </div>
+
+
       <div className="card-content">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {categoryConfig.map((cat) => {
