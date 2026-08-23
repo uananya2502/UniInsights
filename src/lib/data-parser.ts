@@ -58,6 +58,42 @@ export interface UniversityData {
   concerns: string[];
 }
 
+/* ─── Real Sentiment Scores (from Python script output) ─── */
+
+interface RealSentimentData {
+  categoryScores: Partial<CategoryScores>;
+  overallScore: number;
+  totalComments: number;
+  totalVideos: number;
+  avgLikes: number;
+  sentimentBreakdown: { positive: number; neutral: number; negative: number };
+  reputationTimeline: TimelinePoint[];
+}
+
+let realSentimentCache: Record<string, RealSentimentData> | null = null;
+
+function loadRealSentimentScores(): Record<string, RealSentimentData> {
+  if (realSentimentCache) return realSentimentCache;
+  
+  const jsonPath = path.join(basePath, 'public', 'university_sentiment_scores.json');
+  if (!fs.existsSync(jsonPath)) {
+    console.info('ℹ️  No real sentiment scores found. Run: python scripts/generate_sentiment_scores.py');
+    realSentimentCache = {};
+    return realSentimentCache;
+  }
+  
+  try {
+    const raw = fs.readFileSync(jsonPath, 'utf-8');
+    realSentimentCache = JSON.parse(raw);
+    const count = Object.keys(realSentimentCache!).length;
+    console.info(`✅ Loaded real sentiment scores for ${count} universities from CSV analysis.`);
+  } catch (e) {
+    console.warn('⚠️  Failed to parse university_sentiment_scores.json:', e);
+    realSentimentCache = {};
+  }
+  return realSentimentCache!;
+}
+
 /* ─── Caches ─── */
 let universityListCache: UniversityBasic[] | null = null;
 let fullDataCache: Record<string, UniversityData> | null = null;
@@ -79,7 +115,8 @@ function parseCSV<T>(filePath: string, maxRows?: number): T[] {
   return result.data as T[];
 }
 
-/* ─── Deterministic Score Generator ─── */
+/* ─── Deterministic Score Generator (fallback only) ─── */
+
 
 function hashString(str: string): number {
   let hash = 0;
@@ -111,7 +148,7 @@ function normalizeUniversityName(rawName: string): string {
   if (lower.includes('indian institute of technology guwahati') || lower === 'iit-guwahati') return 'IIT Guwahati';
   if (lower.includes('indraprastha institute of information technology delhi') || lower === 'iiit-delhi') return 'IIIT Delhi';
   if (lower.includes('birla institute of technology') && lower.includes('pilani')) return 'BITS Pilani';
-  if (lower.includes('vellore institute of technology')) return 'VIT Vellore';
+  if (lower.includes('vellore institute of technology') || lower.includes('vit vellore') || lower.includes('vit university') || lower === 'vit') return 'VIT Vellore';
   if (lower.includes('bml munjal')) return 'BML Munjal University';
 
   return trimmed;
@@ -187,100 +224,84 @@ export function getUniversityList(): UniversityBasic[] {
 
 const institutionalOverrides: Record<string, Partial<CategoryScores>> = {
   'BML Munjal University': {
-    placement: 7.5,
-    academics: 7.8,
-    infrastructure: 8.2,
-    studentExperience: 7.6,
-    hostel: 7.8,
-    fees: 7.0,
-  },
-  'IIT Delhi': {
-    placement: 9.6,
-    academics: 9.8,
-    infrastructure: 9.2,
-    studentExperience: 8.8,
-    hostel: 8.5,
-    fees: 8.2,
-  },
-  'IIT Bombay': {
-    placement: 9.7,
-    academics: 9.8,
-    infrastructure: 9.5,
-    studentExperience: 9.0,
-    hostel: 8.8,
-    fees: 8.0,
+    placement: 7.6,
+    academics: 7.5,
+    infrastructure: 7.8,
+    studentExperience: 7.1,
+    hostel: 8.4,  // BML Munjal hostels are top-tier & quite good
+    fees: 6.2,
   },
   'IIT Madras': {
     placement: 9.6,
-    academics: 9.9,
+    academics: 9.5,
     infrastructure: 9.4,
-    studentExperience: 8.9,
-    hostel: 8.6,
-    fees: 8.2,
+    studentExperience: 9.3,
+    fees: 9.0,
+    hostel: 9.0,
   },
-  'BITS Pilani': {
-    placement: 9.4,
+  'IIT Bombay': {
+    placement: 9.6,
+    academics: 9.4,
+    infrastructure: 9.5,
+    studentExperience: 9.2,
+    hostel: 8.8,
+    fees: 8.7,
+  },
+  'IIT Delhi': {
+    placement: 9.5,
     academics: 9.5,
     infrastructure: 9.2,
-    studentExperience: 9.0,
-    hostel: 8.8,
-    fees: 7.2,
+    studentExperience: 9.1,
+    fees: 8.7,
+    hostel: 8.6,
   },
-  'VIT Vellore': {
-    placement: 8.2,
-    academics: 8.4,
-    infrastructure: 8.8,
-    studentExperience: 8.0,
-    hostel: 8.2,
-    fees: 7.4,
-  },
-  'SRM Institute of Science and Technology': {
-    placement: 8.0,
-    academics: 8.2,
-    infrastructure: 8.6,
-    studentExperience: 8.1,
-    hostel: 8.0,
-    fees: 7.2,
-  },
-  'Jadavpur University': {
-    placement: 9.5,
-    academics: 9.2,
-    infrastructure: 7.8,
-    studentExperience: 8.2,
-    hostel: 7.5,
-    fees: 9.9,
-  },
-  'IIT Kharagpur': {
+  'IIT Kanpur': {
     placement: 9.4,
     academics: 9.5,
-    infrastructure: 9.6,
-    studentExperience: 8.8,
+    infrastructure: 9.1,
+    studentExperience: 8.9,
+    fees: 8.6,
     hostel: 8.5,
-    fees: 8.0,
+  },
+  'IIT Kharagpur': {
+    placement: 9.3,
+    academics: 9.3,
+    infrastructure: 9.2,
+    studentExperience: 9.0,
+    fees: 8.4,
+    hostel: 8.2,
   },
   'IIT Roorkee': {
     placement: 9.3,
-    academics: 9.4,
-    infrastructure: 9.5,
-    studentExperience: 8.7,
-    hostel: 8.4,
-    fees: 7.9,
+    academics: 9.2,
+    infrastructure: 9.0,
+    studentExperience: 8.8,
+    hostel: 8.1,
+    fees: 8.2,
   },
   'IIT Guwahati': {
-    placement: 9.2,
-    academics: 9.3,
-    infrastructure: 9.4,
-    studentExperience: 8.6,
-    hostel: 8.5,
-    fees: 8.1,
-  },
-  'IIIT Delhi': {
-    placement: 9.4,
-    academics: 9.2,
+    placement: 9.0,
+    academics: 8.9,
     infrastructure: 8.8,
     studentExperience: 8.4,
+    hostel: 7.4,
+    fees: 7.6,
+  },
+  'IIIT Delhi': {
+    placement: 9.1,
+    academics: 9.0,
+    infrastructure: 8.4,
+    studentExperience: 8.1,
+    hostel: 7.2,
+    fees: 7.0,
+  },
+  'Thapar Institute of Engineering and Technology': {
+    placement: 8.8,
+    academics: 8.6,
+    infrastructure: 9.0,
+    studentExperience: 8.5,
     hostel: 8.0,
-    fees: 7.5,
+    fees: 7.4,
   },
   'Amity University': {
     placement: 7.2,
@@ -389,38 +410,53 @@ const institutionalOverrides: Record<string, Partial<CategoryScores>> = {
 };
 
 function buildUniversityData(name: string, id: string): UniversityData {
+  const realData = loadRealSentimentScores();
+  const real = realData[name];
   const override = institutionalOverrides[name] || {};
 
+  // Priority: 1) Real CSV-derived scores, 2) Manual overrides, 3) Seeded fallback
   const scores: CategoryScores = {
-    studentExperience: override.studentExperience ?? seededScore(name, 'student', 6.0, 9.5),
-    infrastructure: override.infrastructure ?? seededScore(name, 'infra', 6.0, 9.5),
-    academics: override.academics ?? seededScore(name, 'acad', 6.0, 9.5),
-    fees: override.fees ?? seededScore(name, 'fees', 6.0, 9.0),
-    hostel: override.hostel ?? seededScore(name, 'hostel', 6.0, 9.0),
-    placement: override.placement ?? seededScore(name, 'place', 6.0, 9.5),
+    studentExperience: real?.categoryScores?.studentExperience ?? override.studentExperience ?? seededScore(name, 'student', 6.0, 9.5),
+    infrastructure:    real?.categoryScores?.infrastructure    ?? override.infrastructure    ?? seededScore(name, 'infra',   6.0, 9.5),
+    academics:         real?.categoryScores?.academics         ?? override.academics         ?? seededScore(name, 'acad',    6.0, 9.5),
+    fees:              real?.categoryScores?.fees               ?? override.fees              ?? seededScore(name, 'fees',    6.0, 9.0),
+    hostel:            real?.categoryScores?.hostel            ?? override.hostel            ?? seededScore(name, 'hostel',  6.0, 9.0),
+    placement:         real?.categoryScores?.placement         ?? override.placement         ?? seededScore(name, 'place',   6.0, 9.5),
   };
 
-
   const scoreValues = Object.values(scores);
-  const overallScore = +(scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length).toFixed(1);
+  const overallScore = real?.overallScore ?? +(scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length).toFixed(1);
 
-
-
-  // Build deterministic timeline
-  const years = [2020, 2021, 2022, 2023, 2024, 2025];
-  const months = ['Jan', 'Apr', 'Jul', 'Oct'];
-  const timeline: TimelinePoint[] = [];
-  years.forEach(year => {
-    months.forEach(month => {
-      timeline.push({
-        year,
-        month: `${month} ${year}`,
-        mentions: seededScore(name, `mentions-${year}-${month}`, 50, 250),
-        sentiment: seededScore(name, `sent-${year}-${month}`, 4.0, 9.0),
-        engagement: seededScore(name, `eng-${year}-${month}`, 100, 1000),
+  // Use real timeline if available, else build deterministic one
+  let timeline: TimelinePoint[];
+  if (real?.reputationTimeline && real.reputationTimeline.length > 0) {
+    timeline = real.reputationTimeline;
+  } else {
+    const years = [2020, 2021, 2022, 2023, 2024, 2025];
+    const months = ['Jan', 'Apr', 'Jul', 'Oct'];
+    timeline = [];
+    years.forEach(year => {
+      months.forEach(month => {
+        timeline.push({
+          year,
+          month: `${month} ${year}`,
+          mentions:   seededScore(name, `mentions-${year}-${month}`, 50, 250),
+          sentiment:  seededScore(name, `sent-${year}-${month}`, 4.0, 9.0),
+          engagement: seededScore(name, `eng-${year}-${month}`, 100, 1000),
+        });
       });
     });
-  });
+  }
+
+  // Use real stats if available
+  const totalComments = real?.totalComments ?? seededScore(name, 'comments', 200, 5000);
+  const totalVideos   = real?.totalVideos   ?? seededScore(name, 'videos',   10,  200);
+  const avgLikes      = real?.avgLikes      ?? seededScore(name, 'likes',    2,   50);
+  const sentimentBreakdown = real?.sentimentBreakdown ?? {
+    positive: seededScore(name, 'pos', 40, 70),
+    neutral:  seededScore(name, 'neu', 15, 35),
+    negative: seededScore(name, 'neg', 5,  25),
+  };
 
   // Trending topics
   const topicsList = ['Campus Life', 'Placements', 'Faculty Quality', 'Infrastructure', 'Fees Structure', 'Hostel Food', 'Research', 'Alumni Network', 'Admission Process', 'Extracurriculars'];
@@ -452,16 +488,11 @@ function buildUniversityData(name: string, id: string): UniversityData {
     name,
     categoryScores: scores,
     overallScore,
-    totalMentions: seededScore(name, 'mentions', 500, 8000),
-    totalComments: seededScore(name, 'comments', 200, 5000),
-    totalVideos: seededScore(name, 'videos', 10, 200),
-    avgLikes: seededScore(name, 'likes', 2, 50),
-    sentimentBreakdown: {
-      positive: seededScore(name, 'pos', 40, 70),
-      neutral: seededScore(name, 'neu', 15, 35),
-      negative: seededScore(name, 'neg', 5, 25),
-    },
-
+    totalMentions: real?.totalComments ?? seededScore(name, 'mentions', 500, 8000),
+    totalComments,
+    totalVideos,
+    avgLikes,
+    sentimentBreakdown,
     reputationTimeline: timeline,
     trendingTopics,
     bestForTags,
