@@ -2,9 +2,10 @@ export const DEFAULT_CAMPUS_IMAGE = 'https://images.unsplash.com/photo-156277405
 
 export const campusImageMap: Record<string, string> = {
   'BML Munjal University': '/bml-munjal-campus.jpg',
-  'IIT Delhi': 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80',
-  'IIT Bombay': 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80',
+  'IIT Delhi': '/iit-delhi-campus.jpg',
+  'IIT Bombay': '/iit-bombay-campus.jpg',
   'IIT Madras': 'https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80',
+
   'IIT Kharagpur': 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80',
   'IIT Roorkee': 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?auto=format&fit=crop&w=800&q=80',
   'IIT Guwahati': 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80',
