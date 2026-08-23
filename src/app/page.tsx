@@ -23,12 +23,36 @@ import {
 } from 'lucide-react';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 
+import { useEffect, useState } from 'react';
+
 export default function LandingPage() {
   const router = useRouter();
+  const [checkingAuth, setCheckingAuth] = useState(true);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('uniinsights_user');
+    if (!savedUser) {
+      router.push('/login');
+    } else {
+      setCheckingAuth(false);
+    }
+  }, [router]);
+
+  if (checkingAuth) {
+    return (
+      <div className="min-h-screen bg-[#0B1527] flex items-center justify-center text-white">
+        <div className="flex flex-col items-center gap-3">
+          <div className="animate-spin w-8 h-8 border-3 border-blue-500 border-t-transparent rounded-full" />
+          <p className="text-xs font-bold tracking-wider text-slate-300">Loading UniInsight Portal...</p>
+        </div>
+      </div>
+    );
+  }
 
   const handleSearchSelect = (universityName: string) => {
     router.push(`/dashboard?university=${encodeURIComponent(universityName)}`);
   };
+
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-slate-900/10 selection:text-slate-900 font-sans">
@@ -37,10 +61,10 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2.5 group">
             <div className="w-9 h-9 bg-white rounded-lg flex items-center justify-center p-0.5 border border-slate-200 shadow-sm flex-shrink-0 group-hover:shadow-md transition-shadow">
-              <Image src="/logo.png" alt="UniInsights Logo" width={32} height={32} className="object-contain" />
+              <Image src="/uniinsights-official-logo.png" alt="UniInsights Logo" width={32} height={32} className="object-contain" />
             </div>
             <div>
-              <span className="font-bold text-lg tracking-tight block text-slate-900">UniInsight</span>
+              <span className="font-bold text-lg tracking-tight block text-slate-900">UniInsights</span>
               <span className="text-[10px] text-slate-500 block -mt-1 font-medium group-hover:text-slate-900 transition-colors">Know Your Campus</span>
             </div>
           </Link>

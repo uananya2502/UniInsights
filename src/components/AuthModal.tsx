@@ -35,7 +35,7 @@ export function AuthModal({ isOpen, onClose, initialMode = 'login' }: AuthModalP
         <div className="p-6 bg-slate-900 text-white flex items-start justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center p-0.5 shadow-md flex-shrink-0">
-              <Image src="/logo.png" alt="UniInsights Logo" width={34} height={34} className="object-contain" />
+              <Image src="/uniinsights-official-logo.png" alt="UniInsights Logo" width={34} height={34} className="object-contain" />
             </div>
             <div>
               <h2 className="text-lg font-bold">UniInsights</h2>
