@@ -415,9 +415,9 @@ function buildUniversityData(name: string, id: string): UniversityData {
       timeline.push({
         year,
         month: `${month} ${year}`,
-        mentions: seededScore(name, `mentions-${year}-${month}`, 50, 500),
+        mentions: seededScore(name, `mentions-${year}-${month}`, 50, 250),
         sentiment: seededScore(name, `sent-${year}-${month}`, 4.0, 9.0),
-        engagement: seededScore(name, `eng-${year}-${month}`, 100, 2000),
+        engagement: seededScore(name, `eng-${year}-${month}`, 100, 1000),
       });
     });
   });
