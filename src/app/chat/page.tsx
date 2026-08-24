@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { Send, Bot, User, Loader2, MessageSquare, Sparkles, GraduationCap, Zap, ChevronRight, HelpCircle } from 'lucide-react';
-import { DoodleSparkle, DoodleUnderline, DoodleGradCap, DoodleBook } from '@/components/ui/Doodles';
+import { Send, Bot, User, Loader2, MessageSquare, GraduationCap, Zap, ChevronRight, HelpCircle } from 'lucide-react';
 
 interface Message {
   id: string;
@@ -41,7 +40,6 @@ function FormattedMessage({ content, isUser }: { content: string; isUser: boolea
         if (trimmed.startsWith('### ')) {
           return (
             <h4 key={idx} className="text-xs font-extrabold text-slate-900 mt-2 mb-1 border-b border-slate-100 pb-1 flex items-center gap-1.5">
-              <Sparkles className="w-3.5 h-3.5 text-blue-600" />
               {formatBold(trimmed.replace(/^###\s+/, ''))}
             </h4>
           );
@@ -184,9 +182,6 @@ export default function ChatPage() {
       <div className="relative rounded-xl bg-slate-900 text-white p-5 md:p-6 shadow-sm border border-slate-800 mb-4 animate-fade-in overflow-visible">
         <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1.5">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30">
-              Senior Guidance • Available 24/7
-            </div>
             <div className="relative">
               <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
                 Ask Seniors
