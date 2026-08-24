@@ -842,60 +842,145 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
 
       {/* ── MODAL 1: METHODOLOGY & NLP PIPELINE MODAL ── */}
       {isMethodologyModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white border border-slate-200 rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-xl animate-slide-up">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div className="flex items-center gap-2">
-                <Cpu className="w-5 h-5 text-indigo-600" />
-                <h3 className="text-base font-extrabold text-slate-900">Sentiment Intelligence Methodology</h3>
-              </div>
-              <button 
-                onClick={() => setIsMethodologyModalOpen(false)}
-                className="p-1 rounded-lg hover:bg-slate-100 text-slate-500 hover:text-slate-800 cursor-pointer"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div className="space-y-3 text-xs text-slate-600 leading-relaxed">
-              <p>
-                Our <strong>Sentiment Intelligence Engine</strong> processes raw text from thousands of verified student reviews, video comments, and campus discussions using specialized NLP transformer models.
-              </p>
-
-              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                <div className="font-bold text-slate-900 flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-emerald-600" /> Model Performance Benchmarks
-                </div>
-                <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <div className="p-2 bg-white rounded border border-slate-200">
-                    <span className="text-slate-500 block">Classifier Accuracy</span>
-                    <span className="text-sm font-black text-slate-900">92.4%</span>
+        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white border border-slate-200/90 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl animate-slide-up">
+            {/* Top Gradient Accent Bar */}
+            <div className="h-1.5 bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-800" />
+            
+            <div className="p-6 space-y-5">
+              {/* Header */}
+              <div className="flex items-start justify-between border-b border-slate-100 pb-4">
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] font-extrabold tracking-widest text-slate-500 uppercase">
+                      Technical Specification
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-600" />
+                    <span className="text-[10px] font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100 uppercase tracking-wider">
+                      Engine v2.4
+                    </span>
                   </div>
-                  <div className="p-2 bg-white rounded border border-slate-200">
-                    <span className="text-slate-500 block">Evaluation Dataset</span>
-                    <span className="text-sm font-black text-slate-900">{totalComments.toLocaleString()} entries</span>
+                  <h3 className="text-lg font-black text-slate-900 tracking-tight">
+                    Sentiment Intelligence Architecture & NLP Pipeline
+                  </h3>
+                  <p className="text-xs text-slate-500 font-medium">
+                    Technical documentation of our data aggregation, natural language classification, and index scoring engine.
+                  </p>
+                </div>
+                <button 
+                  onClick={() => setIsMethodologyModalOpen(false)}
+                  className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 transition cursor-pointer shrink-0"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Model Performance KPI Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="p-3.5 rounded-xl bg-slate-50/90 border border-slate-200/80 space-y-0.5">
+                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                    Classifier Accuracy
+                  </div>
+                  <div className="text-xl font-black text-slate-900">92.4%</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Supervised BERT Benchmark</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50/90 border border-slate-200/80 space-y-0.5">
+                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">
+                    <Layers className="w-3.5 h-3.5 text-indigo-600" />
+                    Evaluated Dataset
+                  </div>
+                  <div className="text-xl font-black text-slate-900">{totalComments.toLocaleString()}</div>
+                  <div className="text-[10px] text-slate-500 font-medium">Verified Student Entries</div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50/90 border border-slate-200/80 space-y-0.5">
+                  <div className="flex items-center gap-1.5 text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">
+                    <Cpu className="w-3.5 h-3.5 text-blue-600" />
+                    Polarity Range
+                  </div>
+                  <div className="text-xl font-black text-slate-900">-1.0 to +1.0</div>
+                  <div className="text-[10px] text-slate-500 font-medium">VADER & Lexicon Scale</div>
+                </div>
+              </div>
+
+              {/* 4-Stage Visual Data Pipeline */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+                    4-Stage Natural Language Pipeline
+                  </h4>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Execution Workflow</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {/* Step 1 */}
+                  <div className="p-3.5 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 transition space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-extrabold text-slate-900 flex items-center gap-1.5">
+                        <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-black flex items-center justify-center">01</span>
+                        Data Scraping & Ingestion
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                      Automated aggregation of verified student comments from public forums, review boards, and campus discussions.
+                    </p>
+                  </div>
+
+                  {/* Step 2 */}
+                  <div className="p-3.5 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 transition space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-extrabold text-slate-900 flex items-center gap-1.5">
+                        <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-700 text-[10px] font-black flex items-center justify-center">02</span>
+                        Transformer Polarity Model
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                      VADER & BERT NLP classification assigning fine-grained polarity scores to individual student sentences.
+                    </p>
+                  </div>
+
+                  {/* Step 3 */}
+                  <div className="p-3.5 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 transition space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-extrabold text-slate-900 flex items-center gap-1.5">
+                        <span className="w-5 h-5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-black flex items-center justify-center">03</span>
+                        Multi-Pillar Weighting
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                      Categorization of comments into 6 campus pillars: Academics, Placements, Infrastructure, Fees, Hostel, and Experience.
+                    </p>
+                  </div>
+
+                  {/* Step 4 */}
+                  <div className="p-3.5 rounded-xl border border-slate-200/80 bg-white hover:border-slate-300 transition space-y-1">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-extrabold text-slate-900 flex items-center gap-1.5">
+                        <span className="w-5 h-5 rounded-full bg-purple-100 text-purple-700 text-[10px] font-black flex items-center justify-center">04</span>
+                        Index Normalization
+                      </span>
+                    </div>
+                    <p className="text-[11px] text-slate-600 leading-relaxed font-normal">
+                      Synthesis of category scores into a standardized 0–100 overall sentiment score and rating tier.
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <h4 className="font-bold text-slate-900">4-Stage Data Pipeline</h4>
-                <ol className="list-decimal list-inside space-y-1 text-[11px] text-slate-700">
-                  <li><strong>Data Scraping & Extraction:</strong> Ingesting verified comments from public student forums and review boards.</li>
-                  <li><strong>VADER & BERT NLP Model:</strong> Detecting polarity score (-1 to +1) for each individual comment.</li>
-                  <li><strong>Category Weighting:</strong> Mapping comments into Academics, Placements, Infrastructure, Fees, and Hostel.</li>
-                  <li><strong>Aggregated Index Score:</strong> Computing final score normalized to a 0-100 benchmark.</li>
-                </ol>
+              {/* Action Footer */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                <span className="text-[11px] text-slate-500 font-medium">
+                  Verified against official institutional benchmarks.
+                </span>
+                <button
+                  onClick={() => setIsMethodologyModalOpen(false)}
+                  className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-extrabold rounded-xl transition cursor-pointer shadow-2xs"
+                >
+                  Close Documentation
+                </button>
               </div>
-            </div>
-
-            <div className="pt-3 border-t border-slate-100 flex justify-end">
-              <button
-                onClick={() => setIsMethodologyModalOpen(false)}
-                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition cursor-pointer"
-              >
-                Close Methodology
-              </button>
             </div>
           </div>
         </div>
