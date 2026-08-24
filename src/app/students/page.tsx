@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
-import { StudentVoice } from '@/components/dashboard/StudentVoice';
 import { UniversityData } from '@/lib/data-parser';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
 import { MessageSquare, Users } from 'lucide-react';
@@ -108,8 +107,7 @@ export default function StudentsPage() {
               </div>
             </div>
           </div>
-          {/* Institutional Data Highlights */}
-          <StudentVoice data={data} />
+
 
         </div>
 
