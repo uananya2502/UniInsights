@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityData } from '@/lib/data-parser';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell, PieChart, Pie } from 'recharts';
-import { MessageSquare, Users } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 
 
 export default function StudentsPage() {
@@ -32,14 +32,9 @@ export default function StudentsPage() {
   return (
     <div className="p-4 md:p-6 max-w-[1400px] mx-auto space-y-6">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-slate-200/80">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-700">
-            <Users className="w-5 h-5" />
-          </div>
-          <div>
-            <h1 className="text-xl font-bold text-slate-900 tracking-tight">Student Voice & Sentiment Intelligence</h1>
-            <p className="text-xs text-slate-500">Natural language sentiment breakdown across thousands of campus reviews</p>
-          </div>
+        <div>
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">Student Voice & Sentiment Intelligence</h1>
+          <p className="text-xs text-slate-500">Natural language sentiment breakdown across thousands of campus reviews</p>
         </div>
         <UniversitySearch onSelect={setSelectedUni} selected={selectedUni} />
       </div>

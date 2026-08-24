@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityData } from '@/lib/data-parser';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Legend } from 'recharts';
-import { ArrowLeftRight, BarChart3, Scale } from 'lucide-react';
+import { ArrowLeftRight, BarChart3 } from 'lucide-react';
 
 export default function ComparePage() {
   const [uniA, setUniA] = useState<string>('BML Munjal University');
@@ -49,14 +49,9 @@ export default function ComparePage() {
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-[1400px] mx-auto">
-      <div className="flex items-center gap-3 pb-2 border-b border-slate-200/80">
-        <div className="w-9 h-9 rounded bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
-          <Scale className="w-5 h-5" />
-        </div>
-        <div>
-          <h1 className="text-xl font-bold text-slate-900 tracking-tight">Compare Universities</h1>
-          <p className="text-xs text-slate-500">Side-by-side analytical metric comparison of top institutions</p>
-        </div>
+      <div className="pb-2 border-b border-slate-200/80">
+        <h1 className="text-xl font-bold text-slate-900 tracking-tight">Compare Universities</h1>
+        <p className="text-xs text-slate-500">Side-by-side analytical metric comparison of top institutions</p>
       </div>
 
       {/* Selection Area */}
