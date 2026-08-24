@@ -375,14 +375,6 @@ const institutionalOverrides: Record<string, Partial<CategoryScores>> = {
     hostel: 8.5,
     fees: 6.8,
   },
-  'Thapar Institute of Engineering and Technology': {
-    placement: 8.8,
-    academics: 8.5,
-    infrastructure: 8.7,
-    studentExperience: 8.4,
-    hostel: 8.2,
-    fees: 7.0,
-  },
   'Chandigarh University': {
     placement: 7.5,
     academics: 7.2,
