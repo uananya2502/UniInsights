@@ -6,8 +6,7 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
 import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import type { UniversityData, TimelinePoint } from '@/lib/data-parser';
-import { TrendingUp, Calendar, ShieldCheck, Award, Zap, Filter, ArrowUpRight, BarChart2 } from 'lucide-react';
-import { DoodleSparkle, DoodleUnderline } from '@/components/ui/Doodles';
+import { TrendingUp, Calendar, ShieldCheck, Filter, ArrowUpRight, BarChart2 } from 'lucide-react';
 
 function ReputationTimelineContent() {
   const searchParams = useSearchParams();
@@ -38,37 +37,7 @@ function ReputationTimelineContent() {
       : data.reputationTimeline.filter(t => t.year === yearFilter)
   ) : [];
 
-  // Milestone events calculation
-  const milestoneEvents = data ? [
-    {
-      quarter: 'Jan 2025',
-      title: 'Annual Placement Drive & Tech Offer Peak',
-      description: `High student engagement around campus placement announcements and MNC recruitment drives for ${data.name}.`,
-      type: 'positive',
-      impact: '+18.4% Sentiment'
-    },
-    {
-      quarter: 'Oct 2024',
-      title: 'NIRF Ranking & Academic Accreditation Release',
-      description: 'Official ranking disclosures triggered surge in public discussion and prospective student inquiries.',
-      type: 'neutral',
-      impact: '1,240+ Discussions'
-    },
-    {
-      quarter: 'Jul 2024',
-      title: 'New Campus Lab Infrastructure & Research Expansion',
-      description: 'Inauguration of updated computing facilities and specialized department labs.',
-      type: 'positive',
-      impact: '+12.1% Sentiment'
-    },
-    {
-      quarter: 'Apr 2024',
-      title: 'Cultural Fest & Inter-University Sports Conclave',
-      description: 'Peak student social media activity, campus vlogs, and community reviews.',
-      type: 'positive',
-      impact: '890+ Mentions'
-    }
-  ] : [];
+
 
   return (
     <div className="p-4 md:p-6 space-y-6 max-w-[1400px] mx-auto overflow-y-auto">
@@ -85,7 +54,6 @@ function ReputationTimelineContent() {
             <div className="relative">
               <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
                 Reputation Timeline Analytics
-                <DoodleSparkle className="w-4 h-4 text-blue-400 opacity-90 inline-block" />
               </h1>
             </div>
             <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl leading-relaxed">
@@ -197,51 +165,9 @@ function ReputationTimelineContent() {
             <ReputationTimeline data={filteredTimeline} universityName={data.name} />
           </div>
 
-          {/* Milestones & Discussion Keywords */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {/* Milestone Events Column */}
-            <div className="lg:col-span-2 card p-5 space-y-4">
-              <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-                <div className="flex items-center gap-2">
-                  <Zap className="w-4 h-4 text-amber-500" />
-                  <h3 className="card-title text-slate-900">Key Institutional Milestone Events</h3>
-                </div>
-                <span className="text-[11px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-                  {milestoneEvents.length} Major Spikes Logged
-                </span>
-              </div>
-
-              <div className="space-y-3">
-                {milestoneEvents.map((evt, idx) => (
-                  <div key={idx} className="p-3.5 rounded-lg border border-slate-200/80 bg-slate-50/50 hover:bg-white hover:border-slate-300 transition-all flex items-start gap-3">
-                    <div className="w-7 h-7 rounded-md bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700 font-bold text-xs flex-shrink-0 mt-0.5">
-                      {idx + 1}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between mb-1">
-                        <span className="text-xs font-bold text-slate-900">{evt.title}</span>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold text-slate-500 bg-slate-200/80 px-2 py-0.5 rounded">
-                            {evt.quarter}
-                          </span>
-                          <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                            {evt.impact}
-                          </span>
-                        </div>
-                      </div>
-                      <p className="text-xs text-slate-600 leading-relaxed font-normal">
-                        {evt.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Trending Keywords Side Panel */}
-            <div className="lg:col-span-1">
-              <TrendingDiscussions topics={data.trendingTopics} />
-            </div>
+          {/* Trending Discussion Keywords (Expanded Horizontally) */}
+          <div className="w-full">
+            <TrendingDiscussions topics={data.trendingTopics} />
           </div>
         </>
       )}

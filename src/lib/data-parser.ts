@@ -409,6 +409,66 @@ const institutionalOverrides: Record<string, Partial<CategoryScores>> = {
   },
 };
 
+function getStandardizedTimeline(name: string, realTimeline?: TimelinePoint[]): TimelinePoint[] {
+  const years = [2020, 2021, 2022, 2023, 2024, 2025];
+  const quarterLabels = ['Jan', 'Apr', 'Jul', 'Oct'];
+  
+  const realQuarterMap: Record<string, { totalMentions: number; sentimentSum: number; count: number; engagementSum: number }> = {};
+  
+  if (realTimeline && realTimeline.length > 0) {
+    const monthToQuarter: Record<string, string> = {
+      'Jan': 'Jan', 'Feb': 'Jan', 'Mar': 'Jan',
+      'Apr': 'Apr', 'May': 'Apr', 'Jun': 'Apr',
+      'Jul': 'Jul', 'Aug': 'Jul', 'Sep': 'Jul',
+      'Oct': 'Oct', 'Nov': 'Oct', 'Dec': 'Oct',
+    };
+    
+    realTimeline.forEach(p => {
+      const parts = (p.month || '').trim().split(' ');
+      const mStr = parts[0] || 'Jan';
+      const yStr = parts[1] || String(p.year);
+      const qPrefix = monthToQuarter[mStr] || 'Jan';
+      const qKey = `${qPrefix} ${yStr}`;
+      
+      if (!realQuarterMap[qKey]) {
+        realQuarterMap[qKey] = { totalMentions: 0, sentimentSum: 0, count: 0, engagementSum: 0 };
+      }
+      realQuarterMap[qKey].totalMentions += (p.mentions || 0);
+      realQuarterMap[qKey].sentimentSum += (p.sentiment || 7.5);
+      realQuarterMap[qKey].engagementSum += (p.engagement || 0);
+      realQuarterMap[qKey].count += 1;
+    });
+  }
+
+  const timeline: TimelinePoint[] = [];
+  years.forEach(year => {
+    quarterLabels.forEach(q => {
+      const qKey = `${q} ${year}`;
+      const realEntry = realQuarterMap[qKey];
+      
+      if (realEntry && realEntry.count > 0) {
+        timeline.push({
+          year,
+          month: qKey,
+          mentions: realEntry.totalMentions,
+          sentiment: +(realEntry.sentimentSum / realEntry.count).toFixed(1),
+          engagement: realEntry.engagementSum || Math.round(realEntry.totalMentions * 4),
+        });
+      } else {
+        timeline.push({
+          year,
+          month: qKey,
+          mentions: seededScore(name, `mentions-${year}-${q}`, 40, 260),
+          sentiment: seededScore(name, `sent-${year}-${q}`, 6.5, 8.8),
+          engagement: seededScore(name, `eng-${year}-${q}`, 100, 1000),
+        });
+      }
+    });
+  });
+
+  return timeline;
+}
+
 function buildUniversityData(name: string, id: string): UniversityData {
   const realData = loadRealSentimentScores();
   const real = realData[name];
@@ -427,26 +487,8 @@ function buildUniversityData(name: string, id: string): UniversityData {
   const scoreValues = Object.values(scores);
   const overallScore = real?.overallScore ?? +(scoreValues.reduce((a, b) => a + b, 0) / scoreValues.length).toFixed(1);
 
-  // Use real timeline if available, else build deterministic one
-  let timeline: TimelinePoint[];
-  if (real?.reputationTimeline && real.reputationTimeline.length > 0) {
-    timeline = real.reputationTimeline;
-  } else {
-    const years = [2020, 2021, 2022, 2023, 2024, 2025];
-    const months = ['Jan', 'Apr', 'Jul', 'Oct'];
-    timeline = [];
-    years.forEach(year => {
-      months.forEach(month => {
-        timeline.push({
-          year,
-          month: `${month} ${year}`,
-          mentions:   seededScore(name, `mentions-${year}-${month}`, 50, 250),
-          sentiment:  seededScore(name, `sent-${year}-${month}`, 4.0, 9.0),
-          engagement: seededScore(name, `eng-${year}-${month}`, 100, 1000),
-        });
-      });
-    });
-  }
+  // Standardized 24-point timeline for all universities (Jan 2020 - Oct 2025)
+  const timeline = getStandardizedTimeline(name, real?.reputationTimeline);
 
   // Use real stats if available
   const totalComments = real?.totalComments ?? seededScore(name, 'comments', 200, 5000);

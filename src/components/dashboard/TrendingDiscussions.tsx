@@ -33,16 +33,16 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
         </div>
       </div>
       <div className="card-content">
-        <div className="space-y-3.5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
           {topics.slice(0, 8).map((topic, i) => (
-            <div key={topic.keyword} className="flex items-center gap-3">
-              <span className="w-5 text-center text-xs font-bold text-slate-400 font-mono">
+            <div key={topic.keyword} className="flex items-center gap-3 p-2 rounded-lg bg-slate-50/60 border border-slate-100 hover:bg-white hover:border-slate-200 transition-all">
+              <span className="w-6 h-6 rounded-md bg-white border border-slate-200 flex items-center justify-center text-xs font-bold text-slate-500 font-mono shadow-2xs">
                 {i + 1}
               </span>
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-slate-800">{topic.keyword}</span>
-                  <div className="flex items-center gap-2">
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center justify-between mb-1.5 gap-2">
+                  <span className="text-xs font-bold text-slate-800 truncate">{topic.keyword}</span>
+                  <div className="flex items-center gap-2 flex-shrink-0">
                     <span className="text-[11px] font-semibold text-slate-500">{topic.count} Mentions</span>
                     <span className={`badge ${trendLabel[topic.trend]} text-[10px] font-bold capitalize flex items-center gap-1`}>
                       {trendIcon[topic.trend]}
@@ -50,7 +50,7 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
                     </span>
                   </div>
                 </div>
-                <div className="w-full bg-slate-100 rounded-full h-1.5 overflow-hidden">
+                <div className="w-full bg-slate-200/70 rounded-full h-1.5 overflow-hidden">
                   <div
                     className="bg-blue-600 h-1.5 rounded-full transition-all duration-500"
                     style={{ width: `${(topic.count / maxCount) * 100}%` }}

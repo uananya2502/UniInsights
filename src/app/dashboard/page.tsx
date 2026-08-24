@@ -7,8 +7,6 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityReportCard } from '@/components/dashboard/UniversityReportCard';
 import { StrengthsConcerns } from '@/components/dashboard/StrengthsConcerns';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
-import { StudentVoice } from '@/components/dashboard/StudentVoice';
-import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import { BestForTags } from '@/components/dashboard/BestForTags';
 import { StatsCards } from '@/components/dashboard/StatsCards';
 import { DoodleSparkle } from '@/components/ui/Doodles';
@@ -100,11 +98,7 @@ function DashboardContent() {
             </div>
           </div>
 
-          {/* Institutional Profile + Trending */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <StudentVoice data={data} />
-            <TrendingDiscussions topics={data.trendingTopics} />
-          </div>
+
 
 
         </div>
