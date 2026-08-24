@@ -6,7 +6,7 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
 import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import type { UniversityData, TimelinePoint } from '@/lib/data-parser';
-import { TrendingUp, Calendar, ShieldCheck, Filter, ArrowUpRight, BarChart2 } from 'lucide-react';
+import { TrendingUp, Calendar, Filter, ArrowUpRight, BarChart2 } from 'lucide-react';
 
 function ReputationTimelineContent() {
   const searchParams = useSearchParams();
@@ -83,7 +83,7 @@ function ReputationTimelineContent() {
       {!loading && data && (
         <>
           {/* Key Metrics Bar */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="card p-4 flex items-center justify-between hover:border-slate-300 transition-all">
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Peak Discussion Period</p>
@@ -120,19 +120,6 @@ function ReputationTimelineContent() {
               </div>
               <div className="w-10 h-10 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-700">
                 <Calendar className="w-5 h-5" />
-              </div>
-            </div>
-
-            <div className="card p-4 flex items-center justify-between hover:border-slate-300 transition-all">
-              <div>
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Verification Status</p>
-                <p className="text-xl font-extrabold text-slate-900">NIRF Verified</p>
-                <span className="text-[10px] font-bold text-teal-700 bg-teal-50 px-2 py-0.5 rounded border border-teal-200 mt-1.5 inline-block">
-                  Multi-Source Aggregated
-                </span>
-              </div>
-              <div className="w-10 h-10 rounded-lg bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700">
-                <ShieldCheck className="w-5 h-5" />
               </div>
             </div>
           </div>
