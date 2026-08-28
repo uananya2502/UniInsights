@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityData } from '@/lib/data-parser';
-import { MessageSquare, Calendar } from 'lucide-react';
+import { MessageSquare } from 'lucide-react';
 import { SentimentDashboardView } from '@/components/dashboard/SentimentDashboardView';
 
 export default function StudentsPage() {
@@ -26,23 +26,15 @@ export default function StudentsPage() {
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-slate-200/80">
         <div>
           <h1 className="text-xl md:text-2xl font-black text-slate-900 tracking-tight">
-            Student Voice & Sentiment Analytics
+            Student Feedback & Review Analytics
           </h1>
           <p className="text-xs text-slate-500 font-medium mt-0.5">
-            Empirical natural language sentiment breakdown synthesized across thousands of campus reviews
+            Aggregated student reviews, satisfaction metrics, and campus perception insights
           </p>
         </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
           <UniversitySearch onSelect={setSelectedUni} selected={selectedUni} />
-          
-          <div className="flex items-center gap-2 bg-slate-50 border border-slate-200/80 px-3 py-1.5 rounded-xl text-xs shrink-0">
-            <Calendar className="w-3.5 h-3.5 text-slate-500" />
-            <div>
-              <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Last Analyzed</div>
-              <div className="text-xs font-black text-slate-800">24 Aug 2026</div>
-            </div>
-          </div>
         </div>
       </div>
 

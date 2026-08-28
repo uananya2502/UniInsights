@@ -179,35 +179,35 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
   return (
     <div className="space-y-6 relative">
 
-      {/* ── Top Header Explainer Banner ── */}
+      {/* ── Top Header Review Overview Banner ── */}
       <div className="card bg-white border border-slate-200/90 rounded-2xl p-5 shadow-2xs">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
-          {/* Left Column: Explainer */}
+          {/* Left Column: Campus Overview Summary */}
           <div className="lg:col-span-5 flex items-start gap-3.5 border-b lg:border-b-0 lg:border-r border-slate-100 pb-4 lg:pb-0 lg:pr-5">
-            <div className="w-10 h-10 rounded-2xl bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 shrink-0 mt-0.5 shadow-2xs">
-              <Smile className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-700 shrink-0 mt-0.5 shadow-2xs">
+              <MessageSquare className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h3 className="text-base font-extrabold text-slate-900 tracking-tight">What is Sentiment?</h3>
+                <h3 className="text-base font-extrabold text-slate-900 tracking-tight">Student Feedback Summary</h3>
                 {selectedSentimentQuote !== 'all' && (
                   <button 
                     onClick={() => setSelectedSentimentQuote('all')}
-                    className="text-[10px] font-bold text-slate-500 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer"
+                    className="text-[10px] font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 px-2 py-0.5 rounded flex items-center gap-1 cursor-pointer"
                   >
                     Reset Filter <X className="w-3 h-3" />
                   </button>
                 )}
               </div>
               <p className="text-xs text-slate-600 leading-relaxed mt-1 font-normal">
-                Sentiment refers to the emotional tone and opinion expressed in student reviews and discussions. It helps us understand how students feel about their campus experiences.
+                Analysis of verified student feedback for {data.name} across academics, placement support, campus infrastructure, and student life.
               </p>
             </div>
           </div>
 
-          {/* Right Column: 3 Interactive Quote Cards */}
+          {/* Right Column: 3 Clean Tone Filter Cards */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {/* Positive Quote */}
+            {/* Positive Filter */}
             <button
               onClick={() => setSelectedSentimentQuote(selectedSentimentQuote === 'positive' ? 'all' : 'positive')}
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
@@ -216,17 +216,16 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
                   : 'bg-emerald-50/50 border-emerald-100 hover:bg-emerald-100/50 hover:border-emerald-200'
               }`}
             >
-              <div className="flex items-center gap-1.5 text-emerald-600 font-bold text-xs">
+              <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-xs">
                 <Smile className="w-4 h-4 shrink-0" />
-                <span className="text-[11px] italic text-slate-800 font-normal">"Great placement support and amazing faculty!"</span>
+                <span className="text-[11px] font-semibold text-slate-900">Positive Feedback</span>
               </div>
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-[10px] font-extrabold text-emerald-600 block">Positive Tone</span>
-                <span className="text-[9px] font-bold text-emerald-700 bg-emerald-100 px-1.5 py-0.5 rounded">Click to inspect</span>
-              </div>
+              <p className="text-[10px] text-slate-600 font-normal mt-1 line-clamp-2">
+                Strong placement drives, supportive faculty & modern labs.
+              </p>
             </button>
 
-            {/* Neutral Quote */}
+            {/* Neutral Filter */}
             <button
               onClick={() => setSelectedSentimentQuote(selectedSentimentQuote === 'neutral' ? 'all' : 'neutral')}
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
@@ -235,17 +234,16 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
                   : 'bg-indigo-50/50 border-indigo-100 hover:bg-indigo-100/50 hover:border-indigo-200'
               }`}
             >
-              <div className="flex items-center gap-1.5 text-indigo-600 font-bold text-xs">
+              <div className="flex items-center gap-1.5 text-indigo-700 font-bold text-xs">
                 <Meh className="w-4 h-4 shrink-0" />
-                <span className="text-[11px] italic text-slate-800 font-normal">"Not sure about the hostel, it's average."</span>
+                <span className="text-[11px] font-semibold text-slate-900">Neutral Feedback</span>
               </div>
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-[10px] font-extrabold text-indigo-600 block">Neutral Tone</span>
-                <span className="text-[9px] font-bold text-indigo-700 bg-indigo-100 px-1.5 py-0.5 rounded">Click to inspect</span>
-              </div>
+              <p className="text-[10px] text-slate-600 font-normal mt-1 line-clamp-2">
+                Standard hostel allotment & balanced academic workload.
+              </p>
             </button>
 
-            {/* Concern Quote */}
+            {/* Concern Filter */}
             <button
               onClick={() => setSelectedSentimentQuote(selectedSentimentQuote === 'concern' ? 'all' : 'concern')}
               className={`p-3 rounded-xl border text-left transition-all cursor-pointer ${
@@ -254,24 +252,23 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
                   : 'bg-rose-50/50 border-rose-100 hover:bg-rose-100/50 hover:border-rose-200'
               }`}
             >
-              <div className="flex items-center gap-1.5 text-rose-600 font-bold text-xs">
+              <div className="flex items-center gap-1.5 text-rose-700 font-bold text-xs">
                 <Frown className="w-4 h-4 shrink-0" />
-                <span className="text-[11px] italic text-slate-800 font-normal">"High fees and strict attendance rules."</span>
+                <span className="text-[11px] font-semibold text-slate-900">Areas for Improvement</span>
               </div>
-              <div className="flex items-center justify-between pt-1">
-                <span className="text-[10px] font-extrabold text-rose-600 block">Concern Tone</span>
-                <span className="text-[9px] font-bold text-rose-700 bg-rose-100 px-1.5 py-0.5 rounded">Click to inspect</span>
-              </div>
+              <p className="text-[10px] text-slate-600 font-normal mt-1 line-clamp-2">
+                Fee structure concerns & strict attendance policies.
+              </p>
             </button>
           </div>
         </div>
 
-        {/* Selected Quote Banner Notification */}
+        {/* Selected Filter Notification */}
         {selectedSentimentQuote !== 'all' && (
           <div className="mt-3 p-3 rounded-xl bg-slate-900 text-white flex items-center justify-between text-xs animate-slide-up">
             <span className="flex items-center gap-2 font-medium">
               <Filter className="w-4 h-4 text-indigo-400" />
-              Showing <strong>{selectedSentimentQuote.toUpperCase()}</strong> sentiment parameters for {data.name}.
+              Showing <strong>{selectedSentimentQuote.toUpperCase()}</strong> review parameters for {data.name}.
             </span>
             <button 
               onClick={() => setSelectedSentimentQuote('all')}
@@ -423,7 +420,7 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
           </div>
 
           <div className="text-[11px] text-slate-500 text-center font-medium pt-1">
-            Synthesized across {totalComments.toLocaleString()} verified student data points
+            Based on {totalComments.toLocaleString()} verified student reviews
           </div>
         </div>
 
@@ -825,10 +822,10 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
         <div className="mt-4 pt-3 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-medium text-slate-500">
           <button 
             onClick={() => setIsMethodologyModalOpen(true)}
-            className="flex items-center gap-1.5 text-indigo-600 hover:text-indigo-800 font-semibold cursor-pointer text-left"
+            className="flex items-center gap-1.5 text-slate-700 hover:text-indigo-600 font-semibold cursor-pointer text-left"
           >
-            <span className="w-2 h-2 rounded-full bg-indigo-600 animate-pulse" />
-            Powered by Sentiment Intelligence Engine
+            <span className="w-2 h-2 rounded-full bg-slate-600" />
+            Analysis methodology & score validation
           </button>
 
           <button 
