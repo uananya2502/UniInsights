@@ -50,7 +50,7 @@ function DashboardContent() {
               </h2>
             </div>
             <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl">
-              Know Your Campus. Choose with Confidence.
+              Know Your College. Choose with Confidence.
             </p>
           </div>
 

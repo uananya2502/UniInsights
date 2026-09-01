@@ -53,7 +53,7 @@ export default function SignupPage() {
             <Image src="/uniinsights-official-logo.png" alt="UniInsights Logo" width={40} height={40} className="object-contain" />
             <div>
               <span className="font-black text-xl tracking-tight text-white block leading-none">UniInsights</span>
-              <span className="text-[11px] text-slate-400 font-medium">Know Your Campus</span>
+              <span className="text-[11px] text-slate-400 font-medium">Know Your College</span>
             </div>
           </Link>
           <Link

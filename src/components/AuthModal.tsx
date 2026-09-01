@@ -39,7 +39,7 @@ export function AuthModal({ isOpen, onClose, initialMode = 'login' }: AuthModalP
             </div>
             <div>
               <h2 className="text-lg font-bold">UniInsights</h2>
-              <p className="text-xs text-slate-300">Know Your Campus. Choose with Confidence.</p>
+              <p className="text-xs text-slate-300">Know Your College. Choose with Confidence.</p>
             </div>
           </div>
 

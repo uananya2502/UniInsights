@@ -65,7 +65,7 @@ export default function LandingPage() {
             </div>
             <div>
               <span className="font-bold text-lg tracking-tight block text-slate-900">UniInsights</span>
-              <span className="text-[10px] text-slate-500 block -mt-1 font-medium group-hover:text-slate-900 transition-colors">Know Your Campus</span>
+              <span className="text-[10px] text-slate-500 block -mt-1 font-medium group-hover:text-slate-900 transition-colors">Know Your College</span>
             </div>
           </Link>
           <div className="flex items-center gap-4">
@@ -98,7 +98,7 @@ export default function LandingPage() {
                 </div>
 
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 text-slate-900">
-                  Know Your Campus.<br />
+                  Know Your College.<br />
                   <span className="text-[#0B1527]">Choose with Confidence.</span>
                 </h1>
 
@@ -435,7 +435,7 @@ export default function LandingPage() {
             <span className="text-sm font-semibold text-slate-900">UniInsights</span>
           </div>
           <p className="text-xs text-slate-500">
-            Know Your Campus. Choose with Confidence.
+            Know Your College. Choose with Confidence.
           </p>
         </div>
       </footer>

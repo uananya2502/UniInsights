@@ -92,7 +92,7 @@ export function AuthModal({ isOpen, onClose, initialMode = 'login', onSuccess }:
             <Image src="/uniinsights-official-logo.png" alt="UniInsights Logo" width={34} height={34} className="object-contain" />
             <div>
               <h2 className="text-xl font-extrabold tracking-tight text-white">UniInsights</h2>
-              <p className="text-[11px] text-slate-400 font-medium">Know Your Campus. Choose with Confidence.</p>
+              <p className="text-[11px] text-slate-400 font-medium">Know Your College. Choose with Confidence.</p>
             </div>
           </div>
 

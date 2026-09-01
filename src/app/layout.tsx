@@ -84,7 +84,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <head>
-        <title>UniInsights | Know Your Campus. Choose with Confidence.</title>
+        <title>UniInsights | Know Your College. Choose with Confidence.</title>
         <meta name="description" content="Comprehensive thesis dashboard for university data analysis. Compare universities, explore student reviews, and make informed decisions." />
       </head>
       <body className="bg-slate-50 antialiased font-sans">
@@ -114,7 +114,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Image src="/uniinsights-official-logo.png" alt="UniInsights Logo" width={38} height={38} className="object-contain flex-shrink-0" />
                   <div>
                     <span className="font-extrabold text-lg tracking-tight text-slate-900 block leading-snug">UniInsights</span>
-                    <span className="text-[11px] text-slate-500 block font-medium">Know Your Campus</span>
+                    <span className="text-[11px] text-slate-500 block font-medium">Know Your College</span>
                   </div>
                 </Link>
                 <button
