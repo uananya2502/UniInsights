@@ -29,7 +29,7 @@ export async function POST(request: Request) {
     try {
       const rawComments = await searchRawComments(message, 10);
       if (rawComments.length > 0) {
-        context += '--- RELEVANT RAW STUDENT COMMENTS ---\n';
+        context += 'RELEVANT RAW STUDENT COMMENTS\n';
         context += rawComments.map(c => `[${c.university} - ${c.category}] (${c.sentiment}): ${c.text}`).join('\n');
         context += '\n\n';
       }
