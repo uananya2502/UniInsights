@@ -10,11 +10,11 @@ scores = analyzer.polarity_scores(comment)
 compound = scores['compound']
 
 if compound >= 0.05:
-    label = "POSITIVE 😊"
+    label = "POSITIVE"
 elif compound <= -0.05:
-    label = "NEGATIVE 😟"
+    label = "NEGATIVE"
 else:
-    label = "NEUTRAL 😐"
+    label = "NEUTRAL"
 
 score_out_of_10 = round((compound + 1) / 2 * 10, 2)
 
@@ -29,6 +29,6 @@ print("-" * 50)
 print(f"Score/10 : {score_out_of_10}")
 print(f"Result   : {label}")
 print("=" * 50)
-print("Rule: compound >= +0.05 → Positive")
-print("      compound <= -0.05 → Negative")
-print("      in between        → Neutral")
+print("Rule: compound >= +0.05  => Positive")
+print("      compound <= -0.05  => Negative")
+print("      in between         => Neutral")
