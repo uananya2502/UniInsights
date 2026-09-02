@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UniInsights — Complete Viva Guide</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 13px;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* ── Cover Page ─────────────────────────────────── */
+    .cover {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: white;
+      text-align: center;
+      padding: 40px;
+      page-break-after: always;
+    }
+    .cover .badge {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      padding: 6px 20px;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+    .cover h1 {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+    }
+    .cover h1 span { color: #a78bfa; }
+    .cover .subtitle {
+      font-size: 18px;
+      opacity: 0.75;
+      max-width: 500px;
+      margin: 16px auto;
+    }
+    .cover .divider {
+      width: 60px;
+      height: 3px;
+      background: #a78bfa;
+      margin: 30px auto;
+      border-radius: 2px;
+    }
+    .cover .meta { opacity: 0.55; font-size: 13px; }
+
+    /* ── Main Content ───────────────────────────────── */
+    .container { max-width: 860px; margin: 0 auto; padding: 50px 40px; }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #302b63;
+      border-left: 4px solid #a78bfa;
+      padding-left: 14px;
+      margin: 40px 0 16px;
+    }
+    h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin: 28px 0 10px;
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #302b63;
+      margin: 20px 0 8px;
+    }
+    p { margin-bottom: 10px; }
+
+    /* ── Section divider ────────────────────────────── */
+    .section {
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid #e8e8f0;
+    }
+
+    /* ── Page break ─────────────────────────────────── */
+    .page-break { page-break-before: always; }
+
+    /* ── Callout boxes ──────────────────────────────── */
+    .callout {
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      font-size: 13px;
+    }
+    .callout.blue  { background: #eff6ff; border-left: 4px solid #3b82f6; }
+    .callout.purple{ background: #f5f3ff; border-left: 4px solid #7c3aed; }
+    .callout.green { background: #f0fdf4; border-left: 4px solid #16a34a; }
+    .callout.orange{ background: #fff7ed; border-left: 4px solid #ea580c; }
+    .callout.red   { background: #fef2f2; border-left: 4px solid #dc2626; }
+    .callout strong { display: block; margin-bottom: 4px; font-size: 13px; }
+
+    /* ── Code blocks ────────────────────────────────── */
+    pre {
+      background: #1e1e2e;
+      color: #cdd6f4;
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-size: 12px;
+      font-family: 'Cascadia Code', 'Courier New', monospace;
+      margin: 12px 0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    code {
+      background: #f0f0f5;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-size: 12px;
+      font-family: 'Cascadia Code', 'Courier New', monospace;
+      color: #7c3aed;
+    }
+
+    /* ── Tables ─────────────────────────────────────── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 12.5px;
+    }
+    th {
+      background: #302b63;
+      color: white;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    td { padding: 9px 14px; border-bottom: 1px solid #e8e8f0; }
+    tr:nth-child(even) td { background: #f8f8fc; }
+
+    /* ── Step boxes ─────────────────────────────────── */
+    .step {
+      display: flex;
+      gap: 16px;
+      margin: 14px 0;
+      align-items: flex-start;
+    }
+    .step-num {
+      min-width: 32px;
+      height: 32px;
+      background: #302b63;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .step-content { flex: 1; padding-top: 4px; }
+
+    /* ── Q&A ────────────────────────────────────────── */
+    .qa-block {
+      background: #fafafa;
+      border: 1px solid #e8e8f0;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+    .question {
+      font-weight: 700;
+      color: #7c3aed;
+      margin-bottom: 8px;
+      font-size: 13.5px;
+    }
+    .answer { color: #1a1a2e; }
+
+    /* ── One-liner cards ────────────────────────────── */
+    .oneliner {
+      background: #f5f3ff;
+      border-left: 4px solid #7c3aed;
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 10px 0;
+    }
+    .oneliner .page-name {
+      font-weight: 700;
+      color: #302b63;
+      margin-bottom: 4px;
+    }
+    .oneliner .url {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    /* ── Print ──────────────────────────────────────── */
+    @media print {
+      body { font-size: 12px; }
+      .cover { height: 100vh; page-break-after: always; }
+      .container { padding: 30px 30px; }
+      h2 { font-size: 18px; }
+      pre { font-size: 11px; }
+    }
+
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px dotted #ccc;
+      font-size: 13px;
+    }
+    .toc-item span:first-child { color: #302b63; font-weight: 500; }
+    .toc-item span:last-child { color: #888; font-size: 12px; }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #302b63, #4c3891);
+      color: white;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .highlight-box h4 { color: #a78bfa; margin-bottom: 8px; }
+
+    ul { padding-left: 20px; margin-bottom: 10px; }
+    li { margin-bottom: 5px; }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     COVER PAGE
+══════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="badge">📘 Viva Preparation Guide</div>
+  <h1>Uni<span>Insights</span></h1>
+  <p class="subtitle">Know Your College. Choose with Confidence.</p>
+  <div class="divider"></div>
+  <p style="font-size:16px; opacity:0.9; max-width:520px; line-height:1.8;">
+    A complete technical explanation of every file, page, component,
+    and design decision in the UniInsights project — written for your viva.
+  </p>
+  <div style="margin-top:40px; opacity:0.55; font-size:12px;">
+    B.Tech Final Year Project &nbsp;|&nbsp; Full-Stack Web Application &nbsp;|&nbsp; NLP + AI + Data Analytics
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════════════ -->
+<div class="container">
+
+  <!-- ── Table of Contents ───────────────────── -->
+  <h2>Table of Contents</h2>
+  <div class="toc-item"><span>1. Project Summary & Tech Stack</span><span>Section 1</span></div>
+  <div class="toc-item"><span>2. Folder Structure</span><span>Section 2</span></div>
+  <div class="toc-item"><span>3. Scripts — Data Pipeline (Python)</span><span>Section 3</span></div>
+  <div class="toc-item"><span>4. Lib — Backend Utilities (TypeScript)</span><span>Section 4</span></div>
+  <div class="toc-item"><span>5. App — Pages & API Routes</span><span>Section 5</span></div>
+  <div class="toc-item"><span>6. Components</span><span>Section 6</span></div>
+  <div class="toc-item"><span>7. Page-by-Page Explanation</span><span>Section 7</span></div>
+  <div class="toc-item"><span>8. One-Liner Summary for Every Page</span><span>Section 8</span></div>
+  <div class="toc-item"><span>9. Likely Viva Q&A with Perfect Answers</span><span>Section 9</span></div>
+  <div class="toc-item"><span>10. Common Situations (Chatbot not working, etc.)</span><span>Section 10</span></div>
+
+  <!-- ══════════════ SECTION 1 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 1 — Project Summary & Tech Stack</h2>
+  <div class="section">
+    <div class="callout blue">
+      <strong>What is UniInsights?</strong>
+      UniInsights is a full-stack web application that collects real YouTube comments about Indian universities,
+      applies NLP-based sentiment analysis, and presents an interactive dashboard so students can make
+      informed college decisions based on actual peer opinions.
+    </div>
+
+    <h3>Tech Stack</h3>
+    <table>
+      <tr><th>Layer</th><th>Technology</th><th>Why We Used It</th></tr>
+      <tr><td>Frontend Framework</td><td>Next.js 16 (App Router)</td><td>Server-side rendering, file-based routing, API routes in one framework</td></tr>
+      <tr><td>Language</td><td>TypeScript</td><td>Type safety — catches bugs at compile time, not runtime</td></tr>
+      <tr><td>Styling</td><td>Tailwind CSS</td><td>Utility-first, fast responsive design</td></tr>
+      <tr><td>Database</td><td>SQLite (comments.db — 54MB)</td><td>Stores all YouTube comments, FTS5 for full-text search</td></tr>
+      <tr><td>Sentiment Analysis</td><td>VADER (Python)</td><td>Designed for social media / informal text like YouTube comments</td></tr>
+      <tr><td>AI Chat</td><td>Google Gemini 2.0 Flash API</td><td>Powers intelligent Q&amp;A chatbot with RAG context</td></tr>
+      <tr><td>Embeddings</td><td>Gemini text-embedding-004</td><td>Converts text to vectors for semantic similarity search</td></tr>
+      <tr><td>Charts</td><td>Recharts</td><td>Interactive line charts, bar charts, radar charts in React</td></tr>
+      <tr><td>Data Format</td><td>CSV + JSON</td><td>Raw data in CSV, processed scores in JSON for fast reads</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════ SECTION 2 ══════════════ -->
+  <h2>Section 2 — Folder Structure</h2>
+  <div class="section">
+    <pre>UniInsights/
+├── scripts/                  ← Python scripts (run ONCE to process data)
+│   ├── generate_sentiment_scores.py   ← MAIN script: VADER + calibration
+│   ├── build-db.ts                    ← Builds SQLite DB from CSVs
+│   ├── check_scores.py                ← Quick verification utility
+│   └── verify_all.py                  ← Validates all CSV files exist
+│
+├── src/
+│   ├── app/                  ← All pages & API routes (Next.js App Router)
+│   │   ├── page.tsx           ← Home / Landing Page
+│   │   ├── layout.tsx         ← Root layout (sidebar, header, auth)
+│   │   ├── dashboard/         ← Main sentiment dashboard
+│   │   ├── compare/           ← University comparison page
+│   │   ├── students/          ← Student Voice page
+│   │   ├── chat/              ← AI chatbot page
+│   │   ├── news/              ← Intelligence Feed (live news)
+│   │   ├── reputation-timeline/  ← Timeline graph page
+│   │   ├── login/ & signup/   ← Authentication pages
+│   │   └── api/               ← Backend API routes
+│   │       ├── chat/route.ts  ← Chatbot API (RAG + Gemini)
+│   │       ├── data/route.ts  ← University data API
+│   │       └── news/route.ts  ← News fetching API
+│   │
+│   ├── components/            ← Reusable React UI components
+│   │   ├── dashboard/         ← 11 dashboard components
+│   │   ├── auth/AuthModal.tsx ← Login/signup modal
+│   │   └── ui/                ← Generic UI elements
+│   │
+│   └── lib/                   ← Backend utility functions
+│       ├── data-parser.ts     ← Core data loading & caching
+│       ├── gemini.ts          ← Google Gemini AI integration
+│       ├── rag-store.ts       ← Vector search (RAG)
+│       ├── sqlite-search.ts   ← SQLite FTS5 keyword search
+│       ├── news-fetcher.ts    ← Google News RSS fetcher
+│       └── campus-images.ts   ← University image URLs
+│
+├── public/
+│   └── university_sentiment_scores.json  ← Pre-computed scores (output of Python)
+│
+├── comments.db               ← 54MB SQLite database (all YouTube comments)
+│
+├── Rankings/                 ← NIRF ranking CSV files
+├── academics_information/    ← YouTube academic video & comment CSVs
+├── placement_information/    ← YouTube placement video & comment CSVs
+├── hostel_information/       ← YouTube hostel video & comment CSVs
+├── fees_information/         ← YouTube fees video & comment CSVs
+├── Student_experience_information/ ← Student experience CSVs
+└── Infrastructure/           ← Infrastructure comment CSVs</pre>
+  </div>
+
+  <!-- ══════════════ SECTION 3 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 3 — Scripts: Data Pipeline</h2>
+  <div class="section">
+
+    <h3>generate_sentiment_scores.py — The Most Important File ⭐</h3>
+    <div class="callout purple">
+      <strong>What it does in one line:</strong>
+      Reads all YouTube comment CSVs → runs VADER sentiment on every comment → applies engagement weighting, percentile normalization, and NIRF calibration → saves final scores to a JSON file.
+    </div>
+
+    <h4>The 7-Step Pipeline (learn this!)</h4>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>Read CSV Files</strong><br/>
+        Opens 6 CSV files (placement, hostel, academics, fees, student_experience, infrastructure).
+        Each CSV has columns: <code>university_name</code>, <code>comment_text</code>, <code>likes</code>, <code>comment_year</code>, <code>comment_month</code>.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>VADER Sentiment Analysis</strong><br/>
+        Every comment gets a compound score between <strong>-1 (very negative)</strong> and <strong>+1 (very positive)</strong>.<br/>
+        Converted to 0–10 scale: <code>score = (compound + 1) / 2 × 10</code><br/>
+        Examples: "Hostel food is amazing!" → +0.72 | "Fees are too high" → -0.58
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Engagement Weighting</strong><br/>
+        Comments with more likes get more weight: <code>weight = likes + 1</code><br/>
+        A comment liked by 500 students represents many more opinions than a zero-like comment.
+        <pre>weighted_score = average(sentiment_scores, weights=likes+1)</pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <strong>Percentile Normalization</strong><br/>
+        Each university's score is compared <em>relative to all other universities</em> in that category.
+        The 5th percentile is used as the floor, 95th as the ceiling.
+        <pre>normalized = (raw - cat_min) / (cat_max - cat_min)
+final = 5.0 + normalized × 4.5   # Maps to 5.0 – 9.5 range</pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <strong>NIRF Calibration Bonus</strong><br/>
+        A bonus is added based on official NIRF rankings to correct for data imbalance:
+        <table>
+          <tr><th>Institution</th><th>NIRF Bonus</th></tr>
+          <tr><td>IIT Madras (NIRF #1)</td><td>+2.5</td></tr>
+          <tr><td>IIT Delhi (NIRF #2)</td><td>+2.4</td></tr>
+          <tr><td>BITS Pilani</td><td>+2.0</td></tr>
+          <tr><td>BML Munjal University</td><td>+0.5</td></tr>
+          <tr><td>Unknown private colleges</td><td>-0.3 to -0.5</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <strong>Tier Baseline Anchoring</strong><br/>
+        Every university is placed at a realistic baseline score based on its tier:
+        <table>
+          <tr><th>Tier</th><th>Examples</th><th>Baseline</th></tr>
+          <tr><td>Tier 1A</td><td>IIT Delhi, IIT Bombay, IIT Madras</td><td>9.2</td></tr>
+          <tr><td>Tier 1B</td><td>BITS Pilani, IIT Roorkee</td><td>9.0–9.1</td></tr>
+          <tr><td>Tier 2A</td><td>NIT Trichy, IIIT Delhi, DTU</td><td>8.7</td></tr>
+          <tr><td>Tier 3A</td><td>Amity, Chandigarh, BML Munjal</td><td>7.3</td></tr>
+          <tr><td>Tier 3B</td><td>LPU, Graphic Era</td><td>6.7</td></tr>
+        </table>
+        <code>final_score = baseline + offset + (normalized - 7.0) × 0.25</code><br/>
+        The raw VADER score only adjusts the final score by 25% — tier baseline dominates.
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <strong>Save Output</strong><br/>
+        Saves <code>public/university_sentiment_scores.json</code> — the dashboard reads this file.
+        Format: <code>{ "IIT Delhi": { categoryScores: {...}, overallScore: 9.1, totalComments: 5420, ... } }</code>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>🎤 One-Line to Memorize</h4>
+      "We scraped YouTube comments → ran VADER sentiment → weighted by likes → normalized by percentile → added NIRF calibration bonus → saved as JSON → displayed on dashboard."
+    </div>
+
+    <h3>build-db.ts</h3>
+    <p>A TypeScript script that reads all CSV comment files and builds the SQLite database <code>comments.db</code>. Creates an FTS5 (Full-Text Search) virtual table called <code>comments_fts</code> for lightning-fast keyword search.</p>
+
+    <h3>check_scores.py &amp; verify_all.py</h3>
+    <p>Utility scripts used during development to verify the CSV files exist and the generated JSON scores look correct.</p>
+  </div>
+
+  <!-- ══════════════ SECTION 4 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 4 — Lib: Backend Utilities</h2>
+  <div class="section">
+
+    <h3>data-parser.ts — Core Data Layer ⭐</h3>
+    <div class="callout blue">
+      <strong>What it does:</strong> The single source of truth for all university data. Reads CSV files and the pre-computed JSON sentiment scores, normalizes university names, and serves structured data to the dashboard.
+    </div>
+    <h4>Key Functions:</h4>
+    <ul>
+      <li><code>getUniversityList()</code> — Scans all CSVs, collects unique university names, normalizes them (e.g., "Indian Institute of Technology Delhi" → "IIT Delhi"), returns sorted list</li>
+      <li><code>buildUniversityData(name, id)</code> — Builds a complete profile for one university. Priority: 1) Real JSON scores → 2) Manual overrides → 3) Seeded fallback</li>
+      <li><code>getAggregatedUniversityData()</code> — Returns data for ALL universities (used by compare page)</li>
+      <li><code>getTopUniversities(n)</code> — Returns top N universities sorted by overall score</li>
+    </ul>
+    <p><strong>Caching:</strong> Data is loaded from disk only ONCE and stored in memory. This is why the dashboard loads instantly even with 27+ universities.</p>
+
+    <h3>gemini.ts — AI Integration ⭐</h3>
+    <div class="callout purple">
+      <strong>What it does:</strong> Handles all communication with the Google Gemini API for two purposes: generating text embeddings (for RAG), and generating chat responses.
+    </div>
+    <h4>Two Main Functions:</h4>
+    <pre>// 1. Generate Embeddings (for RAG search)
+const model = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+const result = await model.embedContent(text);
+return result.embedding.values; // array of ~768 numbers
+
+// 2. Generate Chat Response
+const model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash' });
+const result = await model.generateContent([systemPrompt, userMessage]);</pre>
+    <p><strong>Fallback:</strong> If the API key is missing or quota is exceeded, the app automatically returns pre-written smart answers for common queries (NIRF, IIT comparison, ROI). This is called <em>graceful degradation</em>.</p>
+
+    <h3>rag-store.ts — RAG (Retrieval Augmented Generation) ⭐</h3>
+    <div class="callout green">
+      <strong>What is RAG?</strong> Instead of asking AI a question directly, you first <em>retrieve relevant data</em> from your own database, then send that data as context to the AI. This makes the AI answer based on YOUR real data, not just its training data.
+    </div>
+    <h4>How it works:</h4>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">Each university's data is formatted as text: name, scores, strengths, concerns, best-for tags</div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">This text is converted into an <strong>embedding</strong> (a list of ~768 numbers representing meaning)</div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">When user asks a question, it's also converted to an embedding</div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content"><strong>Cosine Similarity</strong> measures how close the question's meaning is to each university document</div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">Top 2–3 most relevant university documents are passed as context to Gemini</div>
+    </div>
+    <pre>// Cosine similarity: measures angle between two vectors
+// 1.0 = identical meaning, 0.0 = completely unrelated
+dotProduct / (Math.sqrt(normA) * Math.sqrt(normB))</pre>
+    <p><strong>Caching:</strong> Embeddings are saved to <code>.rag-cache.json</code> so they don't need to be regenerated every server restart — this saves API costs.</p>
+
+    <h3>sqlite-search.ts — Fast Keyword Search</h3>
+    <div class="callout orange">
+      <strong>What it does:</strong> Searches the 54MB SQLite database of real YouTube comments using FTS5 (Full-Text Search) — finds comments matching the user's keywords.
+    </div>
+    <pre>SELECT university, category, sentiment, text
+FROM comments_fts
+WHERE comments_fts MATCH 'hostel OR food OR facility'
+ORDER BY bm25(comments_fts)   -- BM25 = relevance ranking (same as Google uses)
+LIMIT 10</pre>
+    <p><strong>FTS5</strong> = SQLite's built-in full-text search engine. <strong>BM25</strong> = Best Match 25, a ranking algorithm that scores results by relevance.</p>
+
+    <h3>news-fetcher.ts — Live News</h3>
+    <div class="callout blue">
+      <strong>What it does:</strong> Fetches real-time education news by calling Google News RSS API, parsing the XML response, and categorizing articles automatically.
+    </div>
+    <p><strong>Steps:</strong> Build RSS URL with query targeting Indian Express, The Hindu, HT, TOI, NDTV → Fetch XML → Parse with regex → Auto-categorize (Placements/Rankings/Admissions/Research/Policy) → Block spam sites (Shiksha, Careers360) → Sort newest first → Return top 10 → Use fallback articles if RSS fails.</p>
+  </div>
+
+  <!-- ══════════════ SECTION 5 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 5 — App: Pages & API Routes</h2>
+  <div class="section">
+
+    <h3>layout.tsx — Root Layout</h3>
+    <p>The outermost wrapper for the entire app. Sets the HTML <code>&lt;head&gt;</code> (title, meta for SEO), renders the sidebar navigation that appears on every page, and includes the login/signup modal.</p>
+
+    <h3>API Routes</h3>
+
+    <h4>api/chat/route.ts — The Chatbot Backend ⭐</h4>
+    <div class="callout purple">
+      <strong>Most technically complex API route.</strong> Combines two search strategies to build context, then calls Gemini.
+    </div>
+    <p>When user sends a message, the flow is:</p>
+    <div class="step"><div class="step-num">1</div><div class="step-content"><strong>Vector Search</strong> (searchRAG) — finds most semantically similar university summaries using cosine similarity</div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-content"><strong>SQLite FTS5 Search</strong> (searchRawComments) — finds relevant actual student comments by keywords</div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-content">Combine both results into a <strong>context string</strong></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-content">Send <code>message + context</code> to <strong>Gemini 2.0 Flash</strong></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-content">Return Gemini's response to the user</div></div>
+    <p><em>Why two searches?</em> Vector search = semantic meaning. FTS5 = exact keywords. Together they give comprehensive coverage.</p>
+
+    <h4>api/data/route.ts</h4>
+    <p>Called when dashboard loads. Returns all university data (category scores, overall score, timeline, sentiment breakdown) by reading from the pre-processed JSON via data-parser.ts.</p>
+
+    <h4>api/news/route.ts</h4>
+    <p>Fetches education news using news-fetcher.ts. Results are cached to avoid hitting rate limits.</p>
+  </div>
+
+  <!-- ══════════════ SECTION 6 ══════════════ -->
+  <h2>Section 6 — Components</h2>
+  <div class="section">
+    <table>
+      <tr><th>Component File</th><th>What It Does</th></tr>
+      <tr><td>SentimentDashboardView.tsx</td><td>The main dashboard — shows overall score, 6 category bars/radar chart, sentiment pie chart, timeline, strengths & concerns, and the "How is this calculated?" modal</td></tr>
+      <tr><td>ReputationTimeline.tsx</td><td>Line chart of sentiment scores from Jan 2020 to Oct 2025, grouped by quarter</td></tr>
+      <tr><td>StudentVoice.tsx</td><td>Shows actual student comments with positive/neutral/negative badges, paginated with "View All"</td></tr>
+      <tr><td>StatsCards.tsx</td><td>Summary stats: Total Comments, Total Videos, Avg Likes per university</td></tr>
+      <tr><td>StrengthsConcerns.tsx</td><td>Lists top 3 highest-scoring categories (strengths) and lowest-scoring below 7.0 (concerns)</td></tr>
+      <tr><td>TrendingDiscussions.tsx</td><td>Shows most-discussed topics (Campus Life, Placements, Faculty...) tagged as Rising/Stable/Declining</td></tr>
+      <tr><td>BestForTags.tsx</td><td>Shows tags like "Best for Engineering", "Best for Campus Life"</td></tr>
+      <tr><td>UniversitySearch.tsx</td><td>Autocomplete search dropdown to select a university</td></tr>
+      <tr><td>NewsFeed.tsx</td><td>Renders education news articles in card format</td></tr>
+      <tr><td>SentimentExplainerCard.tsx</td><td>The classification rating table explaining what each score range means</td></tr>
+      <tr><td>UniversityReportCard.tsx</td><td>Printable/shareable report card view of university stats</td></tr>
+      <tr><td>AuthModal.tsx</td><td>Login/signup modal popup for unauthenticated users</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════ SECTION 7 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 7 — Page-by-Page Explanation</h2>
+  <div class="section">
+
+    <h3>Dashboard Page — How the scores are collected</h3>
+    <div class="callout green">
+      <strong>If examiner asks: "How did you get BML Munjal's 7.4 score?"</strong>
+    </div>
+    <p>We scraped YouTube comments related to BML Munjal across 6 categories using the YouTube Data API v3. For each category, comments were stored in a CSV file. We ran VADER on every comment to get a compound score (-1 to +1), converted it to 0–10, weighted by likes, normalized relative to other universities, applied NIRF calibration (+0.5 for BML Munjal), and anchored to a Tier 3A baseline (7.3). The average across 6 categories gives the 7.4 overall score, which is then multiplied by 10 to show 74/100.</p>
+
+    <h3>Reputation Timeline — How the graph is built</h3>
+    <div class="callout green">
+      <strong>If examiner asks: "Where did the timeline data come from?"</strong>
+    </div>
+    <p>Every comment in the CSV has a <code>comment_year</code> and <code>comment_month</code> column (the date the comment was posted on YouTube). In the Python script, we group comments by university + year + month. For each month:</p>
+    <ul>
+      <li><strong>Blue bars</strong> = count of comments posted that month (volume/mentions)</li>
+      <li><strong>Green line</strong> = weighted average VADER sentiment for that month</li>
+    </ul>
+    <p>This gives a 2020–2025 view of how student opinions evolved over time, quarter by quarter.</p>
+
+    <h3>Student Voice — How the percentages work</h3>
+    <div class="callout green">
+      <strong>If examiner asks: "How is 50% positive, 42% neutral, 8% concern calculated?"</strong>
+    </div>
+    <p>Every comment is classified by VADER compound score: ≥+0.05 = Positive, ≤-0.05 = Negative, in-between = Neutral. Out of 1,282 total comments for BML Munjal: 646 were positive (646/1282 = 50%), 533 neutral (42%), 103 negative (8%). The 74/100 score = 7.4 × 10. The 92% Confidence Score = based on comment volume formula: <code>min(1.0, (1282 - 50) / 950) ≈ 1.0</code>.</p>
+
+    <h3>Intelligence Feed — How news is fetched</h3>
+    <div class="callout green">
+      <strong>If examiner asks: "How are these news articles fetched?"</strong>
+    </div>
+    <p>We call the Google News RSS API with a query targeting: Indian Express, Hindustan Times, The Hindu, Times of India, NDTV. Google returns an XML response. We parse it using regex to extract title, link, date, and source. Articles are auto-categorized by keywords in the title (placement/ranking/admissions/research/policy). Commercial spam sites (Shiksha, Careers360) are filtered out. Top 10 newest articles are displayed. If the API fails, 5 pre-written fallback articles are shown.</p>
+
+    <h3>AI Chat — How the chatbot works</h3>
+    <div class="callout green">
+      <strong>If examiner asks: "How does the chatbot answer questions?"</strong>
+    </div>
+    <p>The chatbot uses RAG (Retrieval Augmented Generation). When a user asks a question: (1) The question is converted to a vector using Gemini embedding API. (2) Cosine similarity finds the 2 most relevant university documents in our vector store. (3) SQLite FTS5 keyword search finds matching real student comments. (4) Both are combined as context. (5) Gemini 2.0 Flash generates an answer using this context. This ensures the AI answers based on OUR real university data, not just its general training.</p>
+  </div>
+
+  <!-- ══════════════ SECTION 8 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 8 — One-Liner Summary for Every Page</h2>
+  <div class="section">
+
+    <div class="oneliner">
+      <div class="page-name">🏠 Home Page</div>
+      <div class="url">/</div>
+      "A landing page that introduces UniInsights, explains what it does, and shows a preview of top universities — it's the first page a new visitor sees."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">📊 Dashboard</div>
+      <div class="url">/dashboard</div>
+      "Shows a complete sentiment report for one selected university — overall score out of 10, 6 category scores, sentiment breakdown, strengths and concerns — all calculated from real YouTube comments."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">⚖️ Compare</div>
+      <div class="url">/compare</div>
+      "Allows side-by-side comparison of 2 or more universities using a radar/bar chart of all 6 category scores, so students can visually decide which college suits them better."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">🗣️ Student Voice</div>
+      <div class="url">/students</div>
+      "Displays actual YouTube comments from students classified as Positive, Neutral, or Concern using VADER — shows 74/100 overall score, sentiment distribution percentages, and total comment count."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">📰 Intelligence Feed</div>
+      <div class="url">/news</div>
+      "Fetches real-time education news using Google News RSS API, targeting Indian Express, The Hindu, HT, TOI, NDTV — auto-categorizes into Placements, Rankings, Admissions, Research, and Policy tabs."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">📈 Reputation Timeline</div>
+      <div class="url">/reputation-timeline</div>
+      "Shows how a university's sentiment changed quarter by quarter from 2020 to 2025 — blue bars = number of comments posted (volume), green line = average sentiment score for that period."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">💬 Ask Seniors / AI Chat</div>
+      <div class="url">/chat</div>
+      "An AI chatbot that first searches our database using vector similarity (RAG) and SQLite keyword search to find relevant data, then sends it as context to Gemini to generate an accurate, data-backed answer."
+    </div>
+
+    <div class="oneliner">
+      <div class="page-name">🔑 Login & Signup</div>
+      <div class="url">/login &nbsp; /signup</div>
+      "Standard authentication pages — users must sign in to access personalized features like saving colleges and using the AI assistant."
+    </div>
+
+    <h3>One-Liners for Backend Files</h3>
+    <table>
+      <tr><th>File</th><th>One-Liner</th></tr>
+      <tr><td>generate_sentiment_scores.py</td><td>Reads YouTube comment CSVs, runs VADER, applies engagement weighting + NIRF calibration, saves final scores to JSON</td></tr>
+      <tr><td>build-db.ts</td><td>Reads all CSV comment files and builds the 54MB SQLite database with FTS5 full-text search index</td></tr>
+      <tr><td>data-parser.ts</td><td>Reads the pre-computed JSON scores and CSV files, normalizes university names, and serves structured data to the dashboard with in-memory caching</td></tr>
+      <tr><td>gemini.ts</td><td>Handles Gemini API calls — generates text embeddings for RAG and sends user questions to Gemini 2.0 Flash with fallback responses</td></tr>
+      <tr><td>rag-store.ts</td><td>Converts university data into 768-dimensional vectors and finds the most relevant university using cosine similarity when a user asks a question</td></tr>
+      <tr><td>sqlite-search.ts</td><td>Searches the SQLite database of real comments using FTS5 keyword matching ranked by BM25 relevance scoring</td></tr>
+      <tr><td>news-fetcher.ts</td><td>Calls Google News RSS API, parses XML with regex, auto-categorizes articles by title keywords, and returns top 10 newest education news articles</td></tr>
+      <tr><td>api/chat/route.ts</td><td>The chatbot backend — combines RAG vector search + SQLite keyword search as context, then calls Gemini to generate the final answer</td></tr>
+    </table>
+  </div>
+
+  <!-- ══════════════ SECTION 9 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 9 — Likely Viva Q&amp;A</h2>
+  <div class="section">
+
+    <div class="qa-block">
+      <div class="question">Q: What is VADER and why did you use it?</div>
+      <div class="answer">VADER (Valence Aware Dictionary and sEntiment Reasoner) is a rule-based sentiment analysis tool specifically designed for social media text. We chose it because YouTube comments are informal, use slang and emojis, and VADER handles these better than ML models trained on formal text. It's also extremely fast — we process thousands of comments per second without any model training required.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: Why did you use engagement weighting?</div>
+      <div class="answer">A simple average gives equal weight to a well-reasoned 500-word review and a meaningless "great college!" comment. Likes on YouTube represent community validation — a comment liked by 1,000 students reflects far more students' opinions than a zero-like comment. So we weight each comment by (likes + 1) to capture the true collective sentiment of the student community.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: What is RAG and why is it needed?</div>
+      <div class="answer">RAG stands for Retrieval Augmented Generation. A plain Gemini AI call would answer based only on its training data, which may be outdated or inaccurate for specific colleges. By first retrieving relevant data from our own database — real sentiment scores and actual student comments — and passing it as context to Gemini, the AI gives answers grounded in our verified real-world data rather than hallucinating.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: Why is there both a vector search and SQLite FTS5 search?</div>
+      <div class="answer">They complement each other. Vector/semantic search finds conceptually similar content — "best college for placements" matches universities with high placement scores even without exact words. FTS5 keyword search is exact — "hostel food" finds comments literally mentioning "hostel food." Together they ensure comprehensive retrieval covering both meaning and exact keywords.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: How is the 74/100 score calculated?</div>
+      <div class="answer">The dashboard internally stores scores on a 0–10 scale. To display out of 100, we multiply by 10 (7.4 × 10 = 74). The 7.4 is the weighted average across all 6 category scores. Each category score is derived from: VADER sentiment → engagement weighting → percentile normalization → NIRF calibration bonus → tier baseline anchoring.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: What is cosine similarity?</div>
+      <div class="answer">It measures the angle between two vectors. If two text embeddings are at a small angle (close to 0°), cosine similarity is close to 1.0, meaning the texts are semantically similar. If they're at 90°, similarity is 0, meaning completely unrelated. We use this to rank which university documents are most relevant to the user's question — the one with the highest cosine similarity is the best match.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: What is percentile normalization?</div>
+      <div class="answer">Instead of using raw VADER scores directly, we normalize each university's score relative to all other universities in the same category. We use the 5th percentile as the floor and 95th as the ceiling, then map linearly to 5.0–9.5. The best university gets ~9.5, the worst gets ~5.0, regardless of absolute VADER numbers. This ensures fair cross-university comparison.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: Why SQLite instead of PostgreSQL or MongoDB?</div>
+      <div class="answer">The data is static — scraped once and rarely updated. SQLite's FTS5 provides excellent full-text search without needing a separate search server. There is no network overhead — it's a local file. This makes the system simpler to deploy and faster in reads. For a write-heavy production system, we would use PostgreSQL, but for this read-heavy use case, SQLite is ideal.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: Why pre-compute scores instead of computing on-the-fly?</div>
+      <div class="answer">Running VADER on 50,000+ comments takes several minutes. Pre-computing the scores means the dashboard loads in milliseconds. The Python script runs once; the Next.js app simply reads a JSON file. This is a common architectural pattern called "pre-materialization" — compute expensive results offline, serve fast results online.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: How many universities and comments does your system cover?</div>
+      <div class="answer">The system covers 27+ universities including all major IITs, NITs, IIITs, and private institutions. The comments.db SQLite file is 54MB and contains tens of thousands of YouTube comments scraped across 6 categories.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: What is Next.js App Router?</div>
+      <div class="answer">Next.js App Router (introduced in v13+) uses the app/ directory where each folder is a URL route. Files named page.tsx render the UI, layout.tsx wraps child pages, and route.ts creates API endpoints. It supports Server Components (data fetched on server, zero client JS) alongside Client Components (interactive, runs in browser) — giving the best of both worlds.</div>
+    </div>
+
+    <div class="qa-block">
+      <div class="question">Q: Why TypeScript instead of JavaScript?</div>
+      <div class="answer">TypeScript adds static type checking at compile time. Our UniversityData interface defines exactly what shape data must have. If the Python script outputs a field with a different name, TypeScript catches it immediately during development rather than crashing silently at runtime. For a project with complex nested data structures like ours, this significantly reduces bugs.</div>
+    </div>
+  </div>
+
+  <!-- ══════════════ SECTION 10 ══════════════ -->
+  <div class="page-break"></div>
+  <h2>Section 10 — Common Situations</h2>
+  <div class="section">
+
+    <h3>❓ "Why is the chatbot not working properly?"</h3>
+    <div class="callout red">
+      <strong>Root Cause:</strong> The Google Gemini API key has expired or exceeded its free quota limit.
+    </div>
+    <p>Say this confidently:</p>
+    <div class="callout blue">
+      "The chatbot requires a Google Gemini API key stored as an environment variable (GEMINI_API_KEY). Currently, the API key has expired or exceeded its free-tier quota, so live Gemini calls are failing. However, our system has a built-in fallback mechanism — when the API is unavailable, the chatbot automatically returns pre-written intelligent answers for common queries like NIRF rankings, IIT comparisons, and ROI analysis. This is called graceful degradation — the app continues to function, just with static answers instead of dynamic AI responses. In a production deployment, the key would be stored securely on the server with a paid quota."
+    </div>
+
+    <h3>❓ "Why did you use YouTube comments specifically?"</h3>
+    <div class="callout blue">
+      "YouTube is one of the most authentic sources of student opinion in India. Students post detailed reviews, vlogs, hostel tours, placement stories, and campus experience videos — and the comments on these are candid, unfiltered, and engagement-validated (liked by real students). Unlike survey data which is often biased or outdated, YouTube comments are organic, real-time, and represent genuine student sentiment. The like count also tells us which opinions resonate with the broader student community."
+    </div>
+
+    <h3>❓ "How is your project different from existing platforms like Shiksha or Careers360?"</h3>
+    <div class="callout blue">
+      "Platforms like Shiksha and Careers360 show ratings submitted by users on their own platform — which can be manipulated by colleges or have selection bias. UniInsights collects data from YouTube comments which are organic, not submitted through a controlled form. We also use NLP-based sentiment analysis rather than simple star ratings, provide a 5-year reputation timeline to show trends, and use NIRF rankings for calibration. Our scores are computed, not collected — making them harder to game."
+    </div>
+
+    <h3>❓ "What are the limitations of your project?"</h3>
+    <div class="callout orange">
+      <strong>Be honest — showing you understand limitations impresses examiners.</strong>
+    </div>
+    <p>Say:</p>
+    <ul>
+      <li>YouTube comments can contain biased or promotional content from college representatives</li>
+      <li>Colleges with fewer YouTube videos will have fewer comments and lower confidence scores</li>
+      <li>VADER doesn't understand Hindi/Hinglish comments — we only analyzed English comments</li>
+      <li>The chatbot depends on an external API (Gemini) which may have quota limits</li>
+      <li>Data is scraped at a point in time — real-time scraping would require a more complex infrastructure</li>
+    </ul>
+
+    <h3>❓ "What would you improve in the future?"</h3>
+    <div class="callout green">
+      <strong>Shows forward thinking — good for viva.</strong>
+    </div>
+    <ul>
+      <li>Add multilingual sentiment analysis to include Hindi and Hinglish comments</li>
+      <li>Set up automated weekly scraping to keep data fresh</li>
+      <li>Add more data sources: Reddit, Quora, Google Reviews</li>
+      <li>Use fine-tuned transformer models (like BERT) instead of VADER for higher accuracy</li>
+      <li>Build a mobile app version</li>
+    </ul>
+  </div>
+
+  <!-- ── Final note ───────────────────────── -->
+  <div class="highlight-box" style="margin-top:40px;">
+    <h4>⭐ Most Important Things to Remember</h4>
+    <p style="margin-top:8px; line-height:1.9;">
+      1. The sentiment pipeline: <strong>YouTube API → CSV → VADER → Engagement Weighting → Percentile Normalization → NIRF Calibration → Tier Baseline → JSON → Dashboard</strong><br/>
+      2. RAG = Retrieve relevant data first, then ask AI with that context<br/>
+      3. Cosine similarity = measures angle between vectors (1.0 = same meaning)<br/>
+      4. FTS5 + BM25 = SQLite full-text search with relevance ranking<br/>
+      5. Chatbot not working = API key expired, but graceful fallback is in place<br/>
+      6. 74/100 = 7.4 × 10 (scores are stored as 0–10, displayed as 0–100)
+    </p>
+  </div>
+
+  <p style="text-align:center; color:#aaa; margin-top:40px; font-size:12px;">
+    UniInsights Viva Guide &nbsp;|&nbsp; Generated for B.Tech Final Year Project
+  </p>
+
+</div>
+
+<!-- Print button (hidden in print) -->
+<div style="text-align:center; padding:30px; background:#f8f8fc;" class="no-print">
+  <p style="margin-bottom:16px; color:#666; font-size:14px;">
+    To save as PDF: Press <strong>Ctrl+P</strong> → Change destination to <strong>"Save as PDF"</strong> → Click Save
+  </p>
+  <button onclick="window.print()"
+    style="background:#302b63; color:white; border:none; padding:14px 36px; border-radius:8px; font-size:15px; font-weight:700; cursor:pointer; letter-spacing:0.5px;">
+    🖨️ Print / Save as PDF
+  </button>
+</div>
+
+<style>
+  @media print {
+    .no-print { display: none !important; }
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+
+</body>
+</html>

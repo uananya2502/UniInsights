@@ -559,4 +559,3 @@ sorted_unis = sorted(output.items(), key=lambda x: x[1]['overallScore'], reverse
 for name, data in sorted_unis[:10]:
     print(f"  {name}: {data['overallScore']}/10 | Comments: {data['totalComments']:,}")
 
-print("\nDone! Restart npm run dev -- dashboard now uses calibrated real sentiment scores!")
