@@ -217,7 +217,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
               }`}
             >
               <div className="flex items-center gap-1.5 text-emerald-700 font-bold text-xs">
-                <Smile className="w-4 h-4 shrink-0" />
                 <span className="text-[11px] font-semibold text-slate-900">Positive Feedback</span>
               </div>
               <p className="text-[10px] text-slate-600 font-normal mt-1 line-clamp-2">
@@ -235,7 +234,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
               }`}
             >
               <div className="flex items-center gap-1.5 text-indigo-700 font-bold text-xs">
-                <Meh className="w-4 h-4 shrink-0" />
                 <span className="text-[11px] font-semibold text-slate-900">Neutral Feedback</span>
               </div>
               <p className="text-[10px] text-slate-600 font-normal mt-1 line-clamp-2">
@@ -253,7 +251,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
               }`}
             >
               <div className="flex items-center gap-1.5 text-rose-700 font-bold text-xs">
-                <Frown className="w-4 h-4 shrink-0" />
                 <span className="text-[11px] font-semibold text-slate-900">Areas for Improvement</span>
               </div>
               <p className="text-[10px] text-slate-600 font-normal mt-1 line-clamp-2">
@@ -376,7 +373,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
               className="text-center space-y-1 hover:bg-slate-50 p-1.5 rounded-xl transition cursor-pointer"
             >
               <div className="flex items-center justify-center gap-1 text-emerald-600 font-bold text-xs">
-                <Smile className="w-3.5 h-3.5" />
                 <span>Positive</span>
               </div>
               <div className="text-2xl font-black text-slate-900">{posPct.toFixed(0)}%</div>
@@ -392,7 +388,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
               className="text-center space-y-1 hover:bg-slate-50 p-1.5 rounded-xl transition cursor-pointer"
             >
               <div className="flex items-center justify-center gap-1 text-indigo-600 font-bold text-xs">
-                <Meh className="w-3.5 h-3.5" />
                 <span>Neutral</span>
               </div>
               <div className="text-2xl font-black text-slate-900">{neuPct.toFixed(0)}%</div>
@@ -408,7 +403,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
               className="text-center space-y-1 hover:bg-slate-50 p-1.5 rounded-xl transition cursor-pointer"
             >
               <div className="flex items-center justify-center gap-1 text-rose-600 font-bold text-xs">
-                <Frown className="w-3.5 h-3.5" />
                 <span>Concern</span>
               </div>
               <div className="text-2xl font-black text-slate-900">{negPct.toFixed(0)}%</div>
@@ -528,18 +522,13 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
       {/* ── Classification Rating Tiers Card (First-Time Visitor Benchmark Guide) ── */}
       <div className="card bg-white border border-slate-200/90 rounded-2xl p-5 shadow-2xs">
         <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
-              <BarChart2 className="w-4 h-4" />
-            </div>
-            <div>
-              <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
-                Sentiment Score Classification Rating Tiers
-              </h4>
-              <p className="text-[11px] text-slate-500 font-normal">
-                Benchmark guide for understanding what an institution's score out of 100 indicates
-              </p>
-            </div>
+          <div>
+            <h4 className="text-xs font-extrabold text-slate-900 uppercase tracking-wider">
+              Sentiment Score Classification Rating Tiers
+            </h4>
+            <p className="text-[11px] text-slate-500 font-normal">
+              Benchmark guide for understanding what an institution's score out of 100 indicates
+            </p>
           </div>
           <span className="text-[10px] font-extrabold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md border border-slate-200 uppercase tracking-wider">
             Benchmark Standard
@@ -640,7 +629,6 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
 
             <div className="space-y-3.5">
               {categoryGaps.slice(0, showAllConcerns ? categoryGaps.length : 4).map((item) => {
-                const Icon = item.icon;
                 return (
                   <button
                     key={item.key}
@@ -648,8 +636,7 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
                     className="w-full text-left space-y-1.5 p-1 rounded-lg hover:bg-slate-50 transition cursor-pointer"
                   >
                     <div className="flex items-center justify-between text-xs font-semibold">
-                      <span className="flex items-center gap-2 text-slate-800">
-                        <Icon className="w-4 h-4 text-slate-500" />
+                      <span className="text-slate-800 font-bold">
                         {item.label}
                       </span>
                       <span className="font-extrabold text-slate-900">{item.percentage}%</span>
