@@ -197,13 +197,55 @@ NIRF_CALIBRATION = {
     'IIT Patna':                                        {'bonus':  1.3},
 }
 
-# -- Helpers -----------------------------------------------------------------
+# -- Helpers & Hybrid Hinglish Sentiment Lexicons ----------------------------
 
 analyzer = SentimentIntensityAnalyzer()
 
+HINGLISH_POSITIVE = {
+    "acha": 1.0, "accha": 1.0, "achha": 1.0, "badhiya": 1.5, "badiya": 1.5,
+    "mast": 1.8, "zabardast": 2.0, "sahi": 1.0, "awesome": 2.0, "excellent": 2.0,
+    "best": 2.0, "beautiful": 1.8, "amazing": 2.0, "super": 1.8, "fantastic": 2.0,
+    "love": 2.0, "great": 1.8, "nice": 1.2, "perfect": 2.0, "helpful": 1.5,
+    "clean": 1.0, "good": 1.0, "top": 1.5, "peaceful": 1.5, "comfortable": 1.5,
+    "recommended": 2.0
+}
+
+HINGLISH_NEGATIVE = {
+    "bakwaas": -2.0, "bekar": -1.8, "bekaar": -1.8, "ghatiya": -2.2, "faltu": -1.5,
+    "fraud": -2.0, "fake": -2.0, "scam": -2.2, "worst": -2.5, "waste": -2.0,
+    "pathetic": -2.2, "poor": -1.5, "bad": -1.5, "useless": -2.0,
+    "disappointed": -2.0, "disappointing": -2.0, "dirty": -1.5, "boring": -1.2,
+    "expensive": -1.0, "overpriced": -1.5, "horrible": -2.5, "terrible": -2.5,
+    "awful": -2.5
+}
+
+NORMALIZATION = {
+    "accha": "acha", "achha": "acha", "badiya": "badhiya", "bekaar": "bekar",
+    "masttt": "mast", "mastt": "mast", "gud": "good", "gr8": "great",
+    "awsm": "awesome", "osm": "awesome"
+}
+
+def normalize_hinglish(text):
+    words = str(text).lower().split()
+    return [NORMALIZATION.get(w, w) for w in words]
+
+def compute_hinglish_score(words):
+    score = 0.0
+    for w in words:
+        if w in HINGLISH_POSITIVE:
+            score += HINGLISH_POSITIVE[w]
+        elif w in HINGLISH_NEGATIVE:
+            score += HINGLISH_NEGATIVE[w]
+    return score
+
 def get_compound_score(text):
-    """Returns VADER compound score (-1 to +1)."""
-    return analyzer.polarity_scores(str(text))['compound']
+    """Returns Hybrid VADER + Hinglish compound score (-1 to +1)."""
+    raw_text = str(text)
+    vader_comp = analyzer.polarity_scores(raw_text)['compound']
+    norm_words = normalize_hinglish(raw_text)
+    h_score = compute_hinglish_score(norm_words)
+    adjusted_comp = vader_comp + (h_score * 0.20)
+    return max(-1.0, min(1.0, adjusted_comp))
 
 def compound_to_10(compound):
     """Maps compound (-1 to +1) -> (0 to 10)."""
