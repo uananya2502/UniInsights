@@ -6,7 +6,7 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
 import { TrendingDiscussions } from '@/components/dashboard/TrendingDiscussions';
 import type { UniversityData, TimelinePoint } from '@/lib/data-parser';
-import { TrendingUp, Calendar, Filter, ArrowUpRight, BarChart2 } from 'lucide-react';
+import { Filter } from 'lucide-react';
 
 function ReputationTimelineContent() {
   const searchParams = useSearchParams();
@@ -45,12 +45,6 @@ function ReputationTimelineContent() {
       <div className="relative rounded-xl bg-slate-900 text-white p-6 md:p-8 shadow-sm border border-slate-800 animate-fade-in overflow-visible">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-400/30 mb-1">
-                <TrendingUp className="w-3.5 h-3.5 text-blue-400" />
-                Longitudinal Analytics Module
-              </span>
-            </div>
             <div className="relative">
               <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-white flex items-center gap-2">
                 Reputation Timeline Analytics
@@ -59,7 +53,6 @@ function ReputationTimelineContent() {
             <p className="text-slate-300 text-sm md:text-base font-medium max-w-xl leading-relaxed">
               Discover how student perceptions, placement spikes, and campus reputation evolved over time (2020–2025).
             </p>
-
           </div>
 
           <div className="w-full md:w-80 flex-shrink-0">
@@ -84,7 +77,7 @@ function ReputationTimelineContent() {
         <>
           {/* Key Metrics Bar */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="card p-4 flex items-center justify-between hover:border-slate-300 transition-all">
+            <div className="card p-4 hover:border-slate-300 transition-all">
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Peak Discussion Period</p>
                 <p className="text-xl font-extrabold text-slate-900">Jan 2025</p>
@@ -92,12 +85,9 @@ function ReputationTimelineContent() {
                   +18.4% Sentiment Spike
                 </span>
               </div>
-              <div className="w-10 h-10 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-700">
-                <BarChart2 className="w-5 h-5" />
-              </div>
             </div>
 
-            <div className="card p-4 flex items-center justify-between hover:border-slate-300 transition-all">
+            <div className="card p-4 hover:border-slate-300 transition-all">
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">YoY Sentiment Growth</p>
                 <p className="text-xl font-extrabold text-slate-900">+14.2%</p>
@@ -105,21 +95,15 @@ function ReputationTimelineContent() {
                   Consistent Upward Trend
                 </span>
               </div>
-              <div className="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700">
-                <ArrowUpRight className="w-5 h-5" />
-              </div>
             </div>
 
-            <div className="card p-4 flex items-center justify-between hover:border-slate-300 transition-all">
+            <div className="card p-4 hover:border-slate-300 transition-all">
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Tracked Quarters</p>
                 <p className="text-xl font-extrabold text-slate-900">24 Quarters</p>
                 <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 mt-1.5 inline-block">
                   2020 – 2025 Multi-Year
                 </span>
-              </div>
-              <div className="w-10 h-10 rounded-lg bg-purple-50 border border-purple-100 flex items-center justify-center text-purple-700">
-                <Calendar className="w-5 h-5" />
               </div>
             </div>
           </div>
