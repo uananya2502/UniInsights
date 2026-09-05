@@ -756,10 +756,7 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
 
         {/* 4 Workflow Steps */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 relative">
-          <div className="p-4 rounded-2xl bg-emerald-50/30 border border-emerald-100/80 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 font-bold">
-              <MessageSquare className="w-4 h-4" />
-            </div>
+          <div className="p-4 rounded-2xl bg-emerald-50/30 border border-emerald-100/80">
             <div>
               <div className="text-xs font-black text-slate-900">01. Collect</div>
               <p className="text-[11px] text-slate-600 leading-relaxed mt-1 font-normal">
@@ -768,10 +765,7 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-indigo-50/30 border border-indigo-100/80 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center shrink-0 font-bold">
-              <Cpu className="w-4 h-4" />
-            </div>
+          <div className="p-4 rounded-2xl bg-indigo-50/30 border border-indigo-100/80">
             <div>
               <div className="text-xs font-black text-slate-900">02. Analyze</div>
               <p className="text-[11px] text-slate-600 leading-relaxed mt-1 font-normal">
@@ -780,10 +774,7 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-amber-50/30 border border-amber-100/80 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0 font-bold">
-              <Layers className="w-4 h-4" />
-            </div>
+          <div className="p-4 rounded-2xl bg-amber-50/30 border border-amber-100/80">
             <div>
               <div className="text-xs font-black text-slate-900">03. Aggregate</div>
               <p className="text-[11px] text-slate-600 leading-relaxed mt-1 font-normal">
@@ -792,10 +783,7 @@ export function SentimentDashboardView({ data }: SentimentDashboardViewProps) {
             </div>
           </div>
 
-          <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100/80 flex items-start gap-3">
-            <div className="w-9 h-9 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center shrink-0 font-bold">
-              <CheckCircle className="w-4 h-4" />
-            </div>
+          <div className="p-4 rounded-2xl bg-purple-50/30 border border-purple-100/80">
             <div>
               <div className="text-xs font-black text-slate-900">04. Validate</div>
               <p className="text-[11px] text-slate-600 leading-relaxed mt-1 font-normal">
