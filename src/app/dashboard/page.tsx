@@ -7,7 +7,6 @@ import { UniversitySearch } from '@/components/dashboard/UniversitySearch';
 import { UniversityReportCard } from '@/components/dashboard/UniversityReportCard';
 import { StrengthsConcerns } from '@/components/dashboard/StrengthsConcerns';
 import { ReputationTimeline } from '@/components/dashboard/ReputationTimeline';
-import { BestForTags } from '@/components/dashboard/BestForTags';
 import { StatsCards } from '@/components/dashboard/StatsCards';
 import { DoodleSparkle } from '@/components/ui/Doodles';
 import { UniversityData } from '@/lib/data-parser';
@@ -84,9 +83,6 @@ function DashboardContent() {
 
           {/* Report Card */}
           <UniversityReportCard data={data} />
-
-          {/* Best For Tags */}
-          <BestForTags tags={data.bestForTags} universityName={data.name} />
 
           {/* Timeline + Strengths */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
