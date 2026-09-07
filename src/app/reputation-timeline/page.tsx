@@ -81,9 +81,6 @@ function ReputationTimelineContent() {
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Peak Discussion Period</p>
                 <p className="text-xl font-extrabold text-slate-900">Jan 2025</p>
-                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 mt-1.5 inline-block">
-                  +18.4% Sentiment Spike
-                </span>
               </div>
             </div>
 
@@ -91,9 +88,6 @@ function ReputationTimelineContent() {
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">YoY Sentiment Growth</p>
                 <p className="text-xl font-extrabold text-slate-900">+14.2%</p>
-                <span className="text-[10px] font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-200 mt-1.5 inline-block">
-                  Consistent Upward Trend
-                </span>
               </div>
             </div>
 
@@ -101,9 +95,6 @@ function ReputationTimelineContent() {
               <div>
                 <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1">Tracked Quarters</p>
                 <p className="text-xl font-extrabold text-slate-900">24 Quarters</p>
-                <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 mt-1.5 inline-block">
-                  2020 – 2025 Multi-Year
-                </span>
               </div>
             </div>
           </div>
