@@ -43,7 +43,7 @@ export function TrendingDiscussions({ topics }: TrendingDiscussionsProps) {
                 <div className="flex items-center justify-between mb-1.5 gap-2">
                   <span className="text-xs font-bold text-slate-800 truncate">{topic.keyword}</span>
                   <div className="flex items-center gap-2 flex-shrink-0">
-                    <span className="text-[11px] font-semibold text-slate-500">{topic.count} Mentions</span>
+                    <span className="text-[11px] font-semibold text-slate-500">{Math.round(topic.count).toLocaleString()} Mentions</span>
                     <span className={`badge ${trendLabel[topic.trend]} text-[10px] font-bold capitalize flex items-center gap-1`}>
                       {trendIcon[topic.trend]}
                       {topic.trend}
