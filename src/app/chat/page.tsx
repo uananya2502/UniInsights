@@ -15,72 +15,183 @@ function FormattedMessage({ content, isUser }: { content: string; isUser: boolea
     return <div className="whitespace-pre-wrap font-sans">{content}</div>;
   }
 
-  const lines = content.split('\n');
-
-  const formatBold = (text: string) => {
-    const parts = text.split(/(\*\*.*?\*\*)/g);
-    return parts.map((part, i) => {
-      if (part.startsWith('**') && part.endsWith('**')) {
+  const renderInline = (text: string) => {
+    // Process inline code `code`
+    const codeParts = text.split(/(`.*?`)/g);
+    return codeParts.map((cp, ci) => {
+      if (cp.startsWith('`') && cp.endsWith('`') && cp.length > 2) {
         return (
-          <strong key={i} className="font-bold text-slate-900 bg-amber-50/80 px-1 py-0.2 rounded border border-amber-200/50">
-            {part.slice(2, -2)}
-          </strong>
+          <code key={ci} className="bg-slate-100 text-blue-700 px-1.5 py-0.5 rounded text-[11px] font-mono border border-slate-200">
+            {cp.slice(1, -1)}
+          </code>
         );
       }
-      return part;
+
+      // Process bold **bold**
+      const boldParts = cp.split(/(\*\*.*?\*\*)/g);
+      return boldParts.map((bp, bi) => {
+        if (bp.startsWith('**') && bp.endsWith('**') && bp.length > 4) {
+          return (
+            <strong key={`${ci}-${bi}`} className="font-extrabold text-slate-900">
+              {bp.slice(2, -2)}
+            </strong>
+          );
+        }
+        return bp;
+      });
     });
   };
 
-  return (
-    <div className="space-y-1.5 font-sans leading-relaxed text-xs">
-      {lines.map((line, idx) => {
-        const trimmed = line.trim();
-        if (!trimmed) return <div key={idx} className="h-0.5" />;
+  // Group lines into blocks (tables, lists, paragraphs, headers)
+  const rawLines = content.split('\n');
+  const blocks: Array<{ type: 'table' | 'p' | 'h' | 'ul' | 'ol'; lines: string[]; level?: number }> = [];
+  
+  let i = 0;
+  while (i < rawLines.length) {
+    const line = rawLines[i];
+    const trimmed = line.trim();
 
-        if (trimmed.startsWith('### ')) {
+    // Check for Markdown Table (starts with | and has | separators)
+    if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
+      const tableLines: string[] = [];
+      while (i < rawLines.length && rawLines[i].trim().startsWith('|') && rawLines[i].trim().endsWith('|')) {
+        tableLines.push(rawLines[i].trim());
+        i++;
+      }
+      blocks.push({ type: 'table', lines: tableLines });
+      continue;
+    }
+
+    if (trimmed.startsWith('### ')) {
+      blocks.push({ type: 'h', lines: [trimmed.replace(/^###\s+/, '')], level: 3 });
+      i++;
+      continue;
+    }
+    if (trimmed.startsWith('## ')) {
+      blocks.push({ type: 'h', lines: [trimmed.replace(/^##\s+/, '')], level: 2 });
+      i++;
+      continue;
+    }
+    if (trimmed.startsWith('# ')) {
+      blocks.push({ type: 'h', lines: [trimmed.replace(/^#\s+/, '')], level: 1 });
+      i++;
+      continue;
+    }
+
+    if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+      blocks.push({ type: 'ul', lines: [trimmed.replace(/^[-*]\s+/, '')] });
+      i++;
+      continue;
+    }
+
+    if (/^\d+\.\s+/.test(trimmed)) {
+      blocks.push({ type: 'ol', lines: [trimmed] });
+      i++;
+      continue;
+    }
+
+    if (!trimmed) {
+      i++;
+      continue;
+    }
+
+    blocks.push({ type: 'p', lines: [trimmed] });
+    i++;
+  }
+
+  return (
+    <div className="space-y-2 font-sans leading-relaxed text-xs">
+      {blocks.map((block, bIdx) => {
+        if (block.type === 'table') {
+          // Parse table lines into headers and rows
+          const headerLine = block.lines[0] || '';
+          const dataLines = block.lines.slice(1).filter(l => !l.replace(/[\s|:-]/g, '').length === false || !l.includes('---'));
+
+          const parseRow = (rowStr: string) => {
+            const rawCells = rowStr.split('|');
+            // Remove leading/trailing empty cells from splitting "| a | b |"
+            if (rawCells.length > 1 && rawCells[0].trim() === '') rawCells.shift();
+            if (rawCells.length > 0 && rawCells[rawCells.length - 1].trim() === '') rawCells.pop();
+            return rawCells.map(c => c.trim());
+          };
+
+          const headers = parseRow(headerLine);
+          const rows = dataLines.map(parseRow);
+
           return (
-            <h4 key={idx} className="text-xs font-extrabold text-slate-900 mt-2 mb-1 border-b border-slate-100 pb-1 flex items-center gap-1.5">
-              {formatBold(trimmed.replace(/^###\s+/, ''))}
-            </h4>
-          );
-        }
-        if (trimmed.startsWith('## ')) {
-          return (
-            <h3 key={idx} className="text-sm font-extrabold text-slate-900 mt-2 mb-1">
-              {formatBold(trimmed.replace(/^##\s+/, ''))}
-            </h3>
-          );
-        }
-        if (trimmed.startsWith('# ')) {
-          return (
-            <h2 key={idx} className="text-sm font-black text-slate-900 mt-2 mb-1">
-              {formatBold(trimmed.replace(/^#\s+/, ''))}
-            </h2>
-          );
-        }
-        if (/^\d+\.\s+/.test(trimmed)) {
-          const match = trimmed.match(/^(\d+\.\s+)(.*)/);
-          const num = match ? match[1] : '';
-          const rest = match ? match[2] : trimmed;
-          return (
-            <div key={idx} className="flex items-start gap-1.5 pl-1 my-0.5">
-              <span className="font-extrabold text-blue-600 flex-shrink-0">{num}</span>
-              <span>{formatBold(rest)}</span>
+            <div key={bIdx} className="overflow-x-auto my-3 rounded-lg border border-slate-200 bg-white shadow-2xs">
+              <table className="min-w-full divide-y divide-slate-200 text-left text-xs">
+                <thead className="bg-slate-100 text-slate-900 font-extrabold">
+                  <tr>
+                    {headers.map((h, hIdx) => (
+                      <th key={hIdx} className="px-3 py-2 border-r border-slate-200 last:border-r-0 text-[11px] uppercase tracking-wider font-extrabold text-slate-800">
+                        {renderInline(h)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {rows.map((row, rIdx) => (
+                    <tr key={rIdx} className={rIdx % 2 === 0 ? 'bg-white hover:bg-slate-50/70' : 'bg-slate-50/50 hover:bg-slate-100/60'}>
+                      {row.map((cell, cIdx) => (
+                        <td key={cIdx} className="px-3 py-2 border-r border-slate-100 last:border-r-0 text-slate-700 font-medium">
+                          {renderInline(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           );
         }
-        if (trimmed.startsWith('- ') || trimmed.startsWith('* ')) {
+
+        if (block.type === 'h') {
+          if (block.level === 3) {
+            return (
+              <h4 key={bIdx} className="text-xs font-extrabold text-slate-900 mt-2.5 mb-1 border-b border-slate-100 pb-1">
+                {renderInline(block.lines[0])}
+              </h4>
+            );
+          }
+          if (block.level === 2) {
+            return (
+              <h3 key={bIdx} className="text-sm font-extrabold text-slate-900 mt-2.5 mb-1">
+                {renderInline(block.lines[0])}
+              </h3>
+            );
+          }
           return (
-            <div key={idx} className="flex items-start gap-2 pl-2 my-0.5">
+            <h2 key={bIdx} className="text-sm font-black text-slate-900 mt-3 mb-1">
+              {renderInline(block.lines[0])}
+            </h2>
+          );
+        }
+
+        if (block.type === 'ul') {
+          return (
+            <div key={bIdx} className="flex items-start gap-2 pl-2 my-1">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-600 mt-1.5 flex-shrink-0" />
-              <span>{formatBold(trimmed.replace(/^[-*]\s+/, ''))}</span>
+              <span className="text-slate-800">{renderInline(block.lines[0])}</span>
+            </div>
+          );
+        }
+
+        if (block.type === 'ol') {
+          const match = block.lines[0].match(/^(\d+\.\s+)(.*)/);
+          const num = match ? match[1] : '';
+          const rest = match ? match[2] : block.lines[0];
+          return (
+            <div key={bIdx} className="flex items-start gap-1.5 pl-1 my-1">
+              <span className="font-extrabold text-blue-600 flex-shrink-0">{num}</span>
+              <span className="text-slate-800">{renderInline(rest)}</span>
             </div>
           );
         }
 
         return (
-          <p key={idx} className="text-slate-800">
-            {formatBold(line)}
+          <p key={bIdx} className="text-slate-800 leading-relaxed">
+            {renderInline(block.lines[0])}
           </p>
         );
       })}
@@ -138,12 +249,15 @@ export default function ChatPage() {
 
       setMessages(prev => [...prev, assistantMessage]);
     } catch {
-      setMessages(prev => [...prev, {
-        id: (Date.now() + 1).toString(),
-        role: 'assistant',
-        content: 'A network error occurred. Please check your connection and try again.',
-        timestamp: new Date(),
-      }]);
+      setMessages(prev => [
+        ...prev,
+        {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: 'Sorry, I encountered a network error while connecting to the senior knowledge base. Please try again.',
+          timestamp: new Date(),
+        },
+      ]);
     } finally {
       setIsLoading(false);
     }
@@ -177,26 +291,21 @@ export default function ChatPage() {
   ];
 
   return (
-    <div className="h-full flex flex-col max-w-5xl mx-auto p-4 md:p-6 overflow-y-auto">
-      {/* Creative & Doodly Hero Header */}
-      <div className="relative rounded-xl bg-slate-900 text-white p-5 md:p-6 shadow-sm border border-slate-800 mb-4 animate-fade-in overflow-visible">
-        <div className="relative z-10 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1.5">
-            <div className="relative">
-              <h1 className="text-xl md:text-2xl font-extrabold tracking-tight text-white">
-                Ask Seniors
-              </h1>
-            </div>
-            <p className="text-slate-300 text-xs md:text-sm font-medium max-w-xl leading-relaxed">
-              Get honest, data-backed insights on placements, NIRF cutoffs, fee ROI, and campus culture directly from verified senior datasets.
-            </p>
-          </div>
+    <div className="h-full flex flex-col max-w-5xl mx-auto p-4 md:p-6 overflow-hidden">
+      {/* Hero Header */}
+      <div className="relative rounded-xl bg-slate-900 text-white p-4 md:p-5 shadow-sm border border-slate-800 mb-3 flex-shrink-0 animate-fade-in">
+        <div className="space-y-1">
+          <h1 className="text-lg md:text-xl font-extrabold tracking-tight text-white">
+            Ask Seniors
+          </h1>
+          <p className="text-slate-300 text-xs font-medium max-w-xl leading-relaxed">
+            Get honest, data-backed insights on placements, NIRF cutoffs, fee ROI, and campus culture directly from verified senior datasets.
+          </p>
         </div>
       </div>
 
-
       {/* Messages Feed */}
-      <div className="flex-1 overflow-y-auto space-y-4 pr-1">
+      <div className="flex-1 overflow-y-auto min-h-0 space-y-4 pr-1">
         {messages.map((msg) => (
           <div
             key={msg.id}
